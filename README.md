@@ -4,6 +4,9 @@
 
 > 一句话：用 1 MHz 单阵元水浸超声 + 双轴机械扫描 + Zynq-7020，把“确定性采集、板上定点 DSP、位姿锁存、网页三维呈现、姿态交互”做成一条可测量、可复现、可解释的闭环。
 
+> **仓库**：<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>（当前私有，验收后转公开）
+> **演示视频**（约 58 MB，不进仓库）：[Releases → v1.0-assets](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)
+
 > **提交包位置**：`..\upload\ultrasound_3d_scanner\`（已按 3.3.5.4 整理，未压缩）。
 > 本目录是工作副本，多保留了演示视频 mp4、Word 版 docx 与 `submission/` 暂存。
 
@@ -185,7 +188,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 - Vivado / Vitis 2025.1（本项目验证版本）；
 - Python 3.12+（numpy、matplotlib）；
 - Node.js（仅页面离线冒烟，可选）；
-- 许可证：MIT，见 [`LICENSE`](LICENSE)。使用前把 `<year>`/`<copyright holder>` 替换成实际信息。
+- 许可证：MIT，见 [`LICENSE`](LICENSE)（版权人已填 `2026 linzhiye`）。
 - 第三方工具/文档不打包，仅在报告中引用（UG901/UG904/UG1399/UG949、Vitis Libraries、PYNQ）。
 
 ---
@@ -194,8 +197,8 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 - 代码、仿真、构建报告、上板证据、技能包、设计报告、技术文档：**已完成本地整理**；
 - **全部代码（提交包）**：`..\upload\ultrasound_3d_scanner\`（推荐结构，未压缩；验收后整目录压 RAR）；
-- GitHub：**尚未上传**（按 `report/07_submission_checklist.md` §2 执行）；
-- 演示视频：**尚未拍摄**（提交页要求 ≤3 分钟；旧版 `data/demo/demo_full_workflow_1080p.mp4` 只能作素材）；
+- GitHub：**已上传**，<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>（私有；检查完在 Settings → Danger Zone 转 Public，再把链接填进提交页）；
+- 演示视频：5 个旧版演示已传到 Release `v1.0-assets`；提交页要求的 ≤3 分钟版**尚未拍摄**（旧版 3 分 50 秒只能作素材）；
 - 提交页还需要：RAR 代码包（≤200 MB）、承诺书 PDF、全貌图 1 张、开发板照片 ≤4 张、三个关键词（见 §0）；
 - 提交截止：2026-11-04 18:00（以官网为准）。
 

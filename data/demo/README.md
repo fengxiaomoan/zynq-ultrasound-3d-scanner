@@ -6,7 +6,7 @@
 
 > 本目录文件名已全部改成英文小写（`demo_*.mp4`、`demo_full_workflow.srt`），符合赛题目录命名要求；旧版内部记录里的中文名仅作历史。
 
-> **关于视频文件**：5 个 `*.mp4`（合计约 58 MB）不打进 Git 仓库，请到本仓库 **Releases → `v1.0-assets`** 下载。字幕 `demo_full_workflow.srt`、封面 `demo_cover.jpg`、时间线 `timeline.json`、校验记录 `verification.json` 和每件点云 `points_*.jsonl` 都随仓库提供，不装视频也能看懂内容。
+> **关于视频文件**：5 个 `*.mp4`（合计约 58 MB）不打进 Git 仓库，请到 [Releases → `v1.0-assets`](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets) 下载。字幕 `demo_full_workflow.srt`、封面 `demo_cover.jpg`、时间线 `timeline.json`、校验记录 `verification.json` 和每件点云 `points_*.jsonl` 都随仓库提供，不装视频也能看懂内容。
 
 ## 已明确的当前目标
 

@@ -2,7 +2,7 @@
 
 **依据**：2026 FPGA 创新设计赛道 AMD 自主选题指南 3.3.5（工程包 / 技能包 / 设计报告 / 目录结构 / 评测指标），以及“作品强烈要求在 GitHub/Gitee 开源”的说明。  
 **提交截止**：2026-11-04 18:00（以官网最终通知为准）。  
-**本包状态**：本地整理完成，尚未上传 GitHub；演示视频尚未拍摄（已有 3 分 50 秒的旧版 `data/demo/demo_full_workflow_1080p.mp4` 可作素材，但不能直接当最终版）。
+**本包状态**：代码包已按 3.3.5.4 整理为 `ultrasound_3d_scanner/`（`README.md / src / sim / build / board / data / skill / report`）；**GitHub 已推送**（<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>，私有）；演示视频未拍（旧版 5 个已放 Release `v1.0-assets`）。
 
 ---
 
@@ -18,7 +18,7 @@
 | 全部代码 | **RAR** / ≤200 MB | `..\..\upload\all_code.rar`（0.6 MB，01–08 步） | ✅ 已生成 |
 | 参赛作品承诺及使用授权书 | PDF / ≤50 MB | 从提交页下载模板，签字/盖章后扫描 | ⬜ 待办 |
 | 作品海报（选填） | PDF 或 PPT / ≤50 MB | 可用 `report/export/design_report.pdf` 首页或另做一页 | ⬜ 可选 |
-| GitHub 链接 | 文本 | `https://github.com/<org>/<repo>` | ⬜ 未上传 |
+| GitHub 链接 | 文本 | <https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner> | ✅ 已推送（私有，验收后转公开） |
 | 作品全貌图 | JPG/PNG / ≤10 MB / 最多 1 张 | `report/assets/photo_rig_front.jpg`（或正面+俯视合成） | ✅ 可用 |
 | 开发板重要角度照片 | JPG/PNG / ≤10 MB / 最多 4 张 | `photo_rig_front.jpg`、`photo_rig_top.jpg`、`photo_electronics.jpg`、`diagram_wiring.png` | ✅ 可用 |
 | 三个关键词 | 3 个短词 | 超声三维重建 / FPGA 板上 DSP / 手背姿态交互 | ✅ 建议 |
@@ -100,17 +100,20 @@
 
 ---
 
-## 2. GitHub 上传步骤（尚未执行）
+## 2. GitHub 上传（已执行，2026-10-30）
 
-### 2.1 仓库准备
+> 状态：仓库 <https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner> 已推送 `main`（1 个 commit，322 文件 / 60.6 MB），当前**私有**。
+> 演示视频（58 MB）未入库，已放 Release [`v1.0-assets`](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)。
+> 剩下要人工点的两步：① 验收后 Settings → Danger Zone → Change visibility → Public；② 把链接填进提交页。
+
+### 2.1 仓库准备（存档）
 
 ```powershell
-cd <package>
-git init
+cd ultrasound_3d_scanner
+git init -b main
 git add .
-git commit -m "Ultrasound 3D scanner on Zynq-7020: RTL, PS firmware, host pipeline, evidence, skills"
-git branch -M main
-git remote add origin https://github.com/<org>/<repo>.git
+git commit -m "Initial commit: real-time ultrasound 3D scanning and shape-anomaly detection on AMD Zynq-7020"
+git remote add origin https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner.git
 git push -u origin main
 ```
 

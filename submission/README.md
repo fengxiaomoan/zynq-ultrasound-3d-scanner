@@ -12,7 +12,7 @@
 | 开发板重要角度照片（JPG/PNG ≤10 MB，最多 4 张） | `board_photos/`（front/top/electronics/wiring） | ✅ |
 | 三个关键词 | `keywords.txt` | ✅ |
 | 设计报告（可选，非提交页必填） | `design_report_optional.pdf` | ✅ |
-| GitHub 链接 | 待填 | ⬜ |
+| GitHub 链接 | <https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>（私有，验收后转公开） | ✅ |
 
 ## 全部代码 RAR
 

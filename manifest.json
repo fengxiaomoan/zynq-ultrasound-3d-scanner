@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 326,
-  "total_bytes": 124596839,
+  "total_bytes": 124598044,
   "files": [
     {
       "path": ".gitignore",
@@ -326,8 +326,8 @@
     },
     {
       "path": "data/demo/README.md",
-      "size": 7862,
-      "sha256": "53a2dccc52ba5786f2b7811c13146a6384104c11c37707df1ca1e63baccfd9e0"
+      "size": 7936,
+      "sha256": "b7736f2b5ebe15772aef1fd8f117212d979fdec46fcab364974b1f7820da9ed6"
     },
     {
       "path": "data/demo/timeline.json",
@@ -791,8 +791,8 @@
     },
     {
       "path": "README.md",
-      "size": 10772,
-      "sha256": "42db03877ebb013caba963d63e36d0a94744d0955d1cef2c496f0c915c8512bc"
+      "size": 11143,
+      "sha256": "1a3b1c79f61191689190ab1b98731d4eb639278b0dd0b430dfe8c4a800c1e0f6"
     },
     {
       "path": "report/01_design_report.md",
@@ -826,8 +826,8 @@
     },
     {
       "path": "report/07_submission_checklist.md",
-      "size": 13807,
-      "sha256": "ee6755ba1bd5bc6fc0d1090ef4719b505b15a03dbd326b0b54143ed02516f5d1"
+      "size": 14480,
+      "sha256": "a70945569bcbbfabefe88feb2d50a33fa873dfeac200fa2002d491e8b50ed3bd"
     },
     {
       "path": "report/08_technical_document.md",
@@ -1621,8 +1621,8 @@
     },
     {
       "path": "submission/README.md",
-      "size": 1877,
-      "sha256": "7019fe5022d4611efdb07257b2282bbe32c9d563d92c7691cc74e93744c04951"
+      "size": 1964,
+      "sha256": "c07cfa56df46f37a637c628d4550e5ee794b2e8febea418a3199bfc684ce3b5c"
     },
     {
       "path": "submission/technical_document.pdf",
