@@ -92,6 +92,7 @@ ultrasound_3d_scanner/
 ├─ data/
 │  ├─ real/                  # 真实测量：帧率、模型、重复性、姿态
 │  ├─ demo/                  # 4096 点演示、演示模型与全流程视频
+│  ├─ mechanical/            # 3D 打印件的设计输出与验证记录
 │  └─ figures/               # 报告/视频可复用图
 ├─ skill/                    # 9 个技能包 + README
 ├─ submission/               # 提交暂存：技术文档/图片/关键词

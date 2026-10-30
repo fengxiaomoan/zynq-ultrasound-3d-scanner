@@ -48,7 +48,7 @@
 | `sim/`：仿真脚本与结果 | `sim/tb`、`sim/run_*.ps1`、`sim/results` | 已提供 |
 | `build/`：构建脚本与实现报告 | `build/*.tcl`、`build/reports` | 已提供 |
 | `board/`：上板工程与实测输出 | `board/bitstream`、`board/tcl`、`board/logs`、`board/firmware` | 已提供 |
-| `data/`：测试数据与参考结果 | `data/real`、`data/reference`、`data/demo`、`data/figures` | 已提供 |
+| `data/`：测试数据与参考结果 | `data/real`、`data/demo`、`data/mechanical`、`data/figures` | 已提供 |
 | `skill/`、`report/` | 同名目录 | 已提供 |
 | 目录与文件名为小写英文，无中文、空格、特殊字符 | 全仓库检查通过（`verify_package.py`） | 符合 |
 | 中文只出现在正文内容 | 文件名为英文，正文为中文 | 符合 |
