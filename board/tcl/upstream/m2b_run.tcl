@@ -1,6 +1,6 @@
 # M2b: load the PS firmware over JTAG and start it (xsdb, no SD card needed).
 #
-#   D:\Xilinx\2025.1\Vivado\bin\xsdb.bat -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m2b_run.tcl"
+#   D:\Xilinx\2025.1\Vivado\bin\xsdb.bat -eval "source <repo-root>/full_scan_workflow/fpga/ps/m2b_run.tcl"
 #
 # The path must be absolute (or the shell must be cd'd to fpga/ps): xsdb resolves
 # a relative `source` against the shell's current directory, not against this
@@ -18,9 +18,9 @@
 # system reset through the DAP target itself first (see below); if that does not
 # bring the APU back, power-cycle the board.
 
-set BUILD  "D:/daxue/FPGA/fpga_ps_m2"
+set BUILD  "<repo-root>/fpga_ps_m2"
 set BIT    "$BUILD/ps_m2.runs/impl_1/system_wrapper.bit"
-set BIN    "D:/daxue/FPGA/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
+set BIN    "<repo-root>/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
 set PSINIT "$BUILD/ps_m2.gen/sources_1/bd/system/ip/system_processing_system7_0_0/ps7_init.tcl"
 # M3 = the same image plus F1 (MPU6050).  One image, one load: set
 #   $env:M2B_STAGE = "m3"
@@ -29,7 +29,7 @@ set PSINIT "$BUILD/ps_m2.gen/sources_1/bd/system/ip/system_processing_system7_0_
 set STAGE  "m2"
 if {[info exists ::env(M2B_STAGE)]} { set STAGE $::env(M2B_STAGE) }
 if {$STAGE eq "m3"} {
-    set BUILD  "D:/daxue/FPGA/fpga_ps_m3"
+    set BUILD  "<repo-root>/fpga_ps_m3"
     set BIT    "$BUILD/ps_m3.runs/impl_1/system_wrapper.bit"
     set PSINIT "$BUILD/ps_m3.gen/sources_1/bd/system/ip/system_processing_system7_0_0/ps7_init.tcl"
 }

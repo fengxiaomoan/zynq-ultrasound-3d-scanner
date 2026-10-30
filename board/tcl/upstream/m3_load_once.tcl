@@ -1,6 +1,6 @@
 # Single-shot, patient loader.  One power cycle = exactly one ps7_init.
 #
-#   xsdb -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m3_load_once.tcl"
+#   xsdb -eval "source <repo-root>/full_scan_workflow/fpga/ps/m3_load_once.tcl"
 #
 # What the 2026-10-27 failures taught:
 #   * retrying ps7_init inside one power cycle does not help -- each retry leaves
@@ -13,9 +13,9 @@
 #
 # Exit codes: 0 started, 2 failed (power-cycle and run it again), 3 missing file.
 set SETTLE_MS 8000          ;# let the BootROM finish before touching the PS
-set BUILD  "D:/daxue/FPGA/fpga_ps_m3"
+set BUILD  "<repo-root>/fpga_ps_m3"
 set BIT    "$BUILD/ps_m3.runs/impl_1/system_wrapper.bit"
-set BIN    "D:/daxue/FPGA/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
+set BIN    "<repo-root>/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
 set PSINIT "$BUILD/ps_m3.gen/sources_1/bd/system/ip/system_processing_system7_0_0/ps7_init.tcl"
 
 foreach f [list $BIT $BIN $PSINIT] { if {![file exists $f]} { puts "ONCE_NO_FILE: $f"; exit 3 } }

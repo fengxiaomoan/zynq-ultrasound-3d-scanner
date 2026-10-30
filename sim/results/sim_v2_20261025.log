@@ -44,7 +44,7 @@ $finish called at time : 112310 ns
 ## 复跑
 
 ```powershell
-powershell -File D:\daxue\FPGA\full_scan_workflow\fpga\tb\run_sim.ps1
+powershell -File <repo-root>\full_scan_workflow\fpga\tb\run_sim.ps1
 ```
 
 注意：本会话（AI 侧）xsim 内核起不来（`Could not open file mapping object (2)` +

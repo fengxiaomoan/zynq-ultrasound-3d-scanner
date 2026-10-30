@@ -10,10 +10,10 @@
 #
 # The v2 output lives inside the workspace on purpose: this session's command
 # sandbox cannot write to the D: root, so D:/fpga_dsp_v2 could not be created.
-set here "D:/daxue/FPGA/full_scan_workflow/fpga"
-set acq_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
-set motor_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
-set out "D:/daxue/FPGA/fpga_dsp_v2"
+set here "<repo-root>/full_scan_workflow/fpga"
+set acq_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
+set motor_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
+set out "<repo-root>/fpga_dsp_v2"
 if {[file exists $out]} { error "build dir exists: $out" }
 
 create_project dsp_v1 $out -part xc7z020clg400-2

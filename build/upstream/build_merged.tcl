@@ -2,9 +2,9 @@
 #
 # Sources: the validated 13号 acquisition core and the validated jog-build motor
 # modules, unchanged.  Only merged_top.sv is new.
-set here "D:/daxue/FPGA/full_scan_workflow/fpga"
-set acq_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
-set motor_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
+set here "<repo-root>/full_scan_workflow/fpga"
+set acq_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
+set motor_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
 set out "D:/fpga_merged_v1"
 if {[file exists $out]} { error "build dir exists: $out" }
 

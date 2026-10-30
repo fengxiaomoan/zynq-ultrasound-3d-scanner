@@ -1,7 +1,7 @@
 # M3 load with an internal retry, for the board's intermittent "AP transaction
 # timeout" during ps7_init.
 #
-#   xsdb -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m3_load_retry.tcl"
+#   xsdb -eval "source <repo-root>/full_scan_workflow/fpga/ps/m3_load_retry.tcl"
 #
 # Sequence: program the PL, stop the core, ps7_init, verify DDR is writable, then
 # write the firmware and start it.  If the DDR probe fails, ps7_init is re-run once
@@ -10,9 +10,9 @@
 #
 # Exit codes: 0 ok, 2 DDR still not writable (power-cycle; if it repeats, unplug
 # the MPU module to isolate a supply/pull-up problem), 3 missing file.
-set BUILD  "D:/daxue/FPGA/fpga_ps_m3"
+set BUILD  "<repo-root>/fpga_ps_m3"
 set BIT    "$BUILD/ps_m3.runs/impl_1/system_wrapper.bit"
-set BIN    "D:/daxue/FPGA/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
+set BIN    "<repo-root>/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
 set PSINIT "$BUILD/ps_m3.gen/sources_1/bd/system/ip/system_processing_system7_0_0/ps7_init.tcl"
 
 foreach f [list $BIT $BIN $PSINIT] { if {![file exists $f]} { puts "M3_LOAD_NO_FILE: $f"; exit 3 } }

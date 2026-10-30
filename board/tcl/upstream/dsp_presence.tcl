@@ -8,7 +8,7 @@
 # The presence decision itself is NOT taken here: tools/dsp_presence.py applies
 # the threshold that the session's A/B produced (an absolute amp threshold drifts
 # between sessions, see P0_P1_NEXT_STEPS_20261025.md 5d).
-set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
+set BUILD "<repo-root>/fpga_dsp_v2"
 set n_frames 3
 set period_ms 20
 set out_file ""

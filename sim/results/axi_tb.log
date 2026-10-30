@@ -1,6 +1,6 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/ps/acq_axi_regs.v" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/ps/acq_axi_regs.v" into library work
 INFO: [VRFC 10-311] analyzing module acq_axi_regs
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/ps/tb/tb_acq_axi_regs.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/ps/tb/tb_acq_axi_regs.sv" into library work
 INFO: [VRFC 10-311] analyzing module tb_acq_axi_regs
 Vivado Simulator v2025.1.0
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.

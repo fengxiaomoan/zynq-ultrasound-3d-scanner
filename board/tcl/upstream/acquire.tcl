@@ -16,7 +16,7 @@
 
 set BUILD "D:/fpga_merged_v1"
 set PLAN ""
-set OUT "D:/daxue/FPGA/full_scan_workflow/out/acquire"
+set OUT "<repo-root>/full_scan_workflow/out/acquire"
 set FRAMES 3
 set TX 0
 set LIMIT 0

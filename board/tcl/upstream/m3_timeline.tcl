@@ -1,7 +1,7 @@
 # M3 timeline: load the image, run the firmware, and watch it for 6 s without ever
 # re-entering the debug port with a second session.
 #
-#   xsdb -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m3_timeline.tcl"
+#   xsdb -eval "source <repo-root>/full_scan_workflow/fpga/ps/m3_timeline.tcl"
 #
 # Why (2026-10-27 19:0x): the one-shot load reported success but the board froze
 # about a second later, and a *second* xsdb session then failed to read the AXI
@@ -16,9 +16,9 @@
 #   0x40000000  ACQ STATUS (after stop)
 #   0x4000003C  F1 pose header (after stop) -- 0x4D50 in the high half once a sample
 #               has been latched; 0 means the PL never produced one
-set BUILD  "D:/daxue/FPGA/fpga_ps_m3"
+set BUILD  "<repo-root>/fpga_ps_m3"
 set BIT    "$BUILD/ps_m3.runs/impl_1/system_wrapper.bit"
-set BIN    "D:/daxue/FPGA/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
+set BIN    "<repo-root>/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
 set PSINIT "$BUILD/ps_m3.gen/sources_1/bd/system/ip/system_processing_system7_0_0/ps7_init.tcl"
 
 foreach f [list $BIT $BIN $PSINIT] {

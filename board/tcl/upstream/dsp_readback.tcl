@@ -10,8 +10,8 @@
 # Values are decoded from the probe's bit string, not via expr: Vivado's Tcl
 # truncates 40-bit hex literals to 32 bits, which silently produced a wrong
 # FPGA_PEAK_WORD on 2026-10-25 15:56.
-set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
-set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/dsp_hw"
+set BUILD "<repo-root>/fpga_dsp_v2"
+set OUT "<repo-root>/full_scan_workflow/live_run/dsp_hw"
 file mkdir $OUT
 
 open_hw_manager

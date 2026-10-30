@@ -3,7 +3,7 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanc
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
 | Date         : Sun Oct 25 20:51:42 2026
 | Host         : linzhiye running 64-bit major release  (build 9200)
-| Command      : report_utilization -hierarchical -file D:/daxue/FPGA/fpga_dsp_v2/utilization.rpt
+| Command      : report_utilization -hierarchical -file <repo-root>/fpga_dsp_v2/utilization.rpt
 | Design       : merged_top
 | Device       : xc7z020clg400-2
 | Speed File   : -2

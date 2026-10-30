@@ -12,14 +12,14 @@
 #   4. the 128-bit pose word goes to acq_axi_regs' independent 1 kHz channel
 #      (registers 0x30..0x3C), so the 176-bit frame payload is untouched.
 #
-# Output: D:/daxue/FPGA/fpga_ps_m3.  fpga_ps_m2 is never opened or written, so
+# Output: <repo-root>/fpga_ps_m3.  fpga_ps_m2 is never opened or written, so
 # the M2b image keeps working as the fallback.
 set here [file normalize [file dirname [info script]]]
 set root [file normalize [file join $here .. ..]]
-set out  "D:/daxue/FPGA/fpga_ps_m3"
+set out  "<repo-root>/fpga_ps_m3"
 
-set acq_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
-set motor_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
+set acq_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
+set motor_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
 
 source [file join $here ps7_config.tcl]
 
@@ -214,7 +214,7 @@ write_hw_platform -fixed -force -file [file join $out ps_m3.xsa]
 # errors out when a report yields no rows, and this call turns any unexpected
 # difference into a build failure instead of a note in the log.
 source [file join $here io_pin_diff.tcl]
-set m2 "D:/daxue/FPGA/fpga_ps_m2/io.rpt"
+set m2 "<repo-root>/fpga_ps_m2/io.rpt"
 if {[file exists $m2]} {
     puts "=== pin diff vs fpga_ps_m2 (expect T10/T11 only) =============="
     set bad [io_pin_diff $m2 [file join $out io.rpt]]

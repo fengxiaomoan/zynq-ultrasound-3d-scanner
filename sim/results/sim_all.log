@@ -1,18 +1,18 @@
-wrote 130 vectors -> D:\daxue\FPGA\f1_sim\pose_vectors.txt
+wrote 130 vectors -> <repo-root>\f1_sim\pose_vectors.txt
 === xvlog ===
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/i2c_master.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/i2c_master.sv" into library work
 INFO: [VRFC 10-311] analyzing module i2c_master
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/mpu6050_bringup.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/mpu6050_bringup.sv" into library work
 INFO: [VRFC 10-311] analyzing module mpu6050_bringup
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/pose_fusion.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/pose_fusion.sv" into library work
 INFO: [VRFC 10-311] analyzing module pose_fusion
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_mpu6050_model.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/tb_mpu6050_model.sv" into library work
 INFO: [VRFC 10-311] analyzing module mpu6050_model
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_f1.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/tb_f1.sv" into library work
 INFO: [VRFC 10-311] analyzing module tb_f1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_i2c_recovery.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/tb_i2c_recovery.sv" into library work
 INFO: [VRFC 10-311] analyzing module tb_i2c_recovery
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "<repo-root>/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" into library work
 INFO: [VRFC 10-311] analyzing module tb_pose_fusion
 === xelab tb_f1 ===
 Vivado Simulator v2025.1.0
@@ -72,7 +72,7 @@ Compiling module work.tb_pose_fusion
 Built simulation snapshot tbpose
 SAMPLES=130 MISMATCHES=0 LATENCY_MIN=51 LATENCY_MAX=51 CYCLES=51
 POSE_FUSION_PASS n=130 latency=51 cycles
-$finish called at time : 140500 ns : File "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" Line 117
+$finish called at time : 140500 ns : File "<repo-root>/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" Line 117
 SIM_ALL_PASS  (tb_f1, tb_i2c_recovery, tb_pose_fusion)
 
 

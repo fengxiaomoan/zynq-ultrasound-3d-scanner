@@ -136,8 +136,8 @@ board/
 ├─ tcl/
 │  ├─ load_m3_pkg.tcl   # 包内相对路径，推荐
 │  ├─ m2b_scan.tcl      # 电机扫描（已改为包内路径）
-│  └─ upstream/         # 原始脚本（含绝对路径，仅参考）
+│  └─ upstream/         # 原始脚本（路径已替换为 `<repo-root>`，仅参考）
 └─ logs/           # 实测日志副本
 ```
 
-`upstream/` 里的脚本保留了原始的 `D:/daxue/...` 路径，用于对照“当时怎么跑的”；不要直接在新机器上执行，用包内 `load_m3_pkg.tcl` 与 `m2b_scan.tcl`。
+`upstream/` 里的脚本是现场原始版本，仓库中已把本机绝对路径统一替换为 `<repo-root>`，其余保持原样，用于对照“当时怎么跑的”；不要直接在新机器上执行，用包内 `load_m3_pkg.tcl` 与 `m2b_scan.tcl`。

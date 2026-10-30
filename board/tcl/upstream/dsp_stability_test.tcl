@@ -1,8 +1,8 @@
 # Does the design start frames on its own?  Program the v4 debug build, read the
 # 40-bit word + frame_count several times BEFORE any control pulse, then pulse
 # once and keep reading.  Any change without a pulse means frames self-start.
-set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
-set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/dsp_stable"
+set BUILD "<repo-root>/fpga_dsp_v2"
+set OUT "<repo-root>/full_scan_workflow/live_run/dsp_stable"
 file mkdir $OUT
 
 open_hw_manager

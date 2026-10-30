@@ -1,6 +1,6 @@
 # Reload ONLY the PS firmware, without re-programming the PL or re-running ps7_init.
 #
-#   xsdb -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m3_fw_reload.tcl"
+#   xsdb -eval "source <repo-root>/full_scan_workflow/fpga/ps/m3_fw_reload.tcl"
 #
 # Why this exists: a firmware-only change (e.g. a decode fix) does not need the
 # whole load ritual, and every extra `fpga -file` / `ps7_init` on this board is a
@@ -10,7 +10,7 @@
 #
 # Caveat: this is only valid in the SAME power cycle as the original load.  After a
 # power cycle use m2b_run.tcl (or m3_timeline.tcl) instead.
-set BIN "D:/daxue/FPGA/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
+set BIN "<repo-root>/full_scan_workflow/fpga/ps/build_m2b/m2b_ps.bin"
 if {![file exists $BIN]} { error "FW_RELOAD_NO_BIN: $BIN" }
 
 connect

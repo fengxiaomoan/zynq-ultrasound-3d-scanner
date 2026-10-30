@@ -1,7 +1,7 @@
 # M3 pre-flight: read the F1 pose window (0x4000_0030..0x3C) over JTAG and check
 # that the PL is really producing attitude samples -- BEFORE blaming the firmware.
 #
-#   D:\Xilinx\2025.1\Vivado\bin\xsdb.bat -eval "source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m3_pose_peek.tcl"
+#   D:\Xilinx\2025.1\Vivado\bin\xsdb.bat -eval "source <repo-root>/full_scan_workflow/fpga/ps/m3_pose_peek.tcl"
 #
 # Assumes the M3 bitstream is configured and ps7_init has run (m2b_run.tcl does
 # both).  The CPU is stopped while reading and resumed afterwards: the pose path

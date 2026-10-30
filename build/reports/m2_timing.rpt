@@ -3,7 +3,7 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanc
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
 | Date         : Tue Oct 27 00:40:35 2026
 | Host         : linzhiye running 64-bit major release  (build 9200)
-| Command      : report_timing_summary -file D:/daxue/FPGA/fpga_ps_m2/timing.rpt
+| Command      : report_timing_summary -file <repo-root>/fpga_ps_m2/timing.rpt
 | Design       : system_wrapper
 | Device       : 7z020-clg400
 | Speed File   : -2  PRODUCTION 1.12 2019-11-22

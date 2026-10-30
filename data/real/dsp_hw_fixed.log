@@ -5,10 +5,10 @@
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
 # Start of session at: Sun Oct 25 20:33:54 2026
 # Process ID         : 10780
-# Current directory  : D:/daxue/FPGA/full_scan_workflow
-# Command line       : vivado.exe -mode batch -source D:\daxue\FPGA\full_scan_workflow\fpga\dsp_readback.tcl -log D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_fixed.log -journal D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_fixed.jou
-# Log file           : D:/daxue/FPGA/full_scan_workflow/live_run/dsp_hw_fixed.log
-# Journal file       : D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_fixed.jou
+# Current directory  : <repo-root>/full_scan_workflow
+# Command line       : vivado.exe -mode batch -source <repo-root>\full_scan_workflow\fpga\dsp_readback.tcl -log <repo-root>\full_scan_workflow\live_run\dsp_hw_fixed.log -journal <repo-root>\full_scan_workflow\live_run\dsp_hw_fixed.jou
+# Log file           : <repo-root>/full_scan_workflow/live_run/dsp_hw_fixed.log
+# Journal file       : <repo-root>\full_scan_workflow\live_run\dsp_hw_fixed.jou
 # Running On         : linzhiye
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
@@ -21,9 +21,9 @@
 # Total Virtual      : 42991 MB
 # Available Virtual  : 7309 MB
 #-----------------------------------------------------------
-source {D:\daxue\FPGA\full_scan_workflow\fpga\dsp_readback.tcl}
-# set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
-# set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/dsp_hw"
+source {<repo-root>\full_scan_workflow\fpga\dsp_readback.tcl}
+# set BUILD "<repo-root>/fpga_dsp_v2"
+# set OUT "<repo-root>/full_scan_workflow/live_run/dsp_hw"
 # file mkdir $OUT
 # open_hw_manager
 open_hw_manager: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 502.430 ; gain = 217.016

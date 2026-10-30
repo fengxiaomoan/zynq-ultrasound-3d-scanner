@@ -10,7 +10,7 @@ so this script drives the same underlying tools directly:
   3. empyro creates an empty_application app component, this repo's firmware
      sources are copied in, UserConfig is set to -O2 + lwip220/libm, and built.
 
-Everything lands under --work (default D:/daxue/FPGA/vitis_m2b) and the ELF is
+Everything lands under --work (default <repo-root>/vitis_m2b) and the ELF is
 copied to fpga/ps/build_m2b/m2b_ps.elf.
 
     python fpga/ps/build_m2b.py                # full rebuild
@@ -34,7 +34,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent          # fpga/ps
 ROOT = HERE.parents[1]                           # full_scan_workflow
 SW = HERE / "sw"
-XSA = Path(r"D:\daxue\FPGA\fpga_ps_m2\ps_m2.xsa")
+XSA = Path(r"<repo-root>\fpga_ps_m2\ps_m2.xsa")
 XILINX = Path(r"D:\Xilinx\2025.1")
 VITIS = XILINX / "Vitis"
 VIVADO = XILINX / "Vivado"
@@ -101,7 +101,7 @@ def patch_user_config(path: Path) -> None:
 def main() -> int:
     global EMP_YRO
     ap = argparse.ArgumentParser()
-    ap.add_argument("--work", default=r"D:\daxue\FPGA\vitis_m2b")
+    ap.add_argument("--work", default=r"<repo-root>\vitis_m2b")
     ap.add_argument("--app-only", action="store_true",
                     help="skip sdtgen/BSP (keep the existing BSP) and rebuild the app")
     args = ap.parse_args()

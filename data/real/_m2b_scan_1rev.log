@@ -7,7 +7,7 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m2b_scan.tcl -notrace
+source <repo-root>/full_scan_workflow/fpga/ps/m2b_scan.tcl -notrace
 open_hw_manager: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 501.957 ; gain = 214.188
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-2222] Launching hw_server...

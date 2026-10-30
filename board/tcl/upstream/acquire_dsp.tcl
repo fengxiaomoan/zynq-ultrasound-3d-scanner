@@ -6,9 +6,9 @@
 #
 # Word: {valid(1), frame(13), idx(10), amp(16)}
 #   t_us = idx * 0.2   (56-108 us window)
-set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
+set BUILD "<repo-root>/fpga_dsp_v2"
 set PLAN ""
-set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/p0_dsp"
+set OUT "<repo-root>/full_scan_workflow/live_run/p0_dsp"
 set FRAMES 3
 set PERIOD 125000
 set SETTLE_MS 600

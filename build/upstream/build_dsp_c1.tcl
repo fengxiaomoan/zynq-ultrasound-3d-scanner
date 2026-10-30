@@ -22,10 +22,10 @@
 #
 # Output goes to fpga_dsp_c1 and is kept separate from fpga_dsp_v2, whose
 # bitstream and LTX are the P1.1 evidence and must not change.
-set here "D:/daxue/FPGA/full_scan_workflow/fpga"
-set acq_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
-set motor_root "D:/daxue/FPGA/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
-set out "D:/daxue/FPGA/fpga_dsp_c1"
+set here "<repo-root>/full_scan_workflow/fpga"
+set acq_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/AAA-running/13_ultrasound_ila_test_20261019"
+set motor_root "<repo-root>/FPGA_Contest_Starter_v1.0.0/11_motor_control_20261019"
+set out "<repo-root>/fpga_dsp_c1"
 if {[file exists $out]} { error "build dir exists: $out" }
 
 create_project dsp_c1 $out -part xc7z020clg400-2
