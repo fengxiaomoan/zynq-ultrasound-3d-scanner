@@ -140,7 +140,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 | `synthetic` | 合成波形、演示点云 | 演示片中的 4096 点点云 |
 | `static` | 综合/实现/引脚/资源/代码常量 | 6,921 LUT、WNS 1.399 ns |
 
-逐条映射见 [`report/05_evidence_index.md`](report/05_evidence_index.md)。**不要把 `synthetic` 写成“实测”。**
+逐条映射见 [`report/05_evidence_index.md`](report/05_evidence_index.md)。
 
 ---
 
