@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 295,
-  "total_bytes": 131401279,
+  "total_bytes": 131258535,
   "files": [
     {
       "path": ".gitignore",
@@ -662,7 +662,7 @@
     {
       "path": "report/02_technical_document.md",
       "size": 19794,
-      "sha256": "4102f7b17a292182ff624cacac3ec05a223d78fcc66883a121e9df4afa4715e3"
+      "sha256": "950b3d0fc2f74902ed03e3ff805f93e169a03ffa6b9f61e66195abc0a903b506"
     },
     {
       "path": "report/03_skill_extraction.md",
@@ -796,28 +796,28 @@
     },
     {
       "path": "report/export/design_report.docx",
-      "size": 10215802,
-      "sha256": "5c010ea14431765756f55e4628480bdf83927dacdc8f41031127c1b56a9d481e"
+      "size": 10214236,
+      "sha256": "eac8c290a62a515204fcbb7ebbe44e1efc64c81f3b6dc7b71953fb7382049fe4"
     },
     {
       "path": "report/export/design_report.pdf",
-      "size": 1698005,
-      "sha256": "da79904c38271c6ba9f939cdb4f7c23f94b6fd9ceeb8ac2259aa7f0ecad75290"
+      "size": 1690968,
+      "sha256": "f82d2b2da825b37397f6219a2f82a7de21636e6ec9cec7d66eb1a0d401b9e0ac"
     },
     {
       "path": "report/export/technical_document.docx",
-      "size": 13809952,
-      "sha256": "6e6dfcd91dc859a986841d6f6c349cc0b446f5920ad3837c508b2361bcb2f373"
+      "size": 13809582,
+      "sha256": "678f6a59e7d3dbf54dcfb30e35314f6889972ca73e763a10d89cf63360121204"
     },
     {
       "path": "report/export/technical_document.pdf",
-      "size": 2219359,
-      "sha256": "8d24d6ba2daa53ae234ab26301a214c677555d30192d90fceceb44b26be74528"
+      "size": 2155992,
+      "sha256": "c3379b59493f204773279b23b4a5016624dd966634cb7e77137ec23fbd28c121"
     },
     {
       "path": "report/README.md",
       "size": 2538,
-      "sha256": "bc537c30dcee72336347a198f6704489991203f0f66f0a4945e3ac19ae62ddc7"
+      "sha256": "b7a224e1f6b0087a0f9adaf6e85e1ad1d1fda8291026eb24ebb743bf75191706"
     },
     {
       "path": "requirements.txt",
@@ -1456,8 +1456,8 @@
     },
     {
       "path": "submission/design_report_optional.pdf",
-      "size": 1698005,
-      "sha256": "da79904c38271c6ba9f939cdb4f7c23f94b6fd9ceeb8ac2259aa7f0ecad75290"
+      "size": 1690968,
+      "sha256": "f82d2b2da825b37397f6219a2f82a7de21636e6ec9cec7d66eb1a0d401b9e0ac"
     },
     {
       "path": "submission/keywords.txt",
@@ -1467,12 +1467,12 @@
     {
       "path": "submission/README.md",
       "size": 1706,
-      "sha256": "29c4f33abb685a61c6ce1fefaa30e2714df138ecb85ebeee82c9c70422aa59bc"
+      "sha256": "6ef964c653b0ed0b29302633f211e31332748e6578948d912ea078ae52acd915"
     },
     {
       "path": "submission/technical_document.pdf",
-      "size": 2219359,
-      "sha256": "8d24d6ba2daa53ae234ab26301a214c677555d30192d90fceceb44b26be74528"
+      "size": 2155992,
+      "sha256": "c3379b59493f204773279b23b4a5016624dd966634cb7e77137ec23fbd28c121"
     },
     {
       "path": "verify_package.py",
