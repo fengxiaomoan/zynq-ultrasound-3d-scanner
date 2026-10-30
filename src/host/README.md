@@ -45,4 +45,4 @@ python src\host\live_view.py --run <采集目录> --port 8770
 
 - `viewer/` 的模型来自 `data/reference/bench/`，全部是数字体模，页面已标注；
 - 实时姿态链路见 `src/rtl/f1/` 与 `sim/tb/tb_f1.sv`；
-- 历史实验脚本没有放进 `tools/`，避免评委把一次性分析当成最终实现。
+- 一次性分析脚本没有放进 `tools/`，以免与最终实现混淆。

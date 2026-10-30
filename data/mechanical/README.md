@@ -21,4 +21,4 @@
 
 ## 原始工程
 
-完整 STEP/STL/3MF 在项目原始目录 `3Dprinter/design_output/`（约 10 MB）。本包只保留预览、清单、装配说明和验证 JSON，避免交付包过大；换机器复现时，用原始目录的 STEP/STL 重新切片。
+完整 STEP/STL/3MF 约 10 MB，未纳入仓库。本目录保留预览、清单、装配说明和验证 JSON；重新切片时以原始设计文件的 STEP/STL 为准。

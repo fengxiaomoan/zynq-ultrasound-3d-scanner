@@ -4,9 +4,9 @@
 
 **不要直接在新机器上执行**：
 
-- 路径指向旧工程 `fpga_ps_m2` / `fpga_ps_m3`，本包没有这些构建目录；
-- `acquire*.tcl` 依赖 `fpga_dsp_v2` 的 ltx 与旧 `live_run` 目录；
-- `m3_load_once/retry` 依赖旧的 `fpga_ps_m3` 路径。
+- 路径指向早期工程 `fpga_ps_m2` / `fpga_ps_m3`，本仓库没有这些构建目录；
+- `acquire*.tcl` 依赖 `fpga_dsp_v2` 的 ltx 与早期 `live_run` 目录；
+- `m3_load_once/retry` 依赖早期的 `fpga_ps_m3` 路径。
 
 要复现，请用上一级的：
 

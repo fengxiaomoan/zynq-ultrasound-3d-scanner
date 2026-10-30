@@ -2,13 +2,12 @@
 
 **2026 全国大学生嵌入式芯片与系统设计竞赛 · FPGA 创新设计赛道 · AMD 自主选题（初级组）**
 
-> 一句话：用 1 MHz 单阵元水浸超声 + 双轴机械扫描 + Zynq-7020，把“确定性采集、板上定点 DSP、位姿锁存、网页三维呈现、姿态交互”做成一条可测量、可复现、可解释的闭环。
+用 1 MHz 单阵元水浸超声 + 双轴机械扫描 + Zynq-7020，把“确定性采集、板上定点 DSP、位姿锁存、网页三维呈现、姿态交互”做成一条可测量、可复现、可解释的闭环。
 
-> **仓库**：<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>（当前私有，验收后转公开）
-> **演示视频**（约 58 MB，不进仓库）：[Releases → v1.0-assets](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)
-
-> **提交包位置**：`..\upload\ultrasound_3d_scanner\`（已按 3.3.5.4 整理，未压缩）。
-> 本目录是工作副本，多保留了演示视频 mp4、Word 版 docx 与 `submission/` 暂存。
+> **仓库**：<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>
+> **演示视频**（约 58 MB，不随仓库分发）：[Releases → v1.0-assets](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)
+>
+> 目录按赛题指南 3.3.5.4 的推荐结构组织：`src / sim / build / board / data / skill / report`，文件名统一小写英文。
 
 ---
 
@@ -18,7 +17,7 @@
 
 本项目不声称做临床设备，而是回答一个工程问题：**在低成本单阵元探头和中等规模 FPGA 上，能不能把“采集—处理—重建—比对—交互”做成一条能拿证据说话的链路？**
 
-答案是：能，但要分清哪些是实测、哪些是仿真、哪些还没做。本包把这三类分开写。
+答案是：能，但要分清哪些是实测、哪些是仿真、哪些还没做。本仓库把这三类分开写。
 
 ---
 
@@ -62,7 +61,7 @@ pwsh -File sim\run_axi_tb.ps1     # TB_PASS / AXI_TB_PASS
 pwsh -File sim\run_f1_sim.ps1     # MISMATCHES=0 LATENCY=51 SIM_ALL_PASS
 ```
 
-本包在 2026-10-27 20:58–20:59 重跑过这三组，日志在 `sim/results/pkg_*.log`。
+三组仿真在 2026-10-27 20:58–20:59 整体重跑过一次，日志在 `sim/results/pkg_*.log`。
 
 ---
 
@@ -112,7 +111,7 @@ ultrasound_3d_scanner/
    └─ assets/                # 插图与生成脚本
 ```
 
-**目录对照**：赛题推荐 `src / sim / build / board / data / skill / report`，本包完全采用；`src` 下再分 `rtl / constraints / ps / host`，`data` 下再分 `real / reference / demo / figures`。根目录没有额外中文命名。
+**目录对照**：赛题推荐 `src / sim / build / board / data / skill / report`，本仓库完全采用；`src` 下再分 `rtl / constraints / ps / host`，`data` 下再分 `real / reference / demo / figures`。根目录没有额外中文命名。
 
 ---
 
@@ -137,7 +136,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ## 6. 证据等级
 
-本包所有结论分四级，报告和技能包里逐条标注：
+全仓库的结论分四级，报告和技能包里逐条标注：
 
 | 等级 | 含义 | 例子 |
 |---|---|---|
@@ -193,13 +192,15 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ---
 
-## 10. 当前状态
+## 10. 交付状态
 
-- 代码、仿真、构建报告、上板证据、技能包、设计报告、技术文档：**已完成本地整理**；
-- **全部代码（提交包）**：`..\upload\ultrasound_3d_scanner\`（推荐结构，未压缩；验收后整目录压 RAR）；
-- GitHub：**已上传**，<https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner>（私有；检查完在 Settings → Danger Zone 转 Public，再把链接填进提交页）；
-- 演示视频：5 个旧版演示已传到 Release `v1.0-assets`；提交页要求的 ≤3 分钟版**尚未拍摄**（旧版 3 分 50 秒只能作素材）；
-- 提交页还需要：RAR 代码包（≤200 MB）、承诺书 PDF、全貌图 1 张、开发板照片 ≤4 张、三个关键词（见 §0）；
-- 提交截止：2026-11-04 18:00（以官网为准）。
+| 交付项 | 状态 |
+|---|---|
+| 源码、仿真、构建报告、上板证据、技能包、设计报告、技术文档 | 已完成，见对应目录 |
+| GitHub 仓库 | <https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner> |
+| 演示视频 | 5 个过程演示见 [Release `v1.0-assets`](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)；比赛要求的 ≤3 分钟版尚未制作 |
+| 提交材料索引 | [`submission/`](submission/README.md)（技术文档 PDF、全貌图、板卡照片、关键词） |
+
+比赛要求的全部材料与对照关系见 [`report/07_submission_checklist.md`](report/07_submission_checklist.md)。
 
 > 如果只读一个文件，读 `report/01_design_report.md`；如果只跑一个命令，跑 `python src\host\bench\run_bench.py`。
