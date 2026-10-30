@@ -1,8 +1,8 @@
 {
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
-  "file_count": 326,
-  "total_bytes": 132564550,
+  "file_count": 295,
+  "total_bytes": 131401279,
   "files": [
     {
       "path": ".gitignore",
@@ -305,6 +305,26 @@
       "sha256": "071f5d82b49d718979ad73a05c7374656e0e171155e95e9b912cab901624ef35"
     },
     {
+      "path": "data/demo/models/cone1.ply",
+      "size": 181146,
+      "sha256": "8516c2c4f7eac733762bbb8469222a1570fd23921e19e6eef8ea02de3236c24b"
+    },
+    {
+      "path": "data/demo/models/cone2.ply",
+      "size": 181146,
+      "sha256": "db4694832040236685a536a17c0a5babbbc6a0d1dfc50e72804d114fbecd7e16"
+    },
+    {
+      "path": "data/demo/models/cylinder.ply",
+      "size": 181146,
+      "sha256": "36280a1f2a7a1a657bc03b622e043892a10a0d3f00d8bfa3205e1647ef4e4ed4"
+    },
+    {
+      "path": "data/demo/models/step.ply",
+      "size": 175240,
+      "sha256": "fa1c091656db20e1ef186c67892599ab1e120755edb39e5b6c6911588634bbf2"
+    },
+    {
       "path": "data/demo/points_cone1.jsonl",
       "size": 1100297,
       "sha256": "95f5bea55d1cab4d80fd2c9b6de22fd6f907d5c085f3670329981884ca83e6b1"
@@ -421,8 +441,8 @@
     },
     {
       "path": "data/README.md",
-      "size": 2476,
-      "sha256": "b2e04077fe9a6f3fa0309fe2ff70429549d61ae3ca17f5887361cdac758c4c86"
+      "size": 2075,
+      "sha256": "ffc15023fe589c66acea7fd3f31c3ca34a4c40b4c5cd3cfa03d3d97bd3d24756"
     },
     {
       "path": "data/real/_m2b_3layer_signed.json",
@@ -625,199 +645,39 @@
       "sha256": "48ee07e339634fc9047d14380ed7b57c0ed2600fd0b141ef814177335d5a8296"
     },
     {
-      "path": "data/reference/anomaly/cone1/anomaly_report.json",
-      "size": 1269,
-      "sha256": "b2e2071198aecb14f6a1faa7c6522abd2b0d44cfe55c252aec36b74ec5162a7f"
-    },
-    {
-      "path": "data/reference/anomaly/cone1/residual.png",
-      "size": 61097,
-      "sha256": "0aec34091e2dce7e009f46c5eb11ca4dd20356cf518f1086af3dbc0a1665d184"
-    },
-    {
-      "path": "data/reference/anomaly/cone2/anomaly_report.json",
-      "size": 1263,
-      "sha256": "415a717597a499dd0dae9c2e4e4b4b88d715167bf3257a6b3fe8adc49dc403fa"
-    },
-    {
-      "path": "data/reference/anomaly/cone2/residual.png",
-      "size": 61932,
-      "sha256": "e473309c137e1478b5fb3316d24cb9b8f36957791954e9cf3549a8ba4dd8151f"
-    },
-    {
-      "path": "data/reference/anomaly/cylinder/anomaly_report.json",
-      "size": 1274,
-      "sha256": "3b557cdd15cf449aa4cfedafb29000e34d0e3dcc173f9c971b76f22df1c9d0cd"
-    },
-    {
-      "path": "data/reference/anomaly/cylinder/residual.png",
-      "size": 61700,
-      "sha256": "0d661abbd54142b38ffce1307bcdcc37073857e560560bb3206fb2a75ce58c32"
-    },
-    {
-      "path": "data/reference/anomaly/step/anomaly_report.json",
-      "size": 1259,
-      "sha256": "08b621715f40f1e73b7632aff202c3052f11549812254dc38cfe20683403e651"
-    },
-    {
-      "path": "data/reference/anomaly/step/residual.png",
-      "size": 60017,
-      "sha256": "adf482f044709a244db15b603bd8af11eeddc40b6864d37c4aea1b153288e7c1"
-    },
-    {
-      "path": "data/reference/anomaly/summary.csv",
-      "size": 276,
-      "sha256": "d7c3d484fc01b24bb36cf6843db9101065e243259bdb955519c2fe2ecfb7cf24"
-    },
-    {
-      "path": "data/reference/anomaly/summary.json",
-      "size": 1039,
-      "sha256": "f54192cb32af665f00492880736233be925e9a90b93e7e67c2e781a4db96595c"
-    },
-    {
-      "path": "data/reference/bench/cone1/error_table.csv",
-      "size": 2643,
-      "sha256": "cc0c8b12f61bcdabc3b506fe9fa834708ef1451cebe2b3abcbef91f7a67b9685"
-    },
-    {
-      "path": "data/reference/bench/cone1/mesh.ply",
-      "size": 181146,
-      "sha256": "8516c2c4f7eac733762bbb8469222a1570fd23921e19e6eef8ea02de3236c24b"
-    },
-    {
-      "path": "data/reference/bench/cone1/points.csv",
-      "size": 201514,
-      "sha256": "db226b7c57ebbdc33c71bfa1decbb3c9a6058b1cc9e30aec0bd4efc348e0a8f9"
-    },
-    {
-      "path": "data/reference/bench/cone1/profile.csv",
-      "size": 2524,
-      "sha256": "fb840d53c94d640bac37ffa1865cdb70ed5f7b71215cebb476a1fcdc9fba4c8e"
-    },
-    {
-      "path": "data/reference/bench/cone1/scan_report.json",
-      "size": 1110,
-      "sha256": "32dad603cd3ef61632555ddd9aad5f6f8a7721c5f27e0c177b5948f2fd2e4aa4"
-    },
-    {
-      "path": "data/reference/bench/cone2/error_table.csv",
-      "size": 2612,
-      "sha256": "a15d8093b4b9076e80b9f689046e31412f0c9aff3125255b398a3e9e142b7b3f"
-    },
-    {
-      "path": "data/reference/bench/cone2/mesh.ply",
-      "size": 181146,
-      "sha256": "db4694832040236685a536a17c0a5babbbc6a0d1dfc50e72804d114fbecd7e16"
-    },
-    {
-      "path": "data/reference/bench/cone2/points.csv",
-      "size": 199528,
-      "sha256": "78bb8c3417a9c41c998860641e3dd15ff2c1f3e1a5445342e6fa8402a2199622"
-    },
-    {
-      "path": "data/reference/bench/cone2/profile.csv",
-      "size": 2493,
-      "sha256": "030a216744a6d9af5ba85668847272d6c5c3ec1b674b3929418b3592bd743369"
-    },
-    {
-      "path": "data/reference/bench/cone2/scan_report.json",
-      "size": 1110,
-      "sha256": "53046cf2e2a527bc12aec7397f35239a919c4d285d9e64d9f02f9014957350fb"
-    },
-    {
-      "path": "data/reference/bench/cylinder/error_table.csv",
-      "size": 2643,
-      "sha256": "ec8132b5513d9e82235ad8f8739083a7592adf2ee98af75458ae244b2c2d03b3"
-    },
-    {
-      "path": "data/reference/bench/cylinder/mesh.ply",
-      "size": 181146,
-      "sha256": "36280a1f2a7a1a657bc03b622e043892a10a0d3f00d8bfa3205e1647ef4e4ed4"
-    },
-    {
-      "path": "data/reference/bench/cylinder/points.csv",
-      "size": 201514,
-      "sha256": "c13ea4e11954d1677a00daefb52a5f56b183a7af26940c8b29540591ff2c6b4f"
-    },
-    {
-      "path": "data/reference/bench/cylinder/profile.csv",
-      "size": 2527,
-      "sha256": "ca111e7e6451cad8cb4ee2d0b8a04b285e1d66483a830b40aa5df3d2e244be90"
-    },
-    {
-      "path": "data/reference/bench/cylinder/scan_report.json",
-      "size": 1107,
-      "sha256": "af2e70642016d6fecd00cc7a2fd747757668f3f358dc656e68b0072bf80142e6"
-    },
-    {
-      "path": "data/reference/bench/step/error_table.csv",
-      "size": 2548,
-      "sha256": "f7b1c4d4e3d096644a3e6b3c588a11663009c65ac341139ccaca65b482636407"
-    },
-    {
-      "path": "data/reference/bench/step/mesh.ply",
-      "size": 175240,
-      "sha256": "fa1c091656db20e1ef186c67892599ab1e120755edb39e5b6c6911588634bbf2"
-    },
-    {
-      "path": "data/reference/bench/step/points.csv",
-      "size": 196173,
-      "sha256": "43a591c536805d6467010321a3fa0b2f6def13b82c29f5a8ad4072c1a843a463"
-    },
-    {
-      "path": "data/reference/bench/step/profile.csv",
-      "size": 2428,
-      "sha256": "015051ea59ae497600373807a1ea161ee3d37b9ffe52d58a89c55d96ae659c11"
-    },
-    {
-      "path": "data/reference/bench/step/scan_report.json",
-      "size": 1113,
-      "sha256": "34cbb7e7fb1d4807aabe70b42808b740c3ebb85d80d2c23eae28f10002a9b5c4"
-    },
-    {
-      "path": "data/reference/bench/summary.csv",
-      "size": 432,
-      "sha256": "8f0d917899b718c77d8afde2b2ec42e26ae4c89698620a453037feda348524c3"
-    },
-    {
-      "path": "data/reference/bench/summary.json",
-      "size": 1227,
-      "sha256": "4a9b526e5a3df8b496d89e5a1ae8fd223e3d8c6d9fc08028ec542792722c3730"
-    },
-    {
       "path": "LICENSE",
       "size": 1065,
       "sha256": "15e36df7eabfa3cffa45de3b50bc476cfb02216016708cf583a6836a9bf28a97"
     },
     {
       "path": "README.md",
-      "size": 10727,
-      "sha256": "40062ed6f2ca74130fc5b2ca944e512d00a1f6c3329b5d402eb464e458526f78"
+      "size": 10459,
+      "sha256": "03bfe234216950e1685bf612e84e599734a6123ca8fb2d92d8b62ff4db8cc00c"
     },
     {
       "path": "report/01_design_report.md",
-      "size": 41281,
-      "sha256": "012280ddfe74de1789bb05fa7aed7e942fedc2437ca186a31de589f0729aff3a"
+      "size": 39588,
+      "sha256": "304b3f14ddc39780d8466ff950655535277cff62562c024dce6a776dca1af101"
     },
     {
       "path": "report/02_technical_document.md",
-      "size": 20556,
-      "sha256": "933aec7a288c93c335278aafd78d8298514b9df3e55f2bc36c963436cfc31648"
+      "size": 19794,
+      "sha256": "4102f7b17a292182ff624cacac3ec05a223d78fcc66883a121e9df4afa4715e3"
     },
     {
       "path": "report/03_skill_extraction.md",
-      "size": 10568,
-      "sha256": "58e5ebc0204e531f251d609e8dcad9cc21f071fd1ceb41edc637b32eefaae98e"
+      "size": 10455,
+      "sha256": "04bac58919dd8df5687290b8f01cc4b9bbe253fb2609e6c2960a491b2b982c8d"
     },
     {
       "path": "report/04_reproduction.md",
-      "size": 10955,
-      "sha256": "83c2ff70e74bf4545fe9adfab8d92b4f190fb289d2312cd91ec9f3c5889ceca3"
+      "size": 9766,
+      "sha256": "57688b064b533dac70bf6b362f972787f865cb0181d3d849e4f72fb077211ccc"
     },
     {
       "path": "report/05_evidence_index.md",
-      "size": 10011,
-      "sha256": "df322f09cbb8fc036babb8b2b15392c953b028c33b98e326dfae5bc55253d34c"
+      "size": 9535,
+      "sha256": "e4e02000bb8cd5c4f59e7d76fa9cd8f8c7c2822f4df0b9ba63551bbb6acfd34a"
     },
     {
       "path": "report/06_submission_checklist.md",
@@ -826,8 +686,8 @@
     },
     {
       "path": "report/07_llm_collaboration.md",
-      "size": 19679,
-      "sha256": "c6cc2ee7a43086d19414143011e418e5bfd7308b87fb965367e2f5075ba61885"
+      "size": 19666,
+      "sha256": "386a62e7799b1ba21b44fc8ecc4af7f9288ea30310239d53396e5cd394c791ab"
     },
     {
       "path": "report/assets/concept_hand_pose.png",
@@ -873,11 +733,6 @@
       "path": "report/assets/fig_real_model.png",
       "size": 264211,
       "sha256": "b79ac3526c246bfb1e944368d2727ced26e23e9b91a1138f7f5252ddfa5136d5"
-    },
-    {
-      "path": "report/assets/fig_residual.png",
-      "size": 61700,
-      "sha256": "0d661abbd54142b38ffce1307bcdcc37073857e560560bb3206fb2a75ce58c32"
     },
     {
       "path": "report/assets/fig_resources.png",
@@ -1126,8 +981,8 @@
     },
     {
       "path": "skill/02_evidence_review/SKILL.md",
-      "size": 4240,
-      "sha256": "8b4c6952617d3dfc6d5887b33314bc9c24e99b02a11ecea021eccce6e90e75b3"
+      "size": 4250,
+      "sha256": "3a16fa9694d4fd19e363ae62536fdc4d67fd6e6f5eb7dcd018550e310f36cd77"
     },
     {
       "path": "skill/03_procurement_search/agents/openai.yaml",
@@ -1166,8 +1021,8 @@
     },
     {
       "path": "skill/09_scanning_3d_reconstruction/SKILL.md",
-      "size": 5158,
-      "sha256": "c785cd934d81ad48c7c6c518446719d0104149a89e9651227ea78679f278d3b6"
+      "size": 4969,
+      "sha256": "c4ad7c82f8eb3f4be1ace9a4b892769b4f2edf59efb7361b514c7de30479eb9e"
     },
     {
       "path": "skill/README.md",
@@ -1195,19 +1050,9 @@
       "sha256": "b438ca7cdb4da82c482fc11fd7fd5e7771e813f70c440c028e24685d2f6bfb0e"
     },
     {
-      "path": "src/host/anomaly/run_anomaly.py",
-      "size": 10725,
-      "sha256": "9670fc02174901c218aec516b09489971912832c6d8ed00e7d92ee2508aba199"
-    },
-    {
       "path": "src/host/auto_measure.py",
       "size": 15840,
       "sha256": "f52a3089a36022037aa01739b0228f718d789cd0d5369e58676b2da7e5dd1bd2"
-    },
-    {
-      "path": "src/host/bench/run_bench.py",
-      "size": 8893,
-      "sha256": "92f0ad24f5516264d782a36533e1aeb88a53ef538525942a3b6fe763715cbc22"
     },
     {
       "path": "src/host/live_page.html",
@@ -1236,8 +1081,8 @@
     },
     {
       "path": "src/host/README.md",
-      "size": 1830,
-      "sha256": "b4219a56292bae2f37c8d11c2582ee83785b3d8af3f74d1019c609db73ba7961"
+      "size": 1644,
+      "sha256": "134a872422d86102e07fe449bfd6397aa8db52615d73462fafe580ae767c3301"
     },
     {
       "path": "src/host/run_scan.py",
@@ -1266,8 +1111,8 @@
     },
     {
       "path": "src/host/tools/continuous_scan.py",
-      "size": 19167,
-      "sha256": "78b0fc0df87a6f1993f5c7b21a157ed855bab9990b312bad37323ca3507c19eb"
+      "size": 19132,
+      "sha256": "c687c02fe1b057adef39ca7299ae2d8b7b9a1ca280956fe62c0c898e9275478e"
     },
     {
       "path": "src/host/tools/dsp_hw_compare.py",
@@ -1356,13 +1201,13 @@
     },
     {
       "path": "src/host/viewer/README.md",
-      "size": 4467,
-      "sha256": "463417fb081703209443f34a4bd1809cc9f12b29a8eeab3239003a197b1c3685"
+      "size": 4464,
+      "sha256": "79eb5349187db41a1a0be514ab612e61047c9c440cec9e8e77ca9e98d422dddc"
     },
     {
       "path": "src/host/viewer/server.py",
-      "size": 12938,
-      "sha256": "0792f1c9ba07de259b316729676b957b779bf542837056a4acd10dd13308201f"
+      "size": 12798,
+      "sha256": "1a963bd784c4d7dd58c43324c55208ca0b70be74f0d7fccce951dc0aac76f454"
     },
     {
       "path": "src/host/viewer/tests/test_dom.js",
@@ -1501,8 +1346,8 @@
     },
     {
       "path": "src/README.md",
-      "size": 3807,
-      "sha256": "b7b77701be833f3f44be01d3a85330a6dae9b9896d4f561032fcae710deb8cd0"
+      "size": 3692,
+      "sha256": "d2e60f7b3041e6fb30331cb6fc258ebbb3dc86a2048e4fd4876bbf64d482a2f3"
     },
     {
       "path": "src/rtl/acq_axi_regs.v",
@@ -1631,8 +1476,8 @@
     },
     {
       "path": "verify_package.py",
-      "size": 7062,
-      "sha256": "230b333386353b585e8d2eeffd754999d29e8c8b104b5321ada17186a8c67fed"
+      "size": 7054,
+      "sha256": "10923eb5a9839188e16580d5543b0095964ea1520abf4f68bae9a20e39dc530d"
     }
   ]
 }

@@ -30,7 +30,7 @@
 | `fpga_capture_bringup` | 新板“能出 CSV 但全是 0/常量”；`build_m3.log` 不生成；引脚 diff 静默通过 | 采样沿/时钟相位错；`-nolog` 压掉 `-log`；正则不匹配 | 有效样本 819、`diff` 逐行一致、OTR 0；WNS 1.399、168→170 只多 T10/T11 | 只证数字链路与构建，不证声学 |
 | `rtl_dsp_pipeline` | 板上 40 位字与参考对不上；网口时通时不通 | `active` 从不清零，`sid` 回绕后反复锁存；GIC 投递不确定 | 四轮 `MATCH: True`、帧后 66,000 样本 `STROBES=1`、90.9 fps、`missed=0` | 逐位 ≠ 声学准确；不覆盖 >1 kHz/大 payload |
 | `sensor_fusion_ui` | 姿态字整体右移 8 位；716.6 Hz 而非 1 kHz | `err_cnt` 8 位零扩展；旧排程叠加 I2C 时间 | 130 向量逐位、716.6 Hz、65 次错误自恢复 | 不证姿态精度 |
-| `scanning_3d_reconstruction` | 24 点环每层少 14.34°；10 mm 凸起无签名；8/8 只是仿真 | 23×171=3933≠4096；10 µs 窗太窄；连续性滤波删缺陷 | 三层 72/71、六层 141/131；σ 0.45 mm；8/8、0 误报 | 只适轴对称；仿真 ≠ 实测 |
+| `scanning_3d_reconstruction` | 24 点环每层少 14.34°；10 mm 凸起无签名 | 23×171=3933≠4096；10 µs 窗太窄；连续性滤波删缺陷 | 三层 72/71、六层 141/131；σ 0.45 mm | 只适轴对称；仿真 ≠ 实测 |
 | `evidence_review` | 报告初稿三句“漂亮话” | 把目标/仿真/单帧当成实测/整机 | 红队逐条删改、单一事实源 | 只约束表述，不产生数据 |
 | `fpga_contest_helper` | 新项目启动、认板、CDC、时序、交付 | 工作区已有通用竞赛流程，未与本队绑定 | 5 个 references + 分阶段判据 | 具体厂商/杯赛规则以当年原文为准 |
 | `pynq_overlay_io` | 换题/换板需要通用 overlay 流程 | 本队用裸机，PYNQ API 未在本板执行 | AXI ID/scratch/连续帧的等价验收 | 明确标注未执行部分 |
@@ -96,8 +96,7 @@
 把技能里的步骤在一份**已知结果**的数据上重跑，看是否得到同样的数字/判据。例如：
 
 - `rtl_dsp_pipeline`：用 `sim/vectors/samples.hex` 重跑 tb，应得到 `0x80011B07E0`、`STROBES=1`；
-- `scanning_3d_reconstruction`：用 `data/reference/bench/` 重跑 `run_bench.py`，应得到 MAE 0.189 mm；
-- `scanning_3d_reconstruction`：重跑 `run_anomaly.py`，应得到 8/8、0 误报。
+- `fpga_capture_bringup`：用 `build/io_pin_diff.tcl` 重跑引脚比对，应解析出 170 个引脚而不是空表。
 
 ### 4.2 负例验证
 

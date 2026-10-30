@@ -1,5 +1,0 @@
-shape,gt,detected,matched,missed,false_positive_bins,noise_floor_mm,center_err_max_mm,az_err_max_deg,height_err_max_mm
-cylinder,2,2,2,0,0,0.0436,0.1,1.5,0.057
-cone1,2,2,2,0,0,0.043,0.27,0.4,0.051
-cone2,2,2,2,0,0,0.0429,0.21,0.1,0.056
-step,2,2,2,0,0,0.0436,0.77,1.2,0.023

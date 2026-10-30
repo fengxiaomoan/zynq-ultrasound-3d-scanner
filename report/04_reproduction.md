@@ -6,7 +6,7 @@
 
 | 类型 | 需要什么 | 能复现什么 |
 |---|---|---|
-| A. 纯软件 | Python 3.12+ | 四件数字体模、异常检测、报告插图 |
+| A. 纯软件 | Python 3.12+ | 全流程仿真、报告插图 |
 | B. 仿真 | Vivado 2025.1 | 峰值 DSP、AXI 帧/姿态、F1 姿态三组 tb |
 | C. 上板 | Zynq-7020 板 + ADC/探头/电机/水槽 | 90.9 fps 采集、三层/六层模型、姿态联动 |
 
@@ -22,7 +22,7 @@
 |---|---|---|
 | Vivado | 2025.1（Build 6140274） | 综合/实现/仿真/xsdb |
 | Vitis | 2025.1 | PS BSP/固件（可选，包内已有 ELF/BIN） |
-| Python | 3.12+（本项目验证 3.12.14 / 3.14.7） | 主机算法、体模、报告图 |
+| Python | 3.12+（本项目验证 3.12.14 / 3.14.7） | 主机算法、报告图 |
 | Node.js | 18+ | 页面离线冒烟（可选） |
 | PowerShell | 7 或 5.1 | 脚本入口 |
 
@@ -62,43 +62,7 @@ $env:MPLBACKEND='Agg'
 
 ## 1. 纯软件复现（10 分钟，不需要板子）
 
-### 1.1 四件数字体模
-
-```powershell
-cd <package>
-python src\host\bench\run_bench.py
-```
-
-期望输出：
-
-```
-cylinder  points=4096 accepted=4017 layers=64/64 MAE=0.189 mm  max=0.205 mm
-cone1     points=4096 accepted=4017 layers=64/64 MAE=0.190 mm  max=0.206 mm
-cone2     points=4096 accepted=4017 layers=64/64 MAE=0.190 mm  max=0.202 mm
-step      points=4096 accepted=3894 layers=62/64 MAE=0.189 mm  max=0.201 mm
-written -> build/output/bench
-```
-
-产物在 `build/output/bench/<shape>/`：`profile.csv`、`error_table.csv`、`points.csv`、`mesh.ply`、`scan_report.json`。每个文件头都带 `synthetic`，不要当实测。
-
-### 1.2 异常检测
-
-```powershell
-python src\host\anomaly\run_anomaly.py
-```
-
-期望：
-
-```
-cylinder  gt=2 detected=2 matched=2 missed=0 fp_bins=0 noise=0.044 mm
-cone1     gt=2 detected=2 matched=2 missed=0 fp_bins=0 noise=0.043 mm
-cone2     gt=2 detected=2 matched=2 missed=0 fp_bins=0 noise=0.043 mm
-step      gt=2 detected=2 matched=2 missed=0 fp_bins=0 noise=0.044 mm
-```
-
-产物在 `build/output/anomaly/`，含 `summary.csv/json` 与每个形状的 `residual.png`。
-
-### 1.3 报告插图
+### 1.1 报告插图
 
 ```powershell
 python report\assets\make_figures.py
@@ -106,7 +70,7 @@ python report\assets\make_figures.py
 
 会重新生成 `report/assets/fig_*.png`。需要 `Microsoft YaHei` 或 `SimHei` 字体（Windows 自带）。
 
-### 1.4 全流程仿真（108 点）
+### 1.2 全流程仿真（108 点）
 
 ```powershell
 python src\host\run_workflow.py simulate --out build\output\sim_full
@@ -335,7 +299,7 @@ python src\host\run_workflow.py axisym --object cylinder --out <out>
 4. 连通域聚类，输出中心/高度/面积；
 5. 用游标卡尺或 3D 打印真值核对。
 
-完整流程见演示视频；本文表格中的 8/8 是数字体模结果。真实 10 mm 凸起在旧 10 µs 窗下无签名，说明窗和阈值都要按实测重定。
+完整流程见演示视频；真实 10 mm 凸起在旧 10 µs 窗下无签名，说明窗和阈值都要按实测重定。
 
 ---
 

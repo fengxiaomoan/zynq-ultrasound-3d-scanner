@@ -13,8 +13,6 @@
 | `auto_measure.py` | 批量测量 |
 | `sim_scan.py` | 无板仿真扫描 |
 | `make_report_page.py` | 生成自包含 HTML 报告 |
-| `bench/run_bench.py` | 四件数字体模基准 |
-| `anomaly/run_anomaly.py` | 残差 + 连通域异常检测 |
 | `tools/` | 最终链路工具：DSP 参考、硬件比对、稳健扫描、建模等 |
 | `viewer/` | MPU6050 姿态驱动网页（WebGL，纯标准库） |
 | `live_view.py` + `live_page.html` | 边扫边看：tail 采集目录并增量显示 |
@@ -32,8 +30,6 @@ python -m unittest tests.test_workflow -v
 
 ```powershell
 $env:PYTHONPATH = "src\host"
-python src\host\bench\run_bench.py
-python src\host\anomaly\run_anomaly.py
 python src\host\viewer\server.py --port 8780
 python src\host\live_view.py --run <采集目录> --port 8770
 ```
@@ -43,6 +39,6 @@ python src\host\live_view.py --run <采集目录> --port 8770
 
 ## 4. 边界
 
-- `viewer/` 的模型来自 `data/reference/bench/`，全部是数字体模，页面已标注；
+- `viewer/` 的模型来自 `data/demo/models/`，是四个合成演示模型，页面已标注；
 - 实时姿态链路见 `src/rtl/f1/` 与 `sim/tb/tb_f1.sv`；
 - 一次性分析脚本没有放进 `tools/`，以免与最终实现混淆。

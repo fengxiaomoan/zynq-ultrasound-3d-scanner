@@ -19,7 +19,7 @@ What it does
    ILA: median envelope -> window centroid), plus a MAD-based scatter;
 4. apply the same 3-cell circular continuity, the same nominal-14 mm t_eff
    anchor and the same ``points.csv`` schema as robust_scan, so
-   ``tools/scan_diff.py`` and ``anomaly/run_anomaly_real.py`` work unchanged.
+   ``tools/scan_diff.py`` works unchanged.
 
     # a continuous run (DSP path, after C1 is on the board)
     python tools/continuous_scan.py --run live_run/cont_std1 --out live_run/cont_std1_bin

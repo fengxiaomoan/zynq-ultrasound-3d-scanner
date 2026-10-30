@@ -5,7 +5,7 @@ src/
 ├─ rtl/            # 可综合 RTL
 ├─ constraints/    # XDC
 ├─ ps/             # PS 裸机 C、lwIP 页面、构建
-└─ host/           # Python 主机：wscan、工具、体模、异常
+└─ host/           # Python 主机：wscan、工具、姿态网页
 ```
 
 ---
@@ -61,8 +61,6 @@ src/
 | `host/wscan/profile.py` | 扫描计划/窗口/参数 |
 | `host/wscan/report.py` | `REPORT.md` + 自包含 `index.html` |
 | `host/run_workflow.py` | CLI：plan/simulate/axisym/ingest |
-| `host/bench/run_bench.py` | 四件数字体模 |
-| `host/anomaly/run_anomaly.py` | 残差 + 连通域聚类 |
 | `host/tools/dsp_ref.py` | 峰值 DSP 逐位参考模型 |
 | `host/tools/dsp_hw_compare.py` | 板端字 vs 参考同帧比对 |
 | `host/tools/robust_scan.py` | 每点多帧中值 + 方位中值 + 离群剔除 |

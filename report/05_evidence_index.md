@@ -5,7 +5,7 @@
 **等级**：
 
 - `real`：在本项目硬件上跑出来，有日志/JSON；
-- `sim`：RTL 仿真或数字体模；
+- `sim`：RTL 仿真或合成波形；
 - `static`：综合/实现/引脚/资源/代码常量；
 - `external`：工具/厂商文档。
 
@@ -100,16 +100,12 @@ python -c "import json;d=json.load(open('data/real/_m2b_std_repeat_20261027_1718
 
 ---
 
-## 5. 数字体模与异常检测
+## 5. 演示与合成数据
 
 | 结论 | 等级 | 文件 | 怎么复核 |
 |---|---|---|---|
-| 四件 4096 点、MAE 0.189 mm | sim | `data/reference/bench/summary.json` | 重跑 `src/host/bench/run_bench.py` |
-| 圆柱 6048 面、台阶 5856 面 | sim | 同上 | `triangles` |
-| 8/8 命中、0 误报 | sim | `data/reference/anomaly/summary.json` | 重跑 `src/host/anomaly/run_anomaly.py` |
-| 中心误差 ≤0.77 mm、方位 ≤1.5° | sim | 同上 | 字段 |
-| 噪声底 0.043 mm | sim | 同上 | `noise_floor_mm` |
-| 108 点/576 面/0.035 mm | sim | `data/reference/bench/` + 工作流输出 | 重跑 `run_workflow.py axisym` |
+| 108 点/576 面/0.035 mm | sim | 工作流输出 | 重跑 `run_workflow.py axisym` |
+| 4096 点演示点云 | sim | `data/demo/points_*.jsonl` | 读文件头 provenance |
 
 **注意**：这些是 `synthetic`，不是实测声学；真实凸起的量化结果见演示视频。
 
@@ -154,8 +150,8 @@ Select-String -Path build\reports\m3_utilization.rpt -Pattern 'Slice LUTs|Slice 
 |---|---|---|
 | “1 kHz 姿态” | 实测 716.6 Hz | “716.6 Hz 采样，20 Hz 页面” |
 | “整机 190×” | 171–202× 是单帧回读；整机受电机限制约 3.3 s→2.3 s | “单帧回读 171–202×，整机约 30%” |
-| “检出 8 mm 缺陷” | 8/8 是仿真凸起；真实 10 mm 凸起旧窗无签名 | “仿真 8/8，真实待验证” |
-| “精度 0.19 mm” | 0.19 mm 是含 +0.25 µs 偏置的体模 MAE | “数字体模 MAE 0.189 mm” |
+| “检出 8 mm 缺陷” | 实物 10 mm 凸起在旧窗下无签名，检出未定量 | “真实凸起待定量” |
+| “精度 0.19 mm” | 未做绝对尺寸标定 | “相对半径，未标定” |
 | “绝对半径 14.0 mm” | 锚定名义 Ø28，未做平板标定 | “相对半径约 14.0 mm” |
 | “20:14 位流已复测” | 只改了排程，未上板 | “18:51 版测 716.6 Hz；20:14 未复测” |
 | “临床可用” | 水槽/仿体原理验证 | “原理验证平台，非临床设备” |
@@ -182,12 +178,10 @@ Select-String -Path build\reports\m3_utilization.rpt -Pattern 'Slice LUTs|Slice 
 
 ```powershell
 cd <package>
-python src\host\bench\run_bench.py
-python src\host\anomaly\run_anomaly.py
 pwsh -File sim\run_sim.ps1
 pwsh -File sim\run_axi_tb.ps1
 pwsh -File sim\run_f1_sim.ps1
 Get-FileHash -Algorithm SHA256 board\bitstream\ps_m3_system_wrapper.bit
 ```
 
-五条命令对应“体模、异常、DSP、AXI、姿态”五个门；全部通过，再谈上板。
+四条命令对应“DSP、AXI、姿态、位流哈希”四个门；全部通过，再谈上板。

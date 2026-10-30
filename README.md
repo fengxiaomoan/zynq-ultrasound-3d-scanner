@@ -29,9 +29,8 @@
 | PL 自主触发，PS 连续读不丢帧 | **90.84–91.05 fps**，30 s `missed=0` | `data/real/_m2b_ps_rate.log` |
 | 真实三维侧壁 | 三层 **72 格/71 有效，144 顶点/192 面**；六层 **141/131，288/480** | `data/real/_m2b_3layer_signed.json`、`_m2b_6layer.json` |
 | 姿态跟手 | **716.6 Hz** 采样，页面 20 Hz，手转模型同步 | `data/real/f1_pose_samples.txt` |
-| 数字体模 + 异常检测 | 四件 4096 点，MAE **0.189 mm**；8 个凸起 **8/8、0 误报** | `data/reference/bench/`、`data/reference/anomaly/` |
 
-> 真实四件全高度扫描、真实凸起检出的完整流程见演示视频；本文的量化表仍以已留证据的三层/六层与数字体模为主，绝对尺寸未标定。详见 §7。
+> 真实四件全高度扫描、真实凸起检出的完整流程见演示视频；本文的量化表以已留证据的三层/六层实测为主，绝对尺寸未标定。详见 §7。
 
 ---
 
@@ -43,14 +42,11 @@ python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 $env:PYTHONIOENCODING='utf-8'
 
-# 四件数字体模：应输出 MAE 0.189–0.190 mm
-python src\host\bench\run_bench.py
-
-# 异常检测：应输出 8/8、0 误报
-python src\host\anomaly\run_anomaly.py
-
 # 报告插图（需要中文字体）
 python report\assets\make_figures.py
+
+# 姿态网页（用演示位姿，不需要板子）
+python src\host\viewer\server.py --port 8780
 ```
 
 有 Vivado 2025.1 的话，再跑三组仿真：
@@ -76,7 +72,7 @@ ultrasound_3d_scanner/
 │  ├─ rtl/                   # 采集核、峰值/质心 DSP、电机、姿态、AXI、顶层
 │  ├─ constraints/           # XDC（含 T10/T11 I2C）
 │  ├─ ps/                    # PS 裸机 C、lwIP 页面、构建脚本
-│  └─ host/                  # Python 主机：wscan、工具、体模、异常
+│  └─ host/                  # Python 主机：wscan、工具、姿态网页
 ├─ sim/
 │  ├─ tb/                    # 峰值 DSP、AXI 帧/姿态、F1 三组 tb
 │  ├─ vectors/               # 真实帧 CSV、样本、姿态向量
@@ -95,8 +91,7 @@ ultrasound_3d_scanner/
 │  └─ logs/                  # 板上实测日志
 ├─ data/
 │  ├─ real/                  # 真实测量：帧率、模型、重复性、姿态
-│  ├─ reference/             # 体模/异常参考结果
-│  ├─ demo/                  # 4096 点演示与旧版全流程视频
+│  ├─ demo/                  # 4096 点演示、演示模型与全流程视频
 │  └─ figures/               # 报告/视频可复用图
 ├─ skill/                    # 9 个技能包 + README
 ├─ submission/               # 提交暂存：技术文档/图片/关键词
@@ -142,7 +137,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 |---|---|---|
 | `real` | 在本项目硬件上跑出来，有日志/JSON | 90.9 fps、2.6 ms 回读、三层模型 |
 | `RTL-sim` | xsim 与参考模型逐位比对 | `0x8005A30849 == ref` |
-| `synthetic` | 数字体模/合成波形 | MAE 0.189 mm、8/8 异常 |
+| `synthetic` | 合成波形、演示点云 | 演示片中的 4096 点点云 |
 | `static` | 综合/实现/引脚/资源/代码常量 | 6,921 LUT、WNS 1.399 ns |
 
 逐条映射见 [`report/05_evidence_index.md`](report/05_evidence_index.md)。**不要把 `synthetic` 写成“实测”。**
@@ -152,7 +147,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 ## 7. 已知限制（如实写）
 
 - 真实四件（圆柱/两种锥台/台阶轴）的**完整扫描流程见演示视频**；本文的量化模型以圆柱三层/六层为主。
-- **真实凸起检出的量化结果见演示视频**；8/8 是数字体模，不能替代真实声学。旧 10 µs 窗对 10 mm 凸起无签名，窗和阈值要按实测重定。
+- **真实凸起检出的量化结果见演示视频**；演示片中的凸起场景为合成数据，不能替代真实声学。旧 10 µs 窗对 10 mm 凸起无签名，窗和阈值要按实测重定。
 - **绝对尺寸未标定**；半径锚定名义 Ø28，只能比较差异。
 - 随包 M3 位流是 20:14 重建版（6,921 LUT，WNS 1.399）；**716.6 Hz 是在 18:51 同源构建上测的**，20:14 版未复测。
 - 环形缓冲 8192 帧，按层扩容前大约支持 8 层。
@@ -201,4 +196,4 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 比赛要求的全部材料与对照关系见 [`report/06_submission_checklist.md`](report/06_submission_checklist.md)。
 
-> 如果只读一个文件，读 `report/01_design_report.md`；如果只跑一个命令，跑 `python src\host\bench\run_bench.py`。
+> 如果只读一个文件，读 `report/01_design_report.md`；如果想先确认仓库完整性，跑 `python verify_package.py`。

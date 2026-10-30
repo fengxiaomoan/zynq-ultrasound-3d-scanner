@@ -35,7 +35,7 @@ REQUIRED = [
     "board/bitstream/ps_m3_system_wrapper.bit", "board/xsa/ps_m3.xsa",
     "board/firmware/m2b_ps.bin",
     "data/real/_m2b_3layer_signed.json", "data/real/_m2b_6layer.json",
-    "data/reference/bench/summary.json", "data/reference/anomaly/summary.json",
+    "data/demo/models/cylinder.ply", "data/demo/points_cylinder.jsonl",
     "skill/README.md", "skill/05_fpga_capture_bringup/SKILL.md",
     "skill/06_rtl_dsp_pipeline/SKILL.md", "skill/04_mechanical_design_to_print/SKILL.md",
     "report/01_design_report.md", "report/02_technical_document.md",

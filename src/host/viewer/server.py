@@ -31,24 +31,24 @@ HERE = Path(__file__).resolve().parent
 
 MODELS = {
     "cylinder": {
-        "path": ROOT / "data/reference/bench/cylinder/mesh.ply",
-        "report": ROOT / "data/reference/bench/cylinder/scan_report.json",
-        "label": "圆柱 Ø28（数字体模）",
+        "path": ROOT / "data/demo/models/cylinder.ply",
+        "label": "圆柱 Ø28（演示模型）",
+        "provenance": "synthetic_demo",
     },
     "cone1": {
-        "path": ROOT / "data/reference/bench/cone1/mesh.ply",
-        "report": ROOT / "data/reference/bench/cone1/scan_report.json",
-        "label": "圆锥 Ø32→Ø16（数字体模）",
+        "path": ROOT / "data/demo/models/cone1.ply",
+        "label": "圆锥 Ø32→Ø16（演示模型）",
+        "provenance": "synthetic_demo",
     },
     "cone2": {
-        "path": ROOT / "data/reference/bench/cone2/mesh.ply",
-        "report": ROOT / "data/reference/bench/cone2/scan_report.json",
-        "label": "圆锥 Ø32→Ø28（数字体模）",
+        "path": ROOT / "data/demo/models/cone2.ply",
+        "label": "圆锥 Ø32→Ø28（演示模型）",
+        "provenance": "synthetic_demo",
     },
     "step": {
-        "path": ROOT / "data/reference/bench/step/mesh.ply",
-        "report": ROOT / "data/reference/bench/step/scan_report.json",
-        "label": "台阶轴 Ø28→Ø18（数字体模）",
+        "path": ROOT / "data/demo/models/step.ply",
+        "label": "台阶轴 Ø28→Ø18（演示模型）",
+        "provenance": "synthetic_demo",
     },
 }
 
@@ -189,7 +189,7 @@ def build_model(name: str) -> dict:
         except Exception:
             report = {}
 
-    provenance = report.get("provenance", "unknown")
+    provenance = spec.get("provenance") or report.get("provenance", "unknown")
     limits = report.get("limits", [])
     label = spec["label"]
     if report.get("label"):
