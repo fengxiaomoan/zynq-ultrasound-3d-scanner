@@ -11,7 +11,7 @@
 | `07_llm_collaboration.md` | 大模型协作：工作流、提示词、8 个案例、纠错、反思 | 协作记录 |
 | `export/design_report.pdf` | 设计报告 PDF（由 `01` 生成，22 页） | 导出件 |
 | `export/design_report.docx` | 可编辑 Word 版设计报告 | 导出件 |
-| `export/technical_document.pdf` | 技术文档 PDF（18 页） | 导出件 |
+| `export/technical_document.pdf` | 技术文档 PDF（17 页） | 导出件 |
 | `export/technical_document.docx` | 可编辑 Word 版技术文档 | 导出件 |
 | `export/build_docx.py` | Markdown → DOCX 生成脚本（设计报告） | 生成脚本 |
 | `export/build_technical_docx.py` | Markdown → DOCX 生成脚本（技术文档） | 生成脚本 |

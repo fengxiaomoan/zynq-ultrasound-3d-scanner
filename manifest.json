@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 286,
-  "total_bytes": 71509982,
+  "total_bytes": 76948113,
   "files": [
     {
       "path": ".gitignore",
@@ -617,7 +617,7 @@
     {
       "path": "report/02_technical_document.md",
       "size": 19698,
-      "sha256": "60357e2c4f9a1b57a9b7ad592ff4a160ee1982e6285c7401ea6b6e8f15d78bea"
+      "sha256": "470c7632e51e90affbc3a005aebb64a11a5a375c86e511e1380d0edabb7b6522"
     },
     {
       "path": "report/03_skill_extraction.md",
@@ -761,18 +761,18 @@
     },
     {
       "path": "report/export/technical_document.docx",
-      "size": 15028665,
-      "sha256": "0ed3492605a01519cd0b75ed8fecd4054291b278b9cbaec845a7b0c1b7220cd7"
+      "size": 15168716,
+      "sha256": "5c1742c22ae28192771e3752568859d478d61613bdb755c4b4b3805a370e2521"
     },
     {
       "path": "report/export/technical_document.pdf",
-      "size": 2441595,
-      "sha256": "b612447b93a3bf12b7ed65ebb30f7f2a73d847f6d4af20d904757ab4cf704075"
+      "size": 5090635,
+      "sha256": "1baa0ba6b6f86bca82bd6b17e36acf75feb52056c6442c5cf8d4652a94fb8b79"
     },
     {
       "path": "report/README.md",
       "size": 2538,
-      "sha256": "34fd9262058e66991f806ed275b8b6578b06af92df3b5cb7c0b94b8a5614f587"
+      "sha256": "7fd2b1891e119c2924a4b8eafc687397e72f823f9054bdd0f245e3725de76e55"
     },
     {
       "path": "requirements.txt",
@@ -1422,12 +1422,12 @@
     {
       "path": "submission/README.md",
       "size": 1519,
-      "sha256": "68914aeb62af587d2bd088dd0701b6da8ad240d66a9194ddb9c937a4cadf59f5"
+      "sha256": "658de2e6f71239a0c7e77e65b7e496505142e2a5da38ea7648978cb14f5f0810"
     },
     {
       "path": "submission/technical_document.pdf",
-      "size": 2441595,
-      "sha256": "b612447b93a3bf12b7ed65ebb30f7f2a73d847f6d4af20d904757ab4cf704075"
+      "size": 5090635,
+      "sha256": "1baa0ba6b6f86bca82bd6b17e36acf75feb52056c6442c5cf8d4652a94fb8b79"
     },
     {
       "path": "verify_package.py",

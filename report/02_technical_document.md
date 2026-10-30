@@ -1,6 +1,6 @@
 # 超声扫描三维建模与异常检测系统
 
-> **最终版说明**：本文件是早期 Markdown 草稿，最终提交版为 `report/export/technical_document.docx` / `.pdf`（18 页，含表 3-1、图 3-1~3-8、9 篇参考文献）。不要用本文件重新生成 DOCX，否则会覆盖最终版。
+> **最终版说明**：本文件是早期 Markdown 草稿，最终提交版为 `report/export/technical_document.docx` / `.pdf`（17 页，含表 3-1、图 3-1~3-8、9 篇参考文献）。不要用本文件重新生成 DOCX，否则会覆盖最终版。
 
 **技术文档**
 
