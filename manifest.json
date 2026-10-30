@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 295,
-  "total_bytes": 131258535,
+  "total_bytes": 131253998,
   "files": [
     {
       "path": ".gitignore",
@@ -656,8 +656,8 @@
     },
     {
       "path": "report/01_design_report.md",
-      "size": 39588,
-      "sha256": "304b3f14ddc39780d8466ff950655535277cff62562c024dce6a776dca1af101"
+      "size": 39532,
+      "sha256": "38a3c7a81bd7710f406f44e4b978b17af5e0dceb7114c3bb80d284695ec7c964"
     },
     {
       "path": "report/02_technical_document.md",
@@ -796,23 +796,23 @@
     },
     {
       "path": "report/export/design_report.docx",
-      "size": 10214236,
-      "sha256": "eac8c290a62a515204fcbb7ebbe44e1efc64c81f3b6dc7b71953fb7382049fe4"
+      "size": 10214199,
+      "sha256": "37c62c1bd032e42e4daa2d99670b08765ac08c3e5ef754662efd1e7b3ea2c745"
     },
     {
       "path": "report/export/design_report.pdf",
-      "size": 1690968,
-      "sha256": "f82d2b2da825b37397f6219a2f82a7de21636e6ec9cec7d66eb1a0d401b9e0ac"
+      "size": 1690843,
+      "sha256": "fe64fd3ca65a777d7d15e7eb13771ab87ec1445f08b3ebda011e8e2b898c8968"
     },
     {
       "path": "report/export/technical_document.docx",
-      "size": 13809582,
-      "sha256": "678f6a59e7d3dbf54dcfb30e35314f6889972ca73e763a10d89cf63360121204"
+      "size": 13809498,
+      "sha256": "c7be90a04d7942eac253bd86d4f7904ecfc523178ecb28941c8d1d23b1406766"
     },
     {
       "path": "report/export/technical_document.pdf",
-      "size": 2155992,
-      "sha256": "c3379b59493f204773279b23b4a5016624dd966634cb7e77137ec23fbd28c121"
+      "size": 2153937,
+      "sha256": "d63c14190cf4662f82dab02cd39643317fed64d01edff0dbadf7a6689f20731a"
     },
     {
       "path": "report/README.md",
@@ -1456,8 +1456,8 @@
     },
     {
       "path": "submission/design_report_optional.pdf",
-      "size": 1690968,
-      "sha256": "f82d2b2da825b37397f6219a2f82a7de21636e6ec9cec7d66eb1a0d401b9e0ac"
+      "size": 1690843,
+      "sha256": "fe64fd3ca65a777d7d15e7eb13771ab87ec1445f08b3ebda011e8e2b898c8968"
     },
     {
       "path": "submission/keywords.txt",
@@ -1471,8 +1471,8 @@
     },
     {
       "path": "submission/technical_document.pdf",
-      "size": 2155992,
-      "sha256": "c3379b59493f204773279b23b4a5016624dd966634cb7e77137ec23fbd28c121"
+      "size": 2153937,
+      "sha256": "d63c14190cf4662f82dab02cd39643317fed64d01edff0dbadf7a6689f20731a"
     },
     {
       "path": "verify_package.py",
