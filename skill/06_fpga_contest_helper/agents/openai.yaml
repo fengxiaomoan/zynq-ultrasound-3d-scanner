@@ -1,0 +1,4 @@
+interface:
+  display_name: "FPGA 嵌赛助手"
+  short_description: "用于 FPGA 嵌赛的需求拆解、RTL 仿真、时序调试与板级交付"
+  default_prompt: "请使用 $fpga-contest-helper 读取项目现状，核对题目与板卡资料，并推进下一项可验证的 FPGA 工作。"

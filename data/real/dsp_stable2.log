@@ -1,0 +1,158 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sun Oct 25 20:52:33 2026
+# Process ID         : 22412
+# Current directory  : D:/daxue/FPGA/full_scan_workflow
+# Command line       : vivado.exe -mode batch -source D:\daxue\FPGA\full_scan_workflow\fpga\dsp_stability_test.tcl -log D:\daxue\FPGA\full_scan_workflow\live_run\dsp_stable2.log -journal D:\daxue\FPGA\full_scan_workflow\live_run\dsp_stable2.jou
+# Log file           : D:/daxue/FPGA/full_scan_workflow/live_run/dsp_stable2.log
+# Journal file       : D:\daxue\FPGA\full_scan_workflow\live_run\dsp_stable2.jou
+# Running On         : linzhiye
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16890 MB
+# Swap memory        : 26101 MB
+# Total Virtual      : 42991 MB
+# Available Virtual  : 7724 MB
+#-----------------------------------------------------------
+source {D:\daxue\FPGA\full_scan_workflow\fpga\dsp_stability_test.tcl}
+# set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
+# set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/dsp_stable"
+# file mkdir $OUT
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 501.801 ; gain = 214.184
+# connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2025.1
+  **** Build date : May  6 2025 at 09:15:36
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.1.0
+  ****** Build date   : May 14 2025-03:15:27
+    **** Build number : 2025.1.1747163727
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 501.801 ; gain = 0.000
+# current_hw_target [lindex [get_hw_targets -quiet] 0]
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+# set dev [lindex [get_hw_devices -quiet -filter {PART == xc7z020}] 0]
+# current_hw_device $dev
+# set_property PROGRAM.FILE [file join $BUILD merged_top.bit] $dev
+# set_property PROBES.FILE [file join $BUILD merged_top.ltx] $dev
+# program_hw_devices $dev
+INFO: [Labtools 27-3164] End of startup status: HIGH
+# refresh_hw_device $dev
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 2 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_2]
+# puts "PROGRAMMED"
+PROGRAMMED
+# proc vio_by_cell {dev cell} {
+#     foreach v [get_hw_vios -quiet -of_objects $dev] {
+#         if {[string match $cell [get_property CELL_NAME $v]]} { return $v }
+#     }
+#     return ""
+# }
+# proc probe {vio name} {
+#     set p [get_hw_probes -quiet -of_objects $vio -filter "NAME == $name"]
+#     if {[llength $p] != 1} { error "probe $name not found" }
+#     return $p
+# }
+# proc hex_to_bits {h} {
+#     set h [string toupper [string trim $h]]
+#     if {[string match 0x* $h]} { set h [string range $h 2 end] }
+#     set out ""
+#     foreach c [split $h ""] {
+#         switch -- $c {
+#             A {append out 1010} B {append out 1011} C {append out 1100}
+#             D {append out 1101} E {append out 1110} F {append out 1111}
+#             default {append out [format %04b [scan $c %d]]}
+#         }
+#     }
+#     return $out
+# }
+# proc bits_to_int {b} {
+#     set v 0
+#     foreach c [split $b ""] { set v [expr {$v * 2 + $c}] }
+#     return $v
+# }
+# proc field {bits first last} { return [bits_to_int [string range $bits $first $last]] }
+# set control [vio_by_cell $dev control]
+# set motors  [vio_by_cell $dev motors_vio]
+# set c_ctrl  [probe $control ctrl]
+# set p_live  [probe $control frame_count]
+# set peak_p  ""
+# foreach p [get_hw_probes -quiet -of_objects $motors] {
+#     if {[get_property WIDTH $p] == 40} { set peak_p $p }
+# }
+# if {$peak_p eq ""} { error "no 40-bit peak probe" }
+# proc sample_state {motors peak_p control p_live tag} {
+#     refresh_hw_vio $motors
+#     set b [hex_to_bits [string trim [get_property INPUT_VALUE $peak_p]]]
+#     while {[string length $b] < 40} { set b "0$b" }
+#     refresh_hw_vio $control
+#     set live [bits_to_int [hex_to_bits [string trim [get_property INPUT_VALUE $p_live]]]]
+#     puts [format "%s word=%s frame=%d idx=%d amp=%d live_frame=%d" $tag $b \
+#         [field $b 1 13] [field $b 14 23] [field $b 24 39] $live]
+# }
+# puts "--- before any pulse ---"
+--- before any pulse ---
+# for {set i 0} {$i < 3} {incr i} {
+#     after 500
+#     sample_state $motors $peak_p $control $p_live "PRE$i"
+# }
+PRE0 word=0000000000000000000000000000000000000000 frame=0 idx=0 amp=0 live_frame=0
+PRE1 word=0000000000000000000000000000000000000000 frame=0 idx=0 amp=0 live_frame=0
+PRE2 word=0000000000000000000000000000000000000000 frame=0 idx=0 amp=0 live_frame=0
+# puts "--- one pulse (ctrl=3 for 2 ms, then 0) ---"
+--- one pulse (ctrl=3 for 2 ms, then 0) ---
+# set_property OUTPUT_VALUE "3" $c_ctrl
+# commit_hw_vio $control
+# after 2
+# set_property OUTPUT_VALUE "0" $c_ctrl
+# commit_hw_vio $control
+# for {set i 0} {$i < 4} {incr i} {
+#     after 500
+#     sample_state $motors $peak_p $control $p_live "POST$i"
+# }
+POST0 word=1000000000000101101110000000011001111001 frame=1 idx=440 amp=1657 live_frame=1
+POST1 word=1000000000000101101110000000011001111001 frame=1 idx=440 amp=1657 live_frame=1
+POST2 word=1000000000000101101110000000011001111001 frame=1 idx=440 amp=1657 live_frame=1
+POST3 word=1000000000000101101110000000011001111001 frame=1 idx=440 amp=1657 live_frame=1
+# puts "--- second pulse ---"
+--- second pulse ---
+# set_property OUTPUT_VALUE "3" $c_ctrl
+# commit_hw_vio $control
+# after 2
+# set_property OUTPUT_VALUE "0" $c_ctrl
+# commit_hw_vio $control
+# for {set i 0} {$i < 3} {incr i} {
+#     after 500
+#     sample_state $motors $peak_p $control $p_live "P2_$i"
+# }
+P2_0 word=1000000000001001010110010000011111011011 frame=2 idx=345 amp=2011 live_frame=2
+P2_1 word=1000000000001001010110010000011111011011 frame=2 idx=345 amp=2011 live_frame=2
+P2_2 word=1000000000001001010110010000011111011011 frame=2 idx=345 amp=2011 live_frame=2
+# close_hw_manager
+# exit 0
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 25 20:53:02 2026...

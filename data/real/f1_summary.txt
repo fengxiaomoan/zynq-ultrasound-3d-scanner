@@ -1,0 +1,6 @@
+﻿PING          loss=0% -> OK
+HTTP/status   code=200 {"ok":true}
+HTTP/state    code=200 14022 B
+POSE/seq      samples=10 distinct=10 -> moving
+POSE/last     {"ok":1,"roll":13.96,"pitch":-0.46,"yaw":0.00,"gx":0.0,"gy":-3.9,"gz":0.0,"seq":143,"tick_ms":15670.7,"age_ms":0.3,"flags":3,"err":57290,"source":"PL"}
+JTAG/peek     no output (see peek.txt)

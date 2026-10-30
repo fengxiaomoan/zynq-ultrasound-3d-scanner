@@ -1,0 +1,58 @@
+[
+  {
+    "shape": "cylinder",
+    "label": "圆柱 Ø28",
+    "points": 4096,
+    "accepted": 4017,
+    "pass_rate": 0.9807,
+    "layers": 64,
+    "coverage": 1.0,
+    "mae_mm": 0.1894,
+    "rmse_mm": 0.1895,
+    "max_err_mm": 0.2052,
+    "point_rms_mm": 0.1919,
+    "triangles": 6048
+  },
+  {
+    "shape": "cone1",
+    "label": "圆锥 Ø32→Ø28",
+    "points": 4096,
+    "accepted": 4017,
+    "pass_rate": 0.9807,
+    "layers": 64,
+    "coverage": 1.0,
+    "mae_mm": 0.1898,
+    "rmse_mm": 0.19,
+    "max_err_mm": 0.2063,
+    "point_rms_mm": 0.192,
+    "triangles": 6048
+  },
+  {
+    "shape": "cone2",
+    "label": "圆锥 Ø32→Ø16",
+    "points": 4096,
+    "accepted": 4017,
+    "pass_rate": 0.9807,
+    "layers": 64,
+    "coverage": 1.0,
+    "mae_mm": 0.1898,
+    "rmse_mm": 0.1899,
+    "max_err_mm": 0.2025,
+    "point_rms_mm": 0.1916,
+    "triangles": 6048
+  },
+  {
+    "shape": "step",
+    "label": "台阶轴 Ø28/Ø18",
+    "points": 4096,
+    "accepted": 3894,
+    "pass_rate": 0.9507,
+    "layers": 64,
+    "coverage": 0.9688,
+    "mae_mm": 0.1887,
+    "rmse_mm": 0.1888,
+    "max_err_mm": 0.2008,
+    "point_rms_mm": 0.1915,
+    "triangles": 5856
+  }
+]

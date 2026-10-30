@@ -1,0 +1,7 @@
+interface:
+  display_name: "大陆购物搜索"
+  short_description: "按项目进度筛选大陆平台商品，先满足要求再比到手总价，给出核实链接"
+  default_prompt: "使用 $china-shopping-search 根据当前项目进度整理本轮采购需求，在中国大陆购物平台比较候选，先满足要求再比到手总价，并给出商品链接。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>圆柱超声扫描 · 实时建模</title>
+<style>
+ :root{
+   --bg:#0a1015; --panel:#111a21; --panel2:#0e161d; --line:#22313d;
+   --ink:#e8f0f7; --muted:#8298aa; --dim:#5b6f80;
+   --accent:#ff7a45; --cyan:#4fc3f7; --green:#5bd6a0; --amber:#ffc857;
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{height:100%}
+ body{background:var(--bg);color:var(--ink);overflow:hidden;
+      font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+      display:grid;grid-template-rows:52px 1fr 33vh;gap:8px;padding:8px}
+ header{display:flex;align-items:center;gap:16px;padding:0 14px;
+        background:linear-gradient(90deg,#101b24,#0b1218);
+        border:1px solid var(--line);border-radius:8px}
+ header .dot{width:8px;height:8px;border-radius:50%;background:var(--green);
+             box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+ @keyframes pulse{50%{opacity:.35}}
+ header h1{font-size:15px;font-weight:600;letter-spacing:.5px}
+ header .run{font:12px ui-monospace,Consolas,monospace;color:var(--muted);
+             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42vw}
+ header .pills{margin-left:auto;display:flex;gap:8px;flex-wrap:nowrap}
+ .pill{font:12px ui-monospace,Consolas,monospace;color:#b9cbd9;
+       background:#18232c;border:1px solid #263543;border-radius:999px;padding:3px 10px}
+ .pill b{color:#fff;font-weight:600}
+
+ main{display:grid;grid-template-columns:minmax(330px,29%) 1fr;gap:8px;min-height:0}
+ .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+        min-height:0;min-width:0;position:relative;overflow:hidden}
+
+ /* ---------------- left: live data ---------------- */
+ .data{display:flex;flex-direction:column;padding:12px 14px;gap:9px}
+ .data .cap{font-size:11px;letter-spacing:2px;color:var(--dim);text-transform:uppercase}
+ .readout{display:flex;align-items:flex-end;gap:14px}
+ .readout .n1{font:600 46px/1 ui-monospace,Consolas,monospace;color:var(--green)}
+ .readout .n2{font:600 30px/1 ui-monospace,Consolas,monospace;color:var(--ink)}
+ .readout .u{font-size:12px;color:var(--muted);margin-left:3px}
+ .readout label{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
+ .kv4{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+ .kv4 div{background:var(--panel2);border:1px solid #1b2833;border-radius:6px;padding:6px 9px}
+ .kv4 label{display:block;font-size:10.5px;color:var(--muted);margin-bottom:2px}
+ .kv4 b{font:600 15px ui-monospace,Consolas,monospace}
+ .prog{margin-top:2px}
+ .bar{height:7px;background:#1a242d;border-radius:4px;overflow:hidden}
+ .bar>i{display:block;height:100%;width:0;border-radius:4px;
+        background:linear-gradient(90deg,#2f8f6a,#5bd6a0);transition:width .5s}
+ .progtxt{display:flex;justify-content:space-between;font:11px ui-monospace,Consolas,monospace;
+          color:var(--muted);margin-top:4px}
+ .mini{display:flex;flex-direction:column;min-height:0;flex:1}
+ .mini canvas{width:100%;flex:1;min-height:70px;display:block}
+ table{width:100%;border-collapse:collapse;font:11.5px ui-monospace,Consolas,monospace}
+ th,td{padding:2.5px 5px;text-align:right;border-bottom:1px solid #1a2630}
+ th{color:var(--dim);font-weight:500}
+ td:first-child,th:first-child{text-align:left}
+ .ok{color:var(--green)} .bad{color:#ff6b6b} .warn{color:var(--amber)}
+ .tblwrap{max-height:112px;overflow:hidden}
+
+ /* ---------------- right: 3D ---------------- */
+ .model canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .badge{position:absolute;left:14px;top:12px;font:12px ui-monospace,Consolas,monospace;
+        color:#9db3c4;background:rgba(9,15,20,.72);border:1px solid #22313d;
+        border-radius:6px;padding:6px 10px;line-height:1.55;pointer-events:none}
+ .badge b{color:#fff;font-size:14px}
+ .legend{position:absolute;right:14px;bottom:12px;display:flex;align-items:center;gap:8px;
+         font:11px ui-monospace,Consolas,monospace;color:#9db3c4;
+         background:rgba(9,15,20,.72);border:1px solid #22313d;border-radius:6px;padding:6px 10px}
+ .legend .grad{width:110px;height:7px;border-radius:4px;
+   background:linear-gradient(90deg,#2b6fa8,#4fc3f7,#5bd6a0,#ffc857,#ff7a45)}
+
+ /* ---------------- bottom: waves ---------------- */
+ footer{display:grid;grid-template-columns:1.45fr 1fr;gap:8px;min-height:0}
+ footer .panel{display:flex;flex-direction:column;padding:8px 10px 6px}
+ .wavehead{display:flex;justify-content:space-between;align-items:baseline;
+           font-size:11.5px;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px}
+ .wavehead b{color:var(--ink);letter-spacing:0;font:12px ui-monospace,Consolas,monospace}
+ footer canvas{width:100%;flex:1;min-height:0;display:block}
+</style></head><body>
+
+<header>
+  <span class="dot"></span>
+  <h1>圆柱 Ø28 超声扫描 · 实时重建</h1>
+  <span class="run" id="run">等待采集…</span>
+  <span class="pills">
+    <span class="pill">测点 <b id="pcount">0</b></span>
+    <span class="pill">帧 <b id="pframes">0</b></span>
+    <span class="pill">合格 <b id="paccept">0</b></span>
+    <span class="pill">用时 <b id="ptime">0 s</b></span>
+  </span>
+</header>
+
+<main>
+  <aside class="panel data">
+    <div class="cap">当前测点</div>
+    <div class="readout">
+      <div><label>半径 r</label><span class="n1" id="r">--</span><span class="u">mm</span></div>
+      <div><label>高度 z</label><span class="n2" id="z">--</span><span class="u">mm</span></div>
+    </div>
+    <div class="kv4">
+      <div><label>方位角</label><b id="az">--</b></div>
+      <div><label>声程</label><b id="path">--</b></div>
+      <div><label>到时</label><b id="t">--</b></div>
+      <div><label>信噪比</label><b id="snr">--</b></div>
+    </div>
+    <div class="prog">
+      <div class="bar"><i id="prog"></i></div>
+      <div class="progtxt"><span id="progtxt">0 / --</span><span id="qctxt">合格率 --</span></div>
+    </div>
+    <div class="mini">
+      <div class="cap" style="margin:2px 0 3px">母线剖面 · z → r</div>
+      <canvas id="prof"></canvas>
+    </div>
+    <div class="tblwrap">
+      <table id="tbl">
+        <thead><tr><th>#</th><th>z</th><th>az</th><th>t µs</th><th>r mm</th><th>SNR</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </aside>
+
+  <section class="panel model">
+    <canvas id="mesh"></canvas>
+    <div class="badge" id="badge">三维重建<br><b>等待数据</b></div>
+    <div class="legend" id="legend"><span>z</span><span class="grad"></span><span>mm</span></div>
+  </section>
+</main>
+
+<footer>
+  <section class="panel">
+    <div class="wavehead"><span>A 扫描 · 实时回波包络</span><b id="peakinfo">--</b></div>
+    <canvas id="ascan"></canvas>
+  </section>
+  <section class="panel">
+    <div class="wavehead"><span>B 扫描 · 全部测点</span><b id="binfo">--</b></div>
+    <canvas id="bscan"></canvas>
+  </section>
+</footer>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+let S = null, spin = 0, lastFrame = -1;
+const DPR = () => Math.min(window.devicePixelRatio || 1, 2);
+
+function ctxOf(cv){
+  const d = DPR();
+  const w = cv.clientWidth, h = cv.clientHeight;
+  if (cv.width !== Math.round(w*d) || cv.height !== Math.round(h*d)) {
+    cv.width = Math.max(1, Math.round(w*d)); cv.height = Math.max(1, Math.round(h*d));
+  }
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(d,0,0,d,0,0);
+  return {ctx, w, h};
+}
+function kv(n, d=1){ return (n==null || isNaN(n)) ? '--' : Number(n).toFixed(d); }
+
+async function tick(){
+  try{
+    const r = await fetch('state', {cache:'no-store'});
+    S = await r.json();
+  }catch(e){ $('run').textContent = '连接中断，重试中…'; return; }
+  $('run').textContent = S.run;
+  $('pcount').textContent = S.counts.points;
+  $('pframes').textContent = S.counts.frames;
+  $('paccept').textContent = S.counts.accepted;
+  $('ptime').textContent = S.elapsed_s + ' s';
+  const pts = S.points || [];
+  const p = pts.length ? pts[pts.length-1] : null;
+  if (p){
+    $('r').textContent = kv(p.radius, 2);
+    $('z').textContent = kv(p.z, 1);
+    $('az').textContent = kv(p.az, 0) + '°';
+    $('path').textContent = p.t==null ? '--' : kv((p.t - (S.calib_us||0))*1.48/2, 1) + ' mm';
+    $('t').textContent = p.t==null ? '--' : kv(p.t, 2) + ' µs';
+    $('snr').textContent = p.snr==null ? '--' : kv(p.snr, 1) + ' dB';
+    $('peakinfo').textContent = `#${p.seq}  z=${kv(p.z,1)} mm  az=${kv(p.az,0)}°  ` +
+      (p.t==null?'无回波':`t=${kv(p.t,2)} µs  SNR=${kv(p.snr,1)} dB`);
+    if (lastFrame !== S.counts.frames){ lastFrame = S.counts.frames; drawA(); drawB(); }
+  }
+  const nPlan = S.plan ? S.plan.z.length * S.plan.az.length : 0;
+  const done = S.counts.points;
+  $('prog').style.width = nPlan ? Math.min(100, 100*done/nPlan).toFixed(1)+'%' : '0%';
+  $('progtxt').textContent = `${done} / ${nPlan||'--'} 点`;
+  $('qctxt').textContent = `合格率 ${done? Math.round(100*S.counts.accepted/done):0}%`;
+  drawP(); drawM(); fillTable();
+}
+
+function drawA(){
+  const {ctx, w, h} = ctxOf($('ascan'));
+  ctx.clearRect(0,0,w,h);
+  const L=46, R=14, T=8, B=22;
+  const t0 = S.t_range[0], t1 = S.t_range[1];
+  const x = t => L + (t-t0)/(t1-t0)*(w-L-R);
+  const y = v => h-B - v*(h-T-B);
+  // echo window
+  ctx.fillStyle = 'rgba(91,214,160,.07)';
+  ctx.fillRect(x(S.window[0]), T, x(S.window[1])-x(S.window[0]), h-T-B);
+  ctx.strokeStyle = '#1b2833'; ctx.lineWidth = 1; ctx.beginPath();
+  for(let k=0;k<=4;k++){const yy=T+(h-T-B)*k/4;ctx.moveTo(L,yy);ctx.lineTo(w-R,yy);} ctx.stroke();
+  ctx.fillStyle = '#6d8496'; ctx.font = '10px Consolas';
+  for(let k=0;k<=4;k++){const t=t0+(t1-t0)*k/4;ctx.fillText(t.toFixed(0), x(t)-6, h-6);}
+  ctx.fillText('µs', w-R-10, h-6);
+  const pts = S.points || [];
+  if(!pts.length) return;
+  const p = pts[pts.length-1];
+  const f = p.frames[p.frames.length-1];
+  if(!f) return;
+  const raw = Uint8Array.from(atob(f.env), c=>c.charCodeAt(0));
+  const N = raw.length;
+  const grad = ctx.createLinearGradient(0, T, 0, h-B);
+  grad.addColorStop(0, 'rgba(79,195,247,.35)');
+  grad.addColorStop(1, 'rgba(79,195,247,0)');
+  ctx.beginPath(); ctx.moveTo(x(t0), h-B);
+  for(let k=0;k<N;k++){
+    const t = t0 + (t1-t0)*k/(N-1);
+    ctx.lineTo(x(t), y(raw[k]/255));
+  }
+  ctx.lineTo(x(t1), h-B); ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+  ctx.beginPath();
+  for(let k=0;k<N;k++){
+    const t = t0 + (t1-t0)*k/(N-1);
+    const yy = y(raw[k]/255);
+    k ? ctx.lineTo(x(t), yy) : ctx.moveTo(x(t), yy);
+  }
+  ctx.strokeStyle = '#4fc3f7'; ctx.lineWidth = 1.4; ctx.stroke();
+  if(f.t != null){
+    ctx.strokeStyle = '#ff7a45'; ctx.lineWidth = 1.3; ctx.setLineDash([5,4]);
+    ctx.beginPath(); ctx.moveTo(x(f.t), T); ctx.lineTo(x(f.t), h-B); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#ff7a45';
+    ctx.beginPath(); ctx.arc(x(f.t), y(1), 3.5, 0, 6.3); ctx.fill();
+    ctx.font = '11px Consolas';
+    ctx.fillText(f.t.toFixed(2)+' µs', Math.min(x(f.t)+6, w-70), T+12);
+  }
+  // axis label
+  ctx.fillStyle = '#6d8496'; ctx.font = '11px Microsoft YaHei';
+  ctx.fillText('回波窗口 60–104 µs', x(S.window[0])+6, T+11);
+}
+
+function drawB(){
+  const {ctx, w, h} = ctxOf($('bscan'));
+  ctx.clearRect(0,0,w,h);
+  const L=34, R=10, T=6, B=18;
+  const pts = S.points || [];
+  const t0 = S.window[0], t1 = S.window[1];
+  const x = t => L + (t-t0)/(t1-t0)*(w-L-R);
+  ctx.strokeStyle = '#1b2833'; ctx.beginPath();
+  for(let k=0;k<=3;k++){const yy=T+(h-T-B)*k/3;ctx.moveTo(L,yy);ctx.lineTo(w-R,yy);} ctx.stroke();
+  ctx.fillStyle = '#6d8496'; ctx.font = '10px Consolas';
+  ctx.fillText(t0.toFixed(0), L-2, h-5); ctx.fillText(t1.toFixed(0), w-R-16, h-5);
+  ctx.fillText('µs', w-R+0, h-5);
+  const n = Math.max(pts.length, 1);
+  const cw = (w-L-R)/n;
+  for(let i=0;i<pts.length;i++){
+    const p = pts[i]; if(!p.frames.length) continue;
+    const f = p.frames[p.frames.length-1];
+    const raw = Uint8Array.from(atob(f.env), c=>c.charCodeAt(0));
+    const M = raw.length;
+    for(let k=0;k<M;k++){
+      const t = S.t_range[0] + (S.t_range[1]-S.t_range[0])*k/(M-1);
+      if(t < t0 || t > t1) continue;
+      const v = raw[k]/255;
+      if(v < 0.12) continue;
+      const yy = T + (1 - (t-t0)/(t1-t0)) * (h-T-B);
+      ctx.fillStyle = `rgba(255,122,69,${Math.min(0.95, v*1.25)})`;
+      ctx.fillRect(L + i*cw, yy-1.1, Math.max(cw,1), 2.2);
+    }
+    if(p.t != null){
+      const yy = T + (1 - (p.t-t0)/(t1-t0)) * (h-T-B);
+      ctx.fillStyle = 'rgba(91,214,160,.85)';
+      ctx.fillRect(L + i*cw, yy-0.8, Math.max(cw,1), 1.6);
+    }
+  }
+  $('binfo').textContent = `${pts.length} 点 · 回波脊线`;
+}
+
+function drawP(){
+  const {ctx, w, h} = ctxOf($('prof'));
+  ctx.clearRect(0,0,w,h);
+  const rows = S.profile || [];
+  const L=40, R=10, T=6, B=16;
+  ctx.strokeStyle = '#1b2833'; ctx.beginPath();
+  for(let k=0;k<=3;k++){const yy=T+(h-T-B)*k/3;ctx.moveTo(L,yy);ctx.lineTo(w-R,yy);} ctx.stroke();
+  if(rows.length < 1){
+    ctx.fillStyle = '#4d6273'; ctx.font = '11px Microsoft YaHei';
+    ctx.fillText(rows.length ? '' : '等待合格测点…', L+6, T+18);
+    return;
+  }
+  const zmin = Math.min(...rows.map(r=>r.z)), zmax = Math.max(...rows.map(r=>r.z));
+  const rs = rows.map(r=>r.r);
+  const rmin = Math.min(...rs)-0.25, rmax = Math.max(...rs)+0.25;
+  const x = z => L + (z - zmin)/Math.max(zmax-zmin, 1e-6)*(w-L-R);
+  const y = r => h-B - (r-rmin)/Math.max(rmax-rmin,1e-6)*(h-T-B);
+  ctx.fillStyle = '#6d8496'; ctx.font = '9.5px Consolas';
+  for(let k=0;k<=3;k++){
+    const r = rmin + (rmax-rmin)*k/3;
+    ctx.fillText(r.toFixed(1), 4, y(r)+3);
+  }
+  ctx.strokeStyle = '#5bd6a0'; ctx.lineWidth = 1.7; ctx.beginPath();
+  rows.forEach((r,i)=>{ i?ctx.lineTo(x(r.z),y(r.r)):ctx.moveTo(x(r.z),y(r.r)); });
+  ctx.stroke();
+  rows.forEach(r=>{
+    ctx.fillStyle = '#5bd6a0';
+    ctx.beginPath(); ctx.arc(x(r.z), y(r.r), 2.2, 0, 6.3); ctx.fill();
+  });
+}
+
+function drawM(){
+  const cv = $('mesh');
+  const {ctx, w, h} = ctxOf(cv);
+  ctx.clearRect(0,0,w,h);
+  const M = S && S.mesh;
+  if(!M){
+    ctx.fillStyle = '#33475a'; ctx.font = '13px Microsoft YaHei';
+    ctx.fillText('至少两层有合格半径后开始重建', 24, 30);
+    return;
+  }
+  const rmax = Math.max(...M.vertices.map(v=>Math.hypot(v[0]-75, v[1]-100)), 1);
+  const zs = M.vertices.map(v=>v[2]);
+  const zmin = Math.min(...zs), zmax = Math.max(...zs);
+  const zspan = Math.max(zmax - zmin, 1e-3);
+  const ca = Math.cos(spin), sa = Math.sin(spin);
+  const tilt = 0.30;
+  const vext = zspan*Math.cos(tilt) + 2*rmax*Math.sin(tilt) + 1e-6;
+  const scale = Math.min(w*0.68/(2*rmax), h*0.84/vext);
+  const cx = w*0.5, cy = h*0.52, zc = (zmin+zmax)/2;
+  const P = M.vertices.map(v=>{
+    const x = v[0]-75, y = v[1]-100, z = v[2]-zc;
+    const rx = x*ca - y*sa, ry = x*sa + y*ca;
+    const py = ry*Math.cos(tilt) - z*Math.sin(tilt);
+    const pz = ry*Math.sin(tilt) + z*Math.cos(tilt);
+    const persp = 1/(1 + ry/900);
+    return [cx + rx*scale*persp, cy - pz*scale*persp, ry];
+  });
+  // faint floor ellipse
+  ctx.strokeStyle = 'rgba(90,125,150,.18)'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  for(let k=0;k<=90;k++){
+    const th = k/90*Math.PI*2, rr = rmax*1.35;
+    const x = rr*Math.sin(th), y = rr*Math.cos(th);
+    const rx = x*ca - y*sa, ry = x*sa + y*ca;
+    const py = ry*Math.cos(tilt) - (zmin-2-zc)*Math.sin(tilt);
+    const pz = ry*Math.sin(tilt) + (zmin-2-zc)*Math.cos(tilt);
+    const persp = 1/(1 + ry/900);
+    const px = cx + rx*scale*persp, pyy = cy - pz*scale*persp;
+    k?ctx.lineTo(px,pyy):ctx.moveTo(px,pyy);
+  }
+  ctx.stroke();
+  const tris = M.faces.map(f=>{
+    const a=P[f[0]], b=P[f[1]], c=P[f[2]];
+    return {d:(a[2]+b[2]+c[2])/3,
+            z:(zs[f[0]]+zs[f[1]]+zs[f[2]])/3, a,b,c};
+  }).sort((u,v)=>v.d-u.d);
+  for(const t of tris){
+    const u = Math.max(0, Math.min(1, (t.z - zmin)/zspan));
+    const depth = Math.max(0, Math.min(1, 0.62 - t.d/700));
+    ctx.beginPath();
+    ctx.moveTo(t.a[0],t.a[1]); ctx.lineTo(t.b[0],t.b[1]); ctx.lineTo(t.c[0],t.c[1]);
+    ctx.closePath();
+    ctx.fillStyle = `hsl(${196 + 66*u}, 52%, ${30 + 26*depth}%)`;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(8,16,22,.55)'; ctx.lineWidth = .5; ctx.stroke();
+  }
+  $('badge').innerHTML = `三维重建<br><b>${M.stats.triangles}</b> 三角形 · ` +
+    `z ${M.stats.z_range_mm[0].toFixed(1)}–${M.stats.z_range_mm[1].toFixed(1)} mm`;
+  const lg = $('legend');
+  if (lg) lg.innerHTML = `<span>${zmin.toFixed(0)}</span>` +
+    `<span class="grad" style="background:linear-gradient(90deg,hsl(196,52%,38%),hsl(262,52%,38%))"></span>` +
+    `<span>${zmax.toFixed(0)} mm</span>`;
+}
+
+function fillTable(){
+  const tb = document.querySelector('#tbl tbody');
+  const pts = (S.points||[]).slice(-8).reverse();
+  tb.innerHTML = pts.map(p=>{
+    const st = p.accepted ? 'ok' : (p.frames.length ? 'bad' : '');
+    return `<tr><td>${p.seq}</td><td>${kv(p.z,1)}</td><td>${kv(p.az,0)}</td>`+
+      `<td>${p.t==null?'--':kv(p.t,2)}</td><td class="${st}">${p.radius==null?'--':kv(p.radius,2)}</td>`+
+      `<td>${p.snr==null?'--':kv(p.snr,1)}</td></tr>`;
+  }).join('');
+}
+
+// 3D spin independent of data polling
+let raf = 0;
+function loop(){
+  spin += 0.006;
+  if (S) drawM();
+  raf = requestAnimationFrame(loop);
+}
+window.addEventListener('resize', ()=>{ if(S){drawA();drawB();drawP();drawM();} });
+setInterval(tick, 900);
+tick();
+loop();
+</script></body></html>

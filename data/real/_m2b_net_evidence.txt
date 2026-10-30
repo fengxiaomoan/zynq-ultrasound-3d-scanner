@@ -1,0 +1,24 @@
+M2b HTTP/network evidence (2026-10-27 ~14:2x-14:4x)
+=====================================================
+Board: ALIENTEK (正点原子) 启明星 ZYNQ 7020, PHY = Motorcomm YT8521SC (MDIO addr 7)
+Firmware: fpga/ps/build_m2b/m2b_ps.elf (loaded with mwr -bin + rwr pc, not dow)
+
+WORKED (captured):
+  ping -S 192.168.1.2 192.168.1.10  -> 4 sent, 4 received, 0% loss
+  GET /api/status                   -> {"ok":true}
+  GET /state                        -> 60544 bytes, valid JSON:
+                                       frames=1738, rate_fps=90.9, phase=旋转采帧中,
+                                       layers=[2], cells=1 (stage not rotating), t_eff=0.91
+  GET /                             -> 22211 bytes (identical size to tools/live_model_page.html)
+
+ROOT CAUSE FOUND AND FIXED:
+  GIC CPU interface was never enabled. Distributor IRQ54 was enabled/targeted at CPU0,
+  the MAC showed ISR pending + RX descriptors piling up, but the ISR never ran, so
+  lwIP's recv_q stayed empty (no ARP reply, ping dead).  Raw writes to GICC_CTLR/PMR
+  read back 0 on this part; XScuGic_CfgInitialize() before xemac_add() fixed it.
+
+REMAINING ISSUE:
+  Connectivity is INTERMITTENT: after roughly tens of seconds the board stops
+  answering ARP (PC neighbour goes Incomplete/Unreachable) while the PC link stays
+  1 Gbps and the acquisition loop keeps running (frames heartbeat still advances).
+  Not yet root-caused -> next session.

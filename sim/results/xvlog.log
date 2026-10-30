@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/daxue/FPGA/full_scan_workflow/fpga/rtl/peak_dsp.sv" into library work
+INFO: [VRFC 10-311] analyzing module peak_dsp
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/daxue/FPGA/full_scan_workflow/fpga/tb/tb_peak_dsp.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_peak_dsp

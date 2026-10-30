@@ -1,0 +1,1 @@
+PAGE_SMOKE_PASS frames=928 cells=72 valid=63 rate=90.9 帧/s phase=旋转采帧中

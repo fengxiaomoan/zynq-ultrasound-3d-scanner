@@ -1,0 +1,64 @@
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Tue Oct 27 16:30:50 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source D:/daxue/FPGA/full_scan_workflow/fpga/ps/m2b_scan.tcl -notrace
+open_hw_manager: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 502.230 ; gain = 212.453
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2025.1
+  **** Build date : May  6 2025 at 09:15:36
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.1.0
+  ****** Build date   : May 14 2025-03:15:27
+    **** Build number : 2025.1.1747163727
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 502.230 ; gain = 0.000
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+M2B_SCAN_DEVICE xc7z020
+M2B_SCAN_START layers=6 revs=1 period=125000 lift_delta=4096
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 0 done rot 0 -> 4096
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 1 lift_moved net=4096
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 1 done rot 4096 -> 8192
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 2 lift_moved net=8192
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 2 done rot 8192 -> 12288
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 3 lift_moved net=12288
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 3 done rot 12288 -> 16384
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 4 lift_moved net=16384
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 4 done rot 16384 -> 20480
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 5 lift_moved net=20480
+M2B_SCAN_WAIT 11440ms
+M2B_SCAN_LAYER 5 done rot 20480 -> 24576
+M2B_SCAN_LIFT_RESTORED
+M2B_SCAN_DONE layers=6
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 16:33:22 2026...

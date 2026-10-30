@@ -1,0 +1,50 @@
+[
+  {
+    "shape": "cylinder",
+    "gt": 2,
+    "detected": 2,
+    "matched": 2,
+    "missed": 0,
+    "false_positive_bins": 0,
+    "noise_floor_mm": 0.0436,
+    "center_err_max_mm": 0.1,
+    "az_err_max_deg": 1.5,
+    "height_err_max_mm": 0.057
+  },
+  {
+    "shape": "cone1",
+    "gt": 2,
+    "detected": 2,
+    "matched": 2,
+    "missed": 0,
+    "false_positive_bins": 0,
+    "noise_floor_mm": 0.043,
+    "center_err_max_mm": 0.27,
+    "az_err_max_deg": 0.4,
+    "height_err_max_mm": 0.051
+  },
+  {
+    "shape": "cone2",
+    "gt": 2,
+    "detected": 2,
+    "matched": 2,
+    "missed": 0,
+    "false_positive_bins": 0,
+    "noise_floor_mm": 0.0429,
+    "center_err_max_mm": 0.21,
+    "az_err_max_deg": 0.1,
+    "height_err_max_mm": 0.056
+  },
+  {
+    "shape": "step",
+    "gt": 2,
+    "detected": 2,
+    "matched": 2,
+    "missed": 0,
+    "false_positive_bins": 0,
+    "noise_floor_mm": 0.0436,
+    "center_err_max_mm": 0.77,
+    "az_err_max_deg": 1.2,
+    "height_err_max_mm": 0.023
+  }
+]

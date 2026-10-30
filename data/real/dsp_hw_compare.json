@@ -1,0 +1,18 @@
+{
+  "provenance": "board + reference, same frame (frame stamp in the word)",
+  "hw_word": "0x8005A30849",
+  "ref_word": "0x8005A30849",
+  "word_match": true,
+  "hw_frame": 1,
+  "live_frame": 1,
+  "frame_match": true,
+  "hw_idx": 419,
+  "ref_idx": 419,
+  "hw_amp": 2121,
+  "ref_amp": 2121,
+  "idx_delta": 0,
+  "amp_delta": 0,
+  "ila_frame_ms": "477",
+  "vio_read_per_call_ms": "2.795",
+  "speedup_vs_ila": "170.6618962432916"
+}

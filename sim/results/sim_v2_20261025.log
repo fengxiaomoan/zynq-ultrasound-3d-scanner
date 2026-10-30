@@ -1,0 +1,52 @@
+# peak_dsp — xsim 逐位验证记录（2026-10-25）
+
+向量：`fpga/tb/samples.hex`（560 个样本，取自 `live_run/dsp_hw/frame.csv`，
+按 `wscan.frames.dsp_samples()` 从 capture_start 之后第一个 ADC 样本开始）。
+
+## 最终版本（20:51，含回绕停机 + 单拍 strobe）
+
+```
+$ xvlog peak_dsp.sv tb_peak_dsp.sv
+INFO: [VRFC 10-311] analyzing module peak_dsp
+INFO: [VRFC 10-311] analyzing module tb_peak_dsp
+
+$ xelab -debug typical tb_peak_dsp -s tb_sim
+Compiling module work.peak_dsp
+Compiling module work.tb_peak_dsp
+Built simulation snapshot tb_sim
+
+$ xsim tb_sim -R
+PEAK_WORD=80011b07e0 FRAME=0 IDX=283 AMP=2016
+STROBES=1 WORD_AT_END=80011b07e0 WORD_STABLE=1
+$finish called at time : 13312310 ns
+```
+
+- `STROBES=1`：整段仿真（560 个真实样本 + 66000 个帧后变化样本 = 66560 个样本）只锁存一次。
+  修复前这一项是 **660214**，同时暴露了 `peak_strobe` 卡高电平（清脉冲的语句在
+  `sample_valid && active` 分支里，停机后进不去）。
+- `WORD_STABLE=1`：`sid` 回绕前（修复前）会在这里被覆盖，现在不变。
+- `PEAK_WORD=0x80011B07E0`：frame=0（tb 默认），idx=283，amp=2016。
+  与板上同一帧的 `0x80051B07E0`（frame=1）只差帧号字段——板端和仿真在真实数据上互证。
+
+## 词格式与窗口对齐（17:33–17:34，修复前的 RTL，结论仍然有效）
+
+```
+$ xsim tb_sim -R
+PEAK_WORD=8001c105cd FRAME=0 IDX=449 AMP=1485 STROBE=0
+$finish called at time : 112310 ns
+```
+
+参考 `tools/dsp_ref.py` → `EXPECT word=0x8001C105CD frame=0 idx=449 amp=1485`。
+帧号通路（tb 副本默认帧号改成 17）：`PEAK_WORD=8045c105cd FRAME=17 IDX=449 AMP=1485`。
+
+停机改动只影响“窗口结束后”的行为，帧内 560 个样本的结果不变。
+
+## 复跑
+
+```powershell
+powershell -File D:\daxue\FPGA\full_scan_workflow\fpga\tb\run_sim.ps1
+```
+
+注意：本会话（AI 侧）xsim 内核起不来（`Could not open file mapping object (2)` +
+`EXCEPTION_ACCESS_VIOLATION`），`xvlog`/`xelab` 正常；以上两次都是在普通 PowerShell
+窗口里由用户手动跑出来的。

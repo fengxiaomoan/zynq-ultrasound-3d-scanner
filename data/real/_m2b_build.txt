@@ -1,0 +1,13 @@
++ C:\Users\<user>\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\daxue\FPGA\full_scan_workflow\fpga\ps\sw\tools\gen_page.py
+22211 bytes -> D:\daxue\FPGA\full_scan_workflow\fpga\ps\sw\src\page_html.h (117952 bytes of C)
++ D:\Xilinx\2025.1\Vivado\tps\win64\python-3.13.0\python.exe D:\Xilinx\2025.1\Vitis\data\embeddedsw\scripts\pyesw\main.py build_app -w D:\daxue\FPGA\vitis_m2b\app
+   text	   data	    bss	    dec	    hex	filename
+
+ 203208	   3792	4218208	4425208	 4385f8	m2b_ps.elf
+
+[INFO]: Starting Application build process
+[INFO]: Building BSP
+[INFO]: Copying headers and built archives
+[INFO]: Building Application
+
+M2B_BUILD_OK D:\daxue\FPGA\full_scan_workflow\fpga\ps\build_m2b\m2b_ps.elf (973716 bytes)

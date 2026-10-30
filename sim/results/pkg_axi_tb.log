@@ -1,0 +1,34 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/ultrasound_3d_scanner/src/rtl/acq_axi_regs.v" into library work
+INFO: [VRFC 10-311] analyzing module acq_axi_regs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/ultrasound_3d_scanner/sim/tb/tb_acq_axi_regs.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_acq_axi_regs
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_acq_axi_regs -s tbaxi 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.acq_axi_regs(CYCLES_PER_MS=10)
+Compiling module work.tb_acq_axi_regs
+Built simulation snapshot tbaxi
+
+PASS 1a: sel_ext=1 tx_en=1
+PASS 1b: trigger cadence ~100 cycles (10 ms)
+PASS 2a: SEQ is the last captured frame index
+PASS 2b: unacknowledged frames are counted (5)
+PASS 2b2: ACK clears pending, keeps cumulative missed_cnt=5
+PASS 2c-e: payload bit-exact (peak 40b, cent 56b, pose 32b)
+PASS 2f: pose window coherent and independent of the frame latch
+PASS 2f2: pose channel updates (seq 8)
+PASS 3a: disarmed stops triggering
+PASS 3c: re-arm resets the cumulative miss counter
+PASS 3b: re-arm resumes triggering
+PASS 4: lost frames are counted and flagged
+TB_PASS
+AXI_TB_PASS
+

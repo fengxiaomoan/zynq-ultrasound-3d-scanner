@@ -1,0 +1,40 @@
+attempting to launch hw_server
+
+****** Xilinx hw_server v2025.1
+  **** Build date : May  6 2025 at 09:15:36
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2025.1
+
+  **** Build date : May  6 2025 at 09:15:36
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+M2B_PL_PROGRAMMED
+M2B_PS7_INIT_OK
+M2B_CORE_STOPPED
+M2B_ELF_LOADED
+M2B_RUN_STARTED
+  expect on UART0: === M2B_PS start === / M2B_PS_ALIVE / net: http://192.168.1.10/
+  then: curl http://192.168.1.10/api/status

@@ -1,0 +1,324 @@
+{
+  "L01_lift_foot": {
+    "title": "升降立柱底座",
+    "qty": 1,
+    "module": "lift",
+    "note": "608ZZ 下支承轴承座；导杆侧面 M3 自攻锁紧",
+    "optional": false,
+    "dims": [
+      90.0,
+      70.0,
+      10.0
+    ],
+    "volume_cm3": 58.151,
+    "watertight": true
+  },
+  "L02_lift_motor_plate": {
+    "title": "28BYJ 型升降电机顶板",
+    "qty": 1,
+    "module": "lift",
+    "note": "35 mm 双安装孔；轴线偏离机身中心 8 mm；电机向下出轴",
+    "optional": false,
+    "dims": [
+      90.0,
+      64.0,
+      10.0
+    ],
+    "volume_cm3": 48.055,
+    "watertight": true
+  },
+  "L03_carriage": {
+    "title": "双导杆升降滑台",
+    "qty": 1,
+    "module": "lift",
+    "note": "两只 LM8UU，顶部盖板限位；T8 螺母由上方安装",
+    "optional": false,
+    "dims": [
+      82.0,
+      32.0,
+      30.0
+    ],
+    "volume_cm3": 65.784,
+    "watertight": true
+  },
+  "L04_carriage_cap": {
+    "title": "滑台轴承压盖",
+    "qty": 1,
+    "module": "lift",
+    "note": "",
+    "optional": false,
+    "dims": [
+      82.0,
+      32.0,
+      4.0
+    ],
+    "volume_cm3": 9.278,
+    "watertight": true
+  },
+  "L05_drop_arm": {
+    "title": "一体横臂与下垂臂",
+    "qty": 1,
+    "module": "lift",
+    "note": "侧躺打印；长边 168 mm",
+    "optional": false,
+    "dims": [
+      46.0,
+      168.0,
+      26.0
+    ],
+    "volume_cm3": 59.06,
+    "watertight": true
+  },
+  "P01_slotted_rail": {
+    "title": "探头可调横轨",
+    "qty": 1,
+    "module": "probe",
+    "note": "M4 滑槽中心可到 x=40…122；两夹座需互相避让",
+    "optional": false,
+    "dims": [
+      120.0,
+      50.0,
+      8.0
+    ],
+    "volume_cm3": 19.887,
+    "watertight": true
+  },
+  "P02_yaw_pitch_yoke": {
+    "title": "转向与俯仰叉座",
+    "qty": 2,
+    "module": "probe",
+    "note": "底部 M4 负责滑动/转向；左右 M4 短螺栓负责俯仰",
+    "optional": false,
+    "dims": [
+      46.0,
+      32.0,
+      24.0
+    ],
+    "volume_cm3": 10.208,
+    "watertight": true
+  },
+  "P03_probe_lower": {
+    "title": "换能器下半夹座与俯仰轴",
+    "qty": 2,
+    "module": "probe",
+    "note": "Ø21.4 腔；Ø18.4 开放前后口；M4 螺母由下方装入",
+    "optional": false,
+    "dims": [
+      36.0,
+      24.75,
+      20.0
+    ],
+    "volume_cm3": 6.654,
+    "watertight": true
+  },
+  "P04_probe_cap": {
+    "title": "换能器上半压盖",
+    "qty": 2,
+    "module": "probe",
+    "note": "0.50 mm 分型缝；只夹外壳外圈，不能压紧陶瓷声面",
+    "optional": false,
+    "dims": [
+      32.0,
+      14.25,
+      19.5
+    ],
+    "volume_cm3": 2.456,
+    "watertight": true
+  },
+  "R01_frame_foot": {
+    "title": "右支架底座与立柱插座",
+    "qty": 1,
+    "module": "frame",
+    "note": "",
+    "optional": false,
+    "dims": [
+      90.0,
+      70.0,
+      30.0
+    ],
+    "volume_cm3": 74.687,
+    "watertight": true
+  },
+  "R02_post_lower": {
+    "title": "右立柱下段",
+    "qty": 1,
+    "module": "frame",
+    "note": "",
+    "optional": false,
+    "dims": [
+      136.0,
+      32.0,
+      24.0
+    ],
+    "volume_cm3": 103.719,
+    "watertight": true
+  },
+  "R03_post_upper": {
+    "title": "右立柱上段",
+    "qty": 1,
+    "module": "frame",
+    "note": "",
+    "optional": false,
+    "dims": [
+      136.0,
+      32.0,
+      24.0
+    ],
+    "volume_cm3": 103.719,
+    "watertight": true
+  },
+  "R04_post_sleeve": {
+    "title": "立柱拼接套筒",
+    "qty": 1,
+    "module": "frame",
+    "note": "两个 M4×45 横向穿栓；上下柱端面在套筒中部对接",
+    "optional": false,
+    "dims": [
+      34.0,
+      42.0,
+      48.0
+    ],
+    "volume_cm3": 30.305,
+    "watertight": true
+  },
+  "R05_top_beam": {
+    "title": "28BYJ 型右电机悬臂顶梁",
+    "qty": 1,
+    "module": "frame",
+    "note": "顶面倒置打印；Ø32.5 圆孔为联轴器整周旋转让位，须用 M3×18 螺栓",
+    "optional": false,
+    "dims": [
+      162.0,
+      48.0,
+      30.0
+    ],
+    "volume_cm3": 81.687,
+    "watertight": true
+  },
+  "R06_dual_bearing_bracket": {
+    "title": "球杆双轴承悬挂座",
+    "qty": 1,
+    "module": "frame",
+    "note": "两个 623ZZ（3×10×4）；侧躺打印，轴承孔需校准",
+    "optional": false,
+    "dims": [
+      56.0,
+      38.0,
+      28.0
+    ],
+    "volume_cm3": 27.88,
+    "watertight": true
+  },
+  "R07_bearing_retainer": {
+    "title": "球杆轴承压片",
+    "qty": 2,
+    "module": "frame",
+    "note": "",
+    "optional": false,
+    "dims": [
+      28.0,
+      24.0,
+      2.0
+    ],
+    "volume_cm3": 1.252,
+    "watertight": true
+  },
+  "L06_T8_coupler_front": {
+    "title": "双扁轴→T8 联轴器前半",
+    "qty": 1,
+    "module": "lift",
+    "note": "匹配 Ø5、对边3 mm、扁段6 mm 的电机轴；四套 M3×18，不加大垫圈",
+    "optional": false,
+    "dims": [
+      26.0,
+      25.0,
+      7.85
+    ],
+    "volume_cm3": 4.42,
+    "watertight": true
+  },
+  "L07_T8_coupler_back": {
+    "title": "双扁轴→T8 联轴器后半",
+    "qty": 1,
+    "module": "lift",
+    "note": "",
+    "optional": false,
+    "dims": [
+      26.0,
+      25.0,
+      7.85
+    ],
+    "volume_cm3": 4.214,
+    "watertight": true
+  },
+  "B01_coupler_front": {
+    "title": "双扁轴→3 mm 联轴器前半",
+    "qty": 1,
+    "module": "ball",
+    "note": "匹配 Ø5、对边3 mm 双扁轴；四个 M3×18 和螺母；仅用于低速轻载样机",
+    "optional": false,
+    "dims": [
+      22.0,
+      20.0,
+      7.85
+    ],
+    "volume_cm3": 3.073,
+    "watertight": true
+  },
+  "B02_coupler_back": {
+    "title": "5→3 mm 联轴器后半",
+    "qty": 1,
+    "module": "ball",
+    "note": "",
+    "optional": false,
+    "dims": [
+      22.0,
+      20.0,
+      7.85
+    ],
+    "volume_cm3": 2.868,
+    "watertight": true
+  },
+  "B03_ball_upper_50mm": {
+    "title": "直径 50 mm 球体上半",
+    "qty": 1,
+    "module": "ball",
+    "note": "赤道平面朝下；建议 100% 填充；球杆用胶固定",
+    "optional": false,
+    "dims": [
+      49.99,
+      49.99,
+      24.95
+    ],
+    "volume_cm3": 32.191,
+    "watertight": true
+  },
+  "B04_ball_lower_50mm": {
+    "title": "直径 50 mm 球体下半",
+    "qty": 1,
+    "module": "ball",
+    "note": "赤道平面朝下；三个 M3×20 从下半球拧入上半球",
+    "optional": false,
+    "dims": [
+      49.99,
+      49.99,
+      25.0
+    ],
+    "volume_cm3": 31.104,
+    "watertight": true
+  },
+  "OPTIONAL_ball_rod_d3_NOT_RECOMMENDED": {
+    "title": "可选 Ø3 mm 打印杆（不推荐旋转使用）",
+    "qty": 1,
+    "module": "ball",
+    "note": "细长塑料轴易弯曲；默认用 206 mm 长 Ø3 不锈钢杆。打印需支撑与打磨，不列入正式打印盘",
+    "optional": true,
+    "dims": [
+      147.78,
+      147.78,
+      3.0
+    ],
+    "volume_cm3": 1.455,
+    "watertight": true
+  }
+}

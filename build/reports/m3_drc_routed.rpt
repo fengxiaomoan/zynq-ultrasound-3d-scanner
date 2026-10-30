@@ -1,0 +1,472 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Tue Oct 27 20:13:19 2026
+| Host         : linzhiye running 64-bit major release  (build 9200)
+| Command      : report_drc -file system_wrapper_drc_routed.rpt -pb system_wrapper_drc_routed.pb -rpx system_wrapper_drc_routed.rpx
+| Design       : system_wrapper
+| Device       : xc7z020clg400-2
+| Speed File   : -2
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 83
++-----------+----------+----------------------------+--------+
+| Rule      | Severity | Description                | Checks |
++-----------+----------+----------------------------+--------+
+| DPIP-1    | Warning  | Input pipelining           | 21     |
+| DPOP-1    | Warning  | PREG Output pipelining     | 10     |
+| DPOP-2    | Warning  | MREG Output pipelining     | 11     |
+| DPOR-1    | Warning  | Asynchronous load check    | 32     |
+| PDCN-1569 | Warning  | LUT equation term check    | 3      |
+| REQP-1840 | Warning  | RAMB18 async control check | 5      |
+| RTSTAT-10 | Warning  | No routable loads          | 1      |
++-----------+----------+----------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+DPIP-1#1 Warning
+Input pipelining  
+DSP system_i/acq_regs_0/inst/limit0 input system_i/acq_regs_0/inst/limit0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/cent/sum_kw0 input system_i/merged_top_0/inst/u_datapath/cent/sum_kw0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/ibuf_reg[1] input system_i/merged_top_0/inst/u_datapath/dsp/ibuf_reg[1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/ibuf_reg[1] input system_i/merged_top_0/inst/u_datapath/dsp/ibuf_reg[1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/qbuf_reg[1] input system_i/merged_top_0/inst/u_datapath/dsp/qbuf_reg[1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/qbuf_reg[1] input system_i/merged_top_0/inst/u_datapath/dsp/qbuf_reg[1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/sum_i0 input system_i/merged_top_0/inst/u_datapath/dsp/sum_i0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#8 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/sum_i0 input system_i/merged_top_0/inst/u_datapath/dsp/sum_i0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#9 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/sum_q0 input system_i/merged_top_0/inst/u_datapath/dsp/sum_q0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#10 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/dsp/sum_q0 input system_i/merged_top_0/inst/u_datapath/dsp/sum_q0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#11 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0 input system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#12 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0 input system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#13 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop input system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#14 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop input system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#15 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0 input system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#16 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0 input system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#17 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop input system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#18 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop input system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#19 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w input system_i/merged_top_0/inst/u_pose/prod_w/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#20 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w input system_i/merged_top_0/inst/u_pose/prod_w/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#21 Warning
+Input pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w__0 input system_i/merged_top_0/inst/u_pose/prod_w__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP system_i/acq_regs_0/inst/limit0 output system_i/acq_regs_0/inst/limit0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/cent/sum_kw0 output system_i/merged_top_0/inst/u_datapath/cent/sum_kw0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0 output system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#4 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0 output system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#5 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop output system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#6 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0 output system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#7 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0 output system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#8 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop output system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#9 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w output system_i/merged_top_0/inst/u_pose/prod_w/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#10 Warning
+PREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w__0 output system_i/merged_top_0/inst/u_pose/prod_w__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP system_i/acq_regs_0/inst/limit0 multiplier stage system_i/acq_regs_0/inst/limit0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/cent/sum_kw0 multiplier stage system_i/merged_top_0/inst/u_datapath/cent/sum_kw0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0 multiplier stage system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#4 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0 multiplier stage system_i/merged_top_0/inst/u_datapath/motors/ball/interval_for_return0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#5 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop multiplier stage system_i/merged_top_0/inst/u_datapath/motors/ball/ramp_drop/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#6 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0 multiplier stage system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#7 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0 multiplier stage system_i/merged_top_0/inst/u_datapath/motors/lift/interval_for_return0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#8 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop multiplier stage system_i/merged_top_0/inst/u_datapath/motors/lift/ramp_drop/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#9 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w multiplier stage system_i/merged_top_0/inst/u_pose/prod_w/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#10 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_pose/prod_w__0 multiplier stage system_i/merged_top_0/inst/u_pose/prod_w__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#11 Warning
+MREG Output pipelining  
+DSP system_i/merged_top_0/inst/u_pose/sq_l_reg multiplier stage system_i/merged_top_0/inst/u_pose/sq_l_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOR-1#1 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[0]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#2 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[10]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#3 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[11]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#4 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[12]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#5 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[13]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#6 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[14]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#7 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[15]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#8 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[16]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#9 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[17]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#10 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[18]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#11 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[19]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#12 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[1]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#13 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[20]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#14 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[21]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#15 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[22]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#16 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[23]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#17 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[24]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#18 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[25]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#19 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[26]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#20 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[27]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#21 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[28]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#22 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[29]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#23 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[2]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#24 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[30]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#25 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[31]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#26 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[3]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#27 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[4]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#28 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[5]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#29 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[6]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#30 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[7]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#31 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[8]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#32 Warning
+Asynchronous load check  
+DSP system_i/acq_regs_0/inst/limit0 output is connected to registers with an asynchronous reset (system_i/acq_regs_0/inst/limit_reg[9]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+PDCN-1569#1 Warning
+LUT equation term check  
+Used physical LUT pin 'A2' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A4))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#2 Warning
+LUT equation term check  
+Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A1*A2)+(A1*(~A2)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#3 Warning
+LUT equation term check  
+Used physical LUT pin 'A5' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A1*A2)+(A1*(~A2)*(~A4))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+REQP-1840#1 Warning
+RAMB18 async control check  
+The RAMB18E1 system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg has an input control pin system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg/ENARDEN (net: system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg_ENARDEN_cooolgate_en_sig_13) which is driven by a register (system_i/merged_top_0/inst/u_datapath/reset_pipe_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#2 Warning
+RAMB18 async control check  
+The RAMB18E1 system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg has an input control pin system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg/ENBWREN (net: system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg_i_2_n_0) which is driven by a register (system_i/merged_top_0/inst/u_datapath/reset_pipe_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#3 Warning
+RAMB18 async control check  
+The RAMB18E1 system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg has an input control pin system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg/RSTRAMB (net: system_i/merged_top_0/inst/u_datapath/cent/rst_n) which is driven by a register (system_i/merged_top_0/inst/u_datapath/reset_pipe_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#4 Warning
+RAMB18 async control check  
+The RAMB18E1 system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg has an input control pin system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg/WEA[0] (net: system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg_i_9_n_0) which is driven by a register (system_i/merged_top_0/inst/u_datapath/reset_pipe_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#5 Warning
+RAMB18 async control check  
+The RAMB18E1 system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg has an input control pin system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg/WEA[1] (net: system_i/merged_top_0/inst/u_datapath/cent/win_buf_reg_i_9_n_0) which is driven by a register (system_i/merged_top_0/inst/u_datapath/reset_pipe_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+25 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_4_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1],
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TMS,
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0]
+ (the first 15 of 23 listed nets/buses).
+Related violations: <none>
+
+

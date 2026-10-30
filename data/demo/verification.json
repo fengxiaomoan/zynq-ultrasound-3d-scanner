@@ -1,0 +1,470 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "all sources unchanged and snapshots identical",
+      "ok": true,
+      "detail": {
+        "files": 30
+      }
+    },
+    {
+      "name": "synthetic labels and quality gating",
+      "ok": true,
+      "detail": {
+        "observations": 108,
+        "frames_requested": 324,
+        "frames_accepted": 324
+      }
+    },
+    {
+      "name": "mesh count and measured z interval",
+      "ok": true,
+      "detail": {
+        "vertices": 324,
+        "triangles": 576,
+        "segments": 36,
+        "closed": false,
+        "z_range_mm": [
+          68.0,
+          92.0
+        ]
+      }
+    },
+    {
+      "name": "open sidewall topology",
+      "ok": true,
+      "detail": {
+        "boundary_edges": 72,
+        "nonmanifold_edges": 0
+      }
+    },
+    {
+      "name": "voice fits each chapter",
+      "ok": true,
+      "detail": {
+        "chapters": 12,
+        "voice": "Microsoft Huihui Desktop"
+      }
+    },
+    {
+      "name": "audio finite and not clipped",
+      "ok": true,
+      "detail": {
+        "peak_pcm": 25671,
+        "sample_rate": 22050,
+        "channels": 1
+      }
+    },
+    {
+      "name": "1080p 25fps H264 + AAC",
+      "ok": true,
+      "detail": {
+        "video_codec": "h264",
+        "resolution": [
+          1920,
+          1080
+        ],
+        "fps": "25/1",
+        "audio_codec": "aac"
+      }
+    },
+    {
+      "name": "duration and frame count",
+      "ok": true,
+      "detail": {
+        "duration_s": "229.520000",
+        "frames": "5738"
+      }
+    },
+    {
+      "name": "entire encoded video and audio decode",
+      "ok": true,
+      "detail": {
+        "returncode": 0,
+        "stderr": ""
+      }
+    },
+    {
+      "name": "encoded chapter 1 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 9.746
+      }
+    },
+    {
+      "name": "encoded chapter 2 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 26.85
+      }
+    },
+    {
+      "name": "encoded chapter 3 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 44.572
+      }
+    },
+    {
+      "name": "encoded chapter 4 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 63.124
+      }
+    },
+    {
+      "name": "encoded chapter 5 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 81.45
+      }
+    },
+    {
+      "name": "encoded chapter 6 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 100.64
+      }
+    },
+    {
+      "name": "encoded chapter 7 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 120.332
+      }
+    },
+    {
+      "name": "encoded chapter 8 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 140.344
+      }
+    },
+    {
+      "name": "encoded chapter 9 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 160.34
+      }
+    },
+    {
+      "name": "encoded chapter 10 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 179.962
+      }
+    },
+    {
+      "name": "encoded chapter 11 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 199.536
+      }
+    },
+    {
+      "name": "encoded chapter 12 visible",
+      "ok": true,
+      "detail": {
+        "timestamp_s": 219.98
+      }
+    }
+  ],
+  "sources": [
+    {
+      "path": "C:\\Users\\<user>\\Documents\\xwechat_files\\<wechat-id>\\temp\\RWTemp\\2026-10\\9e20f478899dc29eb19741386f9343c8\\1718ad6dba28a460f54622a269446e5f.jpg",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "C:\\Users\\<user>\\Documents\\xwechat_files\\<wechat-id>\\temp\\RWTemp\\2026-10\\9e20f478899dc29eb19741386f9343c8\\5b1ea67d4a7cc12fa2c96f6a16e83c83.jpg",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\README.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\当前状态.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\接收记录工作流.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\实验数据索引.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\README.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\进度交接_20261025.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\全自动测量工作流_v1.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\轴对物体扫描与FPGA优势_v2.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\全自动控制流_设计与排期.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\fpga\\合并底层_改动清单.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\profile.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\frames.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\geom.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\pipeline.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\vertical.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\acquire.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\auto_measure.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\sim_scan.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\recalibrate_sim.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\out\\sim_full\\result\\scan_report.json",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\live_run\\sweep.log",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\README.md",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\make_targets.py",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\t01_cylinder_d28_h32.stl",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\t02_cone_d32_d28_h32.stl",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\t03_cone_d32_d16_h32.stl",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\t04_step_d28_d18_h32.stl",
+      "original_unchanged": true,
+      "copy_matches": true
+    },
+    {
+      "path": "D:\\daxue\\FPGA\\V3P_targets\\hanger_z83.stl",
+      "original_unchanged": true,
+      "copy_matches": true
+    }
+  ],
+  "media": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 40,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "25/1",
+        "avg_frame_rate": "25/1",
+        "time_base": "1/12800",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2937856,
+        "duration": "229.520000",
+        "bit_rate": "267458",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "5738",
+        "extradata_size": 47,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
+        "sample_rate": "22050",
+        "channels": 1,
+        "channel_layout": "mono",
+        "bits_per_sample": 0,
+        "initial_padding": 1024,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/22050",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 5060916,
+        "duration": "229.520000",
+        "bit_rate": "87770",
+        "nb_frames": "4944",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
+      }
+    ],
+    "format": {
+      "filename": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\09_delivery\\modeling_demo_20261025\\超声扫描_建模全流程演示_1080p.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "229.520000",
+      "size": "10339217",
+      "bit_rate": "360377",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "水浸超声扫描与三维表面建模：全流程效果演示",
+        "encoder": "Lavf63.1.102",
+        "comment": "Illustrative synthetic workflow; not measured 3D reconstruction validation."
+      }
+    }
+  },
+  "not_executed": [
+    "hardware acquisition",
+    "Vivado build",
+    "download",
+    "motor operation",
+    "real plate calibration",
+    "real object reconstruction validation"
+  ],
+  "visual_review": "Completed 2026-10-25: encoded twelve-chapter storyboard and key full-resolution chapter frames visually inspected; see review/QA.md. No manual listening review."
+}

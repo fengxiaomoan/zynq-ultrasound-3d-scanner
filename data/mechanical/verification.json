@@ -1,0 +1,44 @@
+{
+  "solid_count": 23,
+  "required_print_types": 22,
+  "required_print_count": 26,
+  "all_stl_watertight": true,
+  "printed_part_collisions": [],
+  "plate_count": 6,
+  "assumptions": {
+    "tank_outer_mm": [
+      150,
+      150,
+      150
+    ],
+    "tank_wall_assumed_mm": 3,
+    "ball_diameter": 50,
+    "ball_rod_diameter": 3,
+    "probe_diameter": 21,
+    "probe_total_length": 9.5,
+    "probe_flange_length": 6.3,
+    "probe_diametral_clearance": 0.4,
+    "probe_x_positions": [
+      45,
+      110
+    ],
+    "guide_diameter": 8,
+    "guide_spacing": 50,
+    "motor_hole_pitch": 35,
+    "motor_shaft_diameter": 5,
+    "motor_shaft_offset": 8,
+    "motor_flat_width": 3,
+    "motor_assumption": "User supplied 28BYJ-style drawing: body diameter 28; body height 19; two mounting holes pitch35 diameter4; shaft diameter5 projection10 flat length6. Offset8 and double-flat width3 from supplier drawing, confirm on actual motor.",
+    "ball_motion_assumption": "slow rotation around a fixed vertical axis",
+    "prototype_status": "dimensioned CAD prototype; motor main dimensions and probe confirmed from user drawings; motor shaft offset/flats, tank wall and motion need actual verification"
+  },
+  "coupler_rotation_clearance": {
+    "plate_bore_diameter_mm": 32.5,
+    "specified_fastener": "M3x18 socket cap head diameter <=5.5, head height <=3; no large washer",
+    "left_max_radius_including_bolt_head_mm": 15.521,
+    "left_nominal_radial_clearance_mm": 0.729,
+    "right_max_radius_including_bolt_head_mm": 14.056,
+    "right_nominal_radial_clearance_mm": 2.194
+  },
+  "limits": "CAD topology and nominal neutral-pose clearance only; no physical print, slicing, load, acoustic, full-travel, leak or waterproof validation."
+}

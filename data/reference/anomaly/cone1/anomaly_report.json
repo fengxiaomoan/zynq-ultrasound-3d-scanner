@@ -1,0 +1,67 @@
+{
+  "schema": "anomaly-sim/1",
+  "provenance": "synthetic",
+  "shape": "cone1",
+  "threshold_mm": 0.15,
+  "bumps_gt": [
+    {
+      "z": 80.0,
+      "az": 120.0,
+      "h": 0.5
+    },
+    {
+      "z": 72.0,
+      "az": 300.0,
+      "h": -0.32
+    }
+  ],
+  "detections": [
+    {
+      "z_mm": 71.73,
+      "az_deg": 299.8,
+      "height_mm": -0.339,
+      "area_mm2": 7.6,
+      "bins": 11
+    },
+    {
+      "z_mm": 79.93,
+      "az_deg": 120.4,
+      "height_mm": 0.551,
+      "area_mm2": 17.9,
+      "bins": 26
+    }
+  ],
+  "matches": [
+    {
+      "shape": "cone1",
+      "gt_z": 72.0,
+      "gt_az": 300.0,
+      "gt_h": -0.32,
+      "z_mm": 71.73,
+      "az_deg": 299.8,
+      "height_mm": -0.339,
+      "area_mm2": 7.6,
+      "bins": 11,
+      "center_err_mm": 0.27,
+      "az_err_deg": 0.2,
+      "height_err_mm": -0.019
+    },
+    {
+      "shape": "cone1",
+      "gt_z": 80.0,
+      "gt_az": 120.0,
+      "gt_h": 0.5,
+      "z_mm": 79.93,
+      "az_deg": 120.4,
+      "height_mm": 0.551,
+      "area_mm2": 17.9,
+      "bins": 26,
+      "center_err_mm": 0.07,
+      "az_err_deg": 0.4,
+      "height_err_mm": 0.051
+    }
+  ],
+  "missed": [],
+  "false_positive_bins": 0,
+  "noise_floor_mm": 0.043
+}

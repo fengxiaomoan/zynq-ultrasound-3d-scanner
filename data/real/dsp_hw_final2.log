@@ -1,0 +1,188 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sun Oct 25 20:54:20 2026
+# Process ID         : 31580
+# Current directory  : D:/daxue/FPGA/full_scan_workflow
+# Command line       : vivado.exe -mode batch -source D:\daxue\FPGA\full_scan_workflow\fpga\dsp_readback.tcl -log D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_final2.log -journal D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_final2.jou
+# Log file           : D:/daxue/FPGA/full_scan_workflow/live_run/dsp_hw_final2.log
+# Journal file       : D:\daxue\FPGA\full_scan_workflow\live_run\dsp_hw_final2.jou
+# Running On         : linzhiye
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16890 MB
+# Swap memory        : 26101 MB
+# Total Virtual      : 42991 MB
+# Available Virtual  : 7779 MB
+#-----------------------------------------------------------
+source {D:\daxue\FPGA\full_scan_workflow\fpga\dsp_readback.tcl}
+# set BUILD "D:/daxue/FPGA/fpga_dsp_v2"
+# set OUT "D:/daxue/FPGA/full_scan_workflow/live_run/dsp_hw"
+# file mkdir $OUT
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 501.156 ; gain = 216.211
+# connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2025.1
+  **** Build date : May  6 2025 at 09:15:36
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.1.0
+  ****** Build date   : May 14 2025-03:15:27
+    **** Build number : 2025.1.1747163727
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 501.156 ; gain = 0.000
+# current_hw_target [lindex [get_hw_targets -quiet] 0]
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+# set dev [lindex [get_hw_devices -quiet -filter {PART == xc7z020}] 0]
+# if {$dev eq ""} { error "no xc7z020" }
+# current_hw_device $dev
+# set_property PROGRAM.FILE [file join $BUILD merged_top.bit] $dev
+# set_property PROBES.FILE [file join $BUILD merged_top.ltx] $dev
+# program_hw_devices $dev
+INFO: [Labtools 27-3164] End of startup status: HIGH
+# refresh_hw_device $dev
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 1 ILA core(s).
+INFO: [Labtools 27-2302] Device xc7z020 (JTAG device index = 1) is programmed with a design that has 2 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_2]
+# puts "PROGRAMMED"
+PROGRAMMED
+# proc vio_by_cell {dev cell} {
+#     foreach v [get_hw_vios -quiet -of_objects $dev] {
+#         if {[string match $cell [get_property CELL_NAME $v]]} { return $v }
+#     }
+#     return ""
+# }
+# proc probe {vio name} {
+#     set p [get_hw_probes -quiet -of_objects $vio -filter "NAME == $name"]
+#     if {[llength $p] != 1} { error "probe $name not found" }
+#     return $p
+# }
+# proc wr {vio p v w} {
+#     set_property OUTPUT_VALUE [format %0${w}X $v] $p
+#     commit_hw_vio $vio
+# }
+# proc hex_to_bits {h} {
+#     set h [string toupper [string trim $h]]
+#     if {[string match 0x* $h]} { set h [string range $h 2 end] }
+#     set out ""
+#     foreach c [split $h ""] {
+#         switch -- $c {
+#             A {append out 1010} B {append out 1011} C {append out 1100}
+#             D {append out 1101} E {append out 1110} F {append out 1111}
+#             default {append out [format %04b [scan $c %d]]}
+#         }
+#     }
+#     return $out
+# }
+# proc bits_to_int {b} {
+#     set v 0
+#     foreach c [split $b ""] { set v [expr {$v * 2 + $c}] }
+#     return $v
+# }
+# proc field {bits first last} {
+#     return [bits_to_int [string range $bits $first $last]]
+# }
+# set control [vio_by_cell $dev control]
+# set motors  [vio_by_cell $dev motors_vio]
+# set c_ctrl  [probe $control ctrl]
+# set p_live  [probe $control frame_count]
+# set peak_p ""
+# foreach p [get_hw_probes -quiet -of_objects $motors] {
+#     if {[get_property WIDTH $p] == 40} { set peak_p $p }
+# }
+# if {$peak_p eq ""} { error "40-bit peak probe not found" }
+# puts "PEAK_PROBE: [get_property NAME $peak_p]"
+PEAK_PROBE: peak_word
+# set ila [lindex [get_hw_ilas -quiet -of_objects $dev] 0]
+# set trig [get_hw_probes -quiet -of_objects $ila -filter {NAME == capture_start}]
+# catch {set_property TRIGGER_COMPARE_VALUE eq1'b1 $trig}
+# catch {set_property CONTROL.TRIGGER_POSITION 512 $ila}
+# set t_arm [clock milliseconds]
+# run_hw_ila $ila
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-Oct-25 20:54:43
+# after 200
+# wr $control $c_ctrl 3 1
+# after 2
+# wr $control $c_ctrl 0 1
+# set waited 0
+# set fired 0
+# while {$waited < 3000} {
+#     after 100
+#     incr waited 100
+#     if {[catch {upload_hw_ila_data $ila} err]} { continue }
+#     set fired 1
+#     break
+# }
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-Oct-25 20:54:43
+# if {!$fired} { error "ILA did not trigger" }
+# set csv [file join $OUT frame.csv]
+# write_hw_ila_data -force -csv_file $csv [get_hw_ila_data]
+# set t_ila [expr {[clock milliseconds] - $t_arm}]
+# puts "ILA_FRAME_MS: $t_ila"
+ILA_FRAME_MS: 477
+# after 300
+# refresh_hw_vio $motors
+# set raw [string trim [get_property INPUT_VALUE $peak_p]]
+# puts "FPGA_PEAK_RAW: $raw"
+FPGA_PEAK_RAW: 8005a30849
+# set bits [hex_to_bits $raw]
+# while {[string length $bits] < 40} { set bits "0$bits" }
+# if {[string length $bits] != 40} { error "peak probe is not 40 bits: $raw" }
+# set valid [field $bits 0 0]
+# set frame [field $bits 1 13]
+# set idx   [field $bits 14 23]
+# set amp   [field $bits 24 39]
+# puts "FPGA_PEAK_VALID: $valid"
+FPGA_PEAK_VALID: 1
+# puts "FPGA_PEAK_FRAME: $frame"
+FPGA_PEAK_FRAME: 1
+# puts "FPGA_PEAK_IDX:   $idx"
+FPGA_PEAK_IDX:   419
+# puts "FPGA_PEAK_AMP:   $amp"
+FPGA_PEAK_AMP:   2121
+# puts "FPGA_PEAK_T_US:  [expr {$idx * 0.2}]"
+FPGA_PEAK_T_US:  83.80000000000001
+# refresh_hw_vio $control
+# set live_bits [hex_to_bits [string trim [get_property INPUT_VALUE $p_live]]]
+# set live [bits_to_int $live_bits]
+# puts "FPGA_LIVE_FRAME: $live"
+FPGA_LIVE_FRAME: 1
+# puts "FPGA_FRAME_MATCH: [expr {(($live % 8192) == $frame) ? 1 : 0}]"
+FPGA_FRAME_MATCH: 1
+# set t0 [clock milliseconds]
+# set n 200
+# for {set i 0} {$i < $n} {incr i} {
+#     refresh_hw_vio $motors
+#     set v [get_property INPUT_VALUE $peak_p]
+# }
+# set t1 [clock milliseconds]
+# set per [expr {($t1 - $t0) / double($n)}]
+# puts "VIO_READ_PER_CALL_MS: $per"
+VIO_READ_PER_CALL_MS: 2.795
+# puts "SPEEDUP_VS_ILA: [expr {$t_ila / max($per, 0.001)}]"
+SPEEDUP_VS_ILA: 170.6618962432916
+# close_hw_manager
+# exit 0
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 25 20:54:44 2026...

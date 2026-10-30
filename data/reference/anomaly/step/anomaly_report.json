@@ -1,0 +1,67 @@
+{
+  "schema": "anomaly-sim/1",
+  "provenance": "synthetic",
+  "shape": "step",
+  "threshold_mm": 0.15,
+  "bumps_gt": [
+    {
+      "z": 76.0,
+      "az": 150.0,
+      "h": 0.5
+    },
+    {
+      "z": 92.0,
+      "az": 30.0,
+      "h": -0.3
+    }
+  ],
+  "detections": [
+    {
+      "z_mm": 75.85,
+      "az_deg": 150.2,
+      "height_mm": 0.499,
+      "area_mm2": 15.1,
+      "bins": 22
+    },
+    {
+      "z_mm": 91.23,
+      "az_deg": 31.2,
+      "height_mm": -0.277,
+      "area_mm2": 2.7,
+      "bins": 4
+    }
+  ],
+  "matches": [
+    {
+      "shape": "step",
+      "gt_z": 76.0,
+      "gt_az": 150.0,
+      "gt_h": 0.5,
+      "z_mm": 75.85,
+      "az_deg": 150.2,
+      "height_mm": 0.499,
+      "area_mm2": 15.1,
+      "bins": 22,
+      "center_err_mm": 0.15,
+      "az_err_deg": 0.2,
+      "height_err_mm": -0.001
+    },
+    {
+      "shape": "step",
+      "gt_z": 92.0,
+      "gt_az": 30.0,
+      "gt_h": -0.3,
+      "z_mm": 91.23,
+      "az_deg": 31.2,
+      "height_mm": -0.277,
+      "area_mm2": 2.7,
+      "bins": 4,
+      "center_err_mm": 0.77,
+      "az_err_deg": 1.2,
+      "height_err_mm": 0.023
+    }
+  ],
+  "missed": [],
+  "false_positive_bins": 0,
+  "noise_floor_mm": 0.0436
+}

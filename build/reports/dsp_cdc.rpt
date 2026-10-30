@@ -1,0 +1,22 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sun Oct 25 20:51:47 2026
+| Host         : linzhiye running 64-bit major release  (build 9200)
+| Command      : report_cdc -file D:/daxue/FPGA/fpga_dsp_v2/cdc.rpt
+| Design       : merged_top
+| Device       : 7z020-clg400
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+Severity  Source Clock                                                                                Destination Clock                                                                           CDC Type                 Exceptions               Endpoints  Safe  Unsafe  Unknown  No ASYNC_REG  
+--------  ------------------------------------------------------------------------------------------  ------------------------------------------------------------------------------------------  -----------------------  -----------------------  ---------  ----  ------  -------  ------------  
+Info      sys_clk                                                                                     dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK  No Common Primary Clock  Max Delay Datapath Only          2     2       0        0             0  
+Info      adc_clk2_out                                                                                sys_clk                                                                                     Safely Timed             None                            22    22       0        0             0  
+Info      adc_clk_out                                                                                 sys_clk                                                                                     Safely Timed             None                            22    22       0        0             0  
+Info      dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK  sys_clk                                                                                     No Common Primary Clock  Max Delay Datapath Only          9     9       0        0             0  
+Info      input port clock                                                                            sys_clk                                                                                     No Common Primary Clock  False Path                       1     1       0        0             0  
+

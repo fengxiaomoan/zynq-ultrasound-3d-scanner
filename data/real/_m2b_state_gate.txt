@@ -1,0 +1,5 @@
+PASS live_run/p12_std1
+PASS live_run/p12_std2
+PASS live_run/cont3_a
+PASS live_run/cont_a
+M2B_STATE_PASS: 4 run(s) satisfy the page contract

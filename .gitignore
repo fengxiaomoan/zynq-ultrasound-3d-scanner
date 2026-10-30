@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Build outputs (keep reports/, ignore regenerated projects)
+build/output/
+**/xsim.dir/
+*.jou
+*.wdb
+*.pb
+*.str
+*.dcp
+*.rpx
+
+# Vivado scratch
+.Xil/
+*.Xil/
+vivado.log
+vivado.jou
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local temp / render
+.edge-tmp/
+.dsh-office-*/
+
+# Local secrets / machine-specific
+*.local
+.env
+
+# Demo videos: too large for git, distributed via GitHub Releases (see data/demo/README.md)
+data/demo/*.mp4
+*.mp4

@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Sun Oct 25 20:51:55 2026
+# Process ID         : 5840
+# Current directory  : D:/daxue/FPGA/full_scan_workflow/fpga/tb
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/tb_sim/xsim_script.tcl}
+# Log file           : D:/daxue/FPGA/full_scan_workflow/fpga/tb/xsim.log
+# Journal file       : D:/daxue/FPGA/full_scan_workflow/fpga/tb\xsim.jou
+# Running On         : linzhiye
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16890 MB
+# Swap memory        : 26101 MB
+# Total Virtual      : 42991 MB
+# Available Virtual  : 5780 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_sim/xsim_script.tcl
+# xsim {tb_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PEAK_WORD=80011b07e0 FRAME=0 IDX=283 AMP=2016
+STROBES=1 WORD_AT_END=80011b07e0 WORD_STABLE=1
+$finish called at time : 13312310 ns : File "D:/daxue/FPGA/full_scan_workflow/fpga/tb/tb_peak_dsp.sv" Line 85
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Oct 25 20:51:57 2026...

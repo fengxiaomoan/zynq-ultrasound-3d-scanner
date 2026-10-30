@@ -1,0 +1,82 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Sun Oct 25 20:51:42 2026
+| Host         : linzhiye running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/daxue/FPGA/fpga_dsp_v2/utilization.rpt
+| Design       : merged_top
+| Device       : xc7z020clg400-2
+| Speed File   : -2
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------+--------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                        Instance                       |                         Module                         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------------------+--------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| merged_top                                            |                                                  (top) |       3522 |       3305 |      24 |  193 | 5029 |     12 |      0 |         12 |
+|   (merged_top)                                        |                                                  (top) |         84 |         84 |       0 |    0 |   97 |      0 |      0 |          0 |
+|   acq                                                 |                                   ultrasound_test_core |         78 |         78 |       0 |    0 |  105 |      0 |      0 |          0 |
+|     (acq)                                             |                                   ultrasound_test_core |         23 |         23 |       0 |    0 |   93 |      0 |      0 |          0 |
+|     tx                                                |                                          tx_probe_test |         56 |         56 |       0 |    0 |   12 |      0 |      0 |          0 |
+|   control                                             |                                         ultrasound_vio |        172 |        172 |       0 |    0 |  372 |      0 |      0 |          0 |
+|     inst                                              |                         ultrasound_vio_vio_v3_0_27_vio |        172 |        172 |       0 |    0 |  372 |      0 |      0 |          0 |
+|       U_XSDB_SLAVE                                    |                      ultrasound_vio_xsdbs_v1_0_5_xsdbs |         77 |         77 |       0 |    0 |  161 |      0 |      0 |          0 |
+|       PROBE_IN_INST                                   |                ultrasound_vio_vio_v3_0_27_probe_in_one |         69 |         69 |       0 |    0 |  137 |      0 |      0 |          0 |
+|   dbg_hub                                             |                                                dbg_hub |        488 |        464 |      24 |    0 |  765 |      0 |      0 |          0 |
+|     inst                                              |                             dbg_hub_xsdbm_v3_0_4_xsdbm |        488 |        464 |      24 |    0 |  765 |      0 |      0 |          0 |
+|       BSCANID.u_xsdbm_id                              |                          dbg_hub_xsdbm_v3_0_4_xsdbm_id |        488 |        464 |      24 |    0 |  765 |      0 |      0 |          0 |
+|         SWITCH_N_EXT_BSCAN.bscan_switch               |                      dbg_hub_xsdbm_v3_0_4_bscan_switch |        124 |        124 |       0 |    0 |  125 |      0 |      0 |          0 |
+|         CORE_XSDB.UUT_MASTER                          |                         dbg_hub_xsdbm_v3_0_4_icon2xsdb |        312 |        288 |      24 |    0 |  578 |      0 |      0 |          0 |
+|           U_ICON_INTERFACE                            |                                dbg_hub_xsdbm_v3_0_4_if |        169 |        145 |      24 |    0 |  462 |      0 |      0 |          0 |
+|             U_CMD6_WR                                 |                             dbg_hub_xsdbm_v3_0_4_wrreg |         45 |         33 |      12 |    0 |  110 |      0 |      0 |          0 |
+|               U_WR_FIFO                               |                            dbg_hub_xsdbm_v3_0_4_wrfifo |         43 |         31 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                 SUBCORE_FIFO.xsdbm_v3_0_4_wrfifo_inst |                         dbg_hub_fifo_generator_v13_1_5 |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                   inst_fifo_gen                       |                   dbg_hub_fifo_generator_v13_1_5_synth |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                     gconvfifo.rf                      |                             dbg_hub_fifo_generator_top |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|                       grf.rf                          |                         dbg_hub_fifo_generator_ramfifo |         42 |         30 |      12 |    0 |   90 |      0 |      0 |          0 |
+|             U_CMD4                                    |           dbg_hub_xsdbm_v3_0_4_ctl_reg__parameterized0 |         13 |         13 |       0 |    0 |   62 |      0 |      0 |          0 |
+|             U_CMD6_RD                                 |                             dbg_hub_xsdbm_v3_0_4_rdreg |         69 |         57 |      12 |    0 |  134 |      0 |      0 |          0 |
+|               U_RD_FIFO                               |                            dbg_hub_xsdbm_v3_0_4_rdfifo |         67 |         55 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                 SUBCORE_FIFO.xsdbm_v3_0_4_rdfifo_inst |         dbg_hub_fifo_generator_v13_1_5__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                   inst_fifo_gen                       |   dbg_hub_fifo_generator_v13_1_5_synth__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                     gconvfifo.rf                      |             dbg_hub_fifo_generator_top__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|                       grf.rf                          |         dbg_hub_fifo_generator_ramfifo__parameterized0 |         47 |         35 |      12 |    0 |  114 |      0 |      0 |          0 |
+|           U_XSDB_BUS_CONTROLLER                       |                           dbg_hub_xsdbm_v3_0_4_bus_ctl |         87 |         87 |       0 |    0 |   60 |      0 |      0 |          0 |
+|   dsp                                                 |                                               peak_dsp |        239 |        198 |       0 |   41 |  190 |      0 |      0 |          6 |
+|   motors                                              |                                             motor_pair |        649 |        649 |       0 |    0 |  340 |      0 |      0 |          6 |
+|     ball                                              |                                           stepper_axis |        334 |        334 |       0 |    0 |  170 |      0 |      0 |          3 |
+|     lift                                              |                                         stepper_axis_0 |        316 |        316 |       0 |    0 |  170 |      0 |      0 |          3 |
+|   motors_vio                                          |                                             merged_vio |        720 |        720 |       0 |    0 | 1468 |      0 |      0 |          0 |
+|     inst                                              |                             merged_vio_vio_v3_0_27_vio |        720 |        720 |       0 |    0 | 1468 |      0 |      0 |          0 |
+|       U_XSDB_SLAVE                                    |                          merged_vio_xsdbs_v1_0_5_xsdbs |         77 |         77 |       0 |    0 |  161 |      0 |      0 |          0 |
+|       DECODER_INST                                    |                         merged_vio_vio_v3_0_27_decoder |         46 |         46 |       0 |    0 |   51 |      0 |      0 |          0 |
+|       PROBE_IN_INST                                   |                    merged_vio_vio_v3_0_27_probe_in_one |        506 |        506 |       0 |    0 |  908 |      0 |      0 |          0 |
+|       PROBE_OUT_ALL_INST                              |                   merged_vio_vio_v3_0_27_probe_out_all |         83 |         83 |       0 |    0 |  316 |      0 |      0 |          0 |
+|         G_PROBE_OUT[3].PROBE_OUT0_INST                |   merged_vio_vio_v3_0_27_probe_out_one__parameterized1 |         10 |         10 |       0 |    0 |   81 |      0 |      0 |          0 |
+|         G_PROBE_OUT[1].PROBE_OUT0_INST                |   merged_vio_vio_v3_0_27_probe_out_one__parameterized0 |         16 |         16 |       0 |    0 |   67 |      0 |      0 |          0 |
+|         G_PROBE_OUT[2].PROBE_OUT0_INST                | merged_vio_vio_v3_0_27_probe_out_one__parameterized0_0 |         12 |         12 |       0 |    0 |   67 |      0 |      0 |          0 |
+|   scope                                               |                                         ultrasound_ila |       1089 |        937 |       0 |  152 | 1687 |     12 |      0 |          0 |
+|     inst                                              |                         ultrasound_ila_ila_v6_2_18_ila |       1089 |        937 |       0 |  152 | 1687 |     12 |      0 |          0 |
+|       ila_core_inst                                   |                    ultrasound_ila_ila_v6_2_18_ila_core |       1088 |        936 |       0 |  152 | 1681 |     12 |      0 |          0 |
+|         (ila_core_inst)                               |                    ultrasound_ila_ila_v6_2_18_ila_core |         27 |          0 |       0 |   27 |   94 |      0 |      0 |          0 |
+|         u_ila_cap_ctrl                                |         ultrasound_ila_ila_v6_2_18_ila_cap_ctrl_legacy |         70 |         23 |       0 |   47 |  157 |      0 |      0 |          0 |
+|           u_cap_addrgen                               |             ultrasound_ila_ila_v6_2_18_ila_cap_addrgen |         55 |         18 |       0 |   37 |  151 |      0 |      0 |          0 |
+|             (u_cap_addrgen)                           |             ultrasound_ila_ila_v6_2_18_ila_cap_addrgen |         14 |         13 |       0 |    1 |   83 |      0 |      0 |          0 |
+|         u_ila_regs                                    |                ultrasound_ila_ila_v6_2_18_ila_register |        798 |        797 |       0 |    1 | 1182 |      0 |      0 |          0 |
+|           (u_ila_regs)                                |                ultrasound_ila_ila_v6_2_18_ila_register |        305 |        304 |       0 |    1 |  160 |      0 |      0 |          0 |
+|           U_XSDB_SLAVE                                |                      ultrasound_ila_xsdbs_v1_0_5_xsdbs |         76 |         76 |       0 |    0 |  213 |      0 |      0 |          0 |
+|         u_trig                                        |                 ultrasound_ila_ila_v6_2_18_ila_trigger |        102 |         27 |       0 |   75 |  135 |      0 |      0 |          0 |
+|         xsdb_memory_read_inst                         |              ultrasound_ila_ltlib_v1_0_3_generic_memrd |         51 |         49 |       0 |    2 |   77 |      0 |      0 |          0 |
++-------------------------------------------------------+--------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

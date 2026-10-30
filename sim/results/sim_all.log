@@ -1,0 +1,78 @@
+wrote 130 vectors -> D:\daxue\FPGA\f1_sim\pose_vectors.txt
+=== xvlog ===
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/i2c_master.sv" into library work
+INFO: [VRFC 10-311] analyzing module i2c_master
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/mpu6050_bringup.sv" into library work
+INFO: [VRFC 10-311] analyzing module mpu6050_bringup
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/pose_fusion.sv" into library work
+INFO: [VRFC 10-311] analyzing module pose_fusion
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_mpu6050_model.sv" into library work
+INFO: [VRFC 10-311] analyzing module mpu6050_model
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_f1.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_f1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_i2c_recovery.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_i2c_recovery
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_pose_fusion
+=== xelab tb_f1 ===
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_f1 -s tbf1 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.i2c_master_default
+Compiling module work.mpu6050_bringup(PWR_CYCLES=200,W...
+Compiling module work.mpu6050_model
+Compiling module work.tb_f1
+Built simulation snapshot tbf1
+
+LINE_CHECK_HIGH: scl=1 sda=1
+WHO_OK: 0x68 at pc=8
+DATA_OK: ax=0x1234
+PASS: who=0x68 ax=1234 ay=5678 az=9abc gx=1122 gy=3344 gz=5566 err=0 samples=1
+=== xelab tb_i2c_recovery ===
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_i2c_recovery -s tbrec 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.i2c_master_default
+Compiling module work.tb_i2c_recovery
+Built simulation snapshot tbrec
+TIMEOUT_SEEN rises=0 busy=1
+RECOVERY_DONE pulses=10 (>=9) err=1 busy=0 scl_oe=0 sda_oe=0
+NEXT_CMD err=0 busy=0
+I2C_RECOVERY_PASS pulses=11
+=== xelab tb_pose_fusion ===
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_pose_fusion -s tbpose 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.pose_fusion
+Compiling module work.tb_pose_fusion
+Built simulation snapshot tbpose
+SAMPLES=130 MISMATCHES=0 LATENCY_MIN=51 LATENCY_MAX=51 CYCLES=51
+POSE_FUSION_PASS n=130 latency=51 cycles
+$finish called at time : 140500 ns : File "D:/daxue/FPGA/full_scan_workflow/fpga/f1/tb_pose_fusion.sv" Line 117
+SIM_ALL_PASS  (tb_f1, tb_i2c_recovery, tb_pose_fusion)
+
+

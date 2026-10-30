@@ -1,0 +1,5 @@
+PASS live_run/p12_std1
+PASS live_run/p12_std2
+PASS live_run/cont3_a
+PASS live_run/cont_a
+M2B_ALG_PASS: 4 run(s) bit-identical to continuous_scan.py

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>F1 · 姿态驱动三维重建</title>
+<style>
+  :root{
+    --bg:#0a1015; --panel:#111a21; --panel2:#0e161d; --line:#22313d;
+    --ink:#e8f0f7; --muted:#8298aa; --dim:#5b6f80;
+    --accent:#ff7a45; --cyan:#4fc3f7; --green:#5bd6a0; --amber:#ffc857; --red:#ff6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--ink);overflow:hidden;
+    font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+    display:grid;grid-template-rows:54px 1fr;gap:8px;padding:8px;
+  }
+  header{
+    display:flex;align-items:center;gap:14px;padding:0 16px;
+    background:linear-gradient(90deg,#101b24,#0b1218);
+    border:1px solid var(--line);border-radius:10px;
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);
+       box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  h1{font-size:15px;font-weight:600;letter-spacing:.6px;white-space:nowrap}
+  h1 span{color:var(--dim);font-weight:400;margin-left:8px;font-size:12px}
+  .pills{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+  .pill{font:12px ui-monospace,Consolas,monospace;color:#b9cbd9;
+        background:#18232c;border:1px solid #263543;border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .pill b{color:#fff;font-weight:600}
+  .status{font:12px ui-monospace,Consolas,monospace;padding:4px 11px;border-radius:999px;
+          border:1px solid #2a3a48;color:var(--muted);white-space:nowrap}
+  .status.ok{color:var(--green);border-color:#255b45;background:#10281f}
+  .status.bad{color:var(--red);border-color:#5b2525;background:#2a1212}
+
+  main{display:grid;grid-template-columns:320px 1fr;gap:8px;min-height:0}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;min-height:0;min-width:0}
+  .left{display:flex;flex-direction:column;gap:10px;padding:14px;overflow:auto}
+  .cap{font-size:10.5px;letter-spacing:2.2px;color:var(--dim);margin-top:2px}
+  .angles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .angles div{background:var(--panel2);border:1px solid #1b2833;border-radius:8px;padding:8px 10px}
+  .angles label{display:block;font-size:10px;color:var(--muted);letter-spacing:1px}
+  .angles b{font:600 20px/1.25 ui-monospace,Consolas,monospace;color:var(--ink)}
+  .angles div:nth-child(1) b{color:var(--cyan)}
+  .angles div:nth-child(2) b{color:var(--green)}
+  .angles div:nth-child(3) b{color:var(--amber)}
+
+  select{width:100%;background:#0d161d;color:var(--ink);border:1px solid #263543;
+         border-radius:8px;padding:9px 10px;font-size:13px;outline:none}
+  select:focus{border-color:var(--cyan)}
+  .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  #m-name{font-size:13px;color:#cfe0ee}
+  .chip{font:11px ui-monospace,Consolas,monospace;border-radius:999px;padding:2px 8px;border:1px solid}
+  .chip.real{color:var(--green);border-color:#255b45;background:#0f241c}
+  .chip.synth{color:var(--amber);border-color:#5c4a1e;background:#241d0d}
+  .mono{font:12px ui-monospace,Consolas,monospace;color:var(--muted)}
+  #m-limits{font:11px/1.55 ui-monospace,Consolas,monospace;color:#6f8497;white-space:pre-wrap;
+            background:var(--panel2);border:1px solid #1b2833;border-radius:8px;padding:8px;min-height:38px}
+
+  .btns{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  button{
+    background:#16222b;color:#d7e5f1;border:1px solid #2a3a48;border-radius:8px;
+    padding:9px 8px;font-size:12.5px;cursor:pointer;transition:.15s;
+  }
+  button:hover{border-color:var(--cyan);color:#fff}
+  button.on{background:#10303f;border-color:var(--cyan);color:#bfeaff}
+  .hint{font-size:11px;color:var(--dim);line-height:1.6;margin-top:auto;padding-top:6px}
+
+  .viewwrap{position:relative;overflow:hidden;background:radial-gradient(70% 60% at 50% 42%,#101c25 0%,#0a1015 72%)}
+  #view{width:100%;height:100%;display:block;cursor:grab}
+  #view:active{cursor:grabbing}
+  .corner{position:absolute;right:12px;bottom:10px;font:11px ui-monospace,Consolas,monospace;
+          color:#3f5668;pointer-events:none}
+  .legend{position:absolute;left:12px;bottom:10px;display:flex;gap:12px;
+          font:11px ui-monospace,Consolas,monospace;color:#4d6476;pointer-events:none}
+  .legend i{display:inline-block;width:8px;height:2px;margin-right:5px;vertical-align:middle}
+
+  @media (max-width:900px){
+    main{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+    .left{max-height:44vh}
+  }
+</style>
+</head>
+<body>
+<header>
+  <span class="dot"></span>
+  <h1>F1 · 姿态驱动三维重建<span>MPU6050 → PL → VIO → WebGL</span></h1>
+  <div class="pills">
+    <span class="pill">数据源 <b id="mode">—</b></span>
+    <span class="pill">样本年龄 <b id="age">—</b></span>
+    <span class="pill">SEQ <b id="seq">—</b></span>
+    <span class="pill">FPS <b id="fps">—</b></span>
+    <span class="status" id="status">启动中…</span>
+  </div>
+</header>
+
+<main>
+  <aside class="panel left">
+    <div class="cap">姿态 / POSE</div>
+    <div class="angles">
+      <div><label>ROLL</label><b id="roll">0.0°</b></div>
+      <div><label>PITCH</label><b id="pitch">0.0°</b></div>
+      <div><label>YAW</label><b id="yaw">0.0°</b></div>
+    </div>
+
+    <div class="cap">模型 / MODEL</div>
+    <select id="model" aria-label="模型"></select>
+    <div class="meta">
+      <span id="m-name">—</span>
+      <span id="m-prov" class="chip">—</span>
+    </div>
+    <div id="m-count" class="mono">—</div>
+    <pre id="m-limits"></pre>
+
+    <div class="cap">控制 / CONTROL</div>
+    <div class="btns">
+      <button id="zero" title="把当前姿态记为单位阵">归零 <span class="mono">Z</span></button>
+      <button id="reset" title="复位相机">复位视角 <span class="mono">R</span></button>
+      <button id="wire" title="线框显示">线框 <span class="mono">W</span></button>
+      <button id="pause" title="冻结姿态">暂停 <span class="mono">Space</span></button>
+    </div>
+
+    <div class="hint">
+      拖拽旋转视角 · 滚轮缩放 · 双击复位<br>
+      当前姿态只驱动模型，不回写 FPGA；<br>
+      数据源为 <b>演示</b> 时是合成运动，不是实测。
+    </div>
+  </aside>
+
+  <section class="panel viewwrap">
+    <canvas id="view"></canvas>
+    <div class="legend">
+      <span><i style="background:#e84f3f"></i>X</span>
+      <span><i style="background:#59d98c"></i>Y</span>
+      <span><i style="background:#4c9bef"></i>Z</span>
+    </div>
+    <div class="corner">Wy 向上 · 模型坐标系</div>
+  </section>
+</main>
+
+<script src="/math3d.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

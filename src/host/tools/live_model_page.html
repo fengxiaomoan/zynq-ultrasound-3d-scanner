@@ -1,0 +1,693 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>P1.2 实时建模 · 异常对比</title>
+<style>
+ :root{--ink:#16242e;--muted:#6b7c8c;--line:#d9dee4;--bg:#eef1f4;--card:#fff;
+        --accent:#c0553b;--good:#2f7d5a;--warn:#b07d1f;--bad:#a63a2e;--live:#2aa86a}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--ink);
+      font-family:"Microsoft YaHei",system-ui,-apple-system,Segoe UI,sans-serif}
+ header{background:#182b3a;color:#fff;padding:11px 20px;display:flex;align-items:center;
+        gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:9;
+        box-shadow:0 1px 6px rgba(0,0,0,.18)}
+ header h1{font-size:16px;margin:0;font-weight:600;letter-spacing:.3px}
+ .pill{font:11.5px ui-monospace,Consolas,monospace;background:#274154;padding:3px 9px;
+       border-radius:999px;white-space:nowrap}
+ .pill b{color:#8fe0b5;font-weight:600}
+ #dot{width:8px;height:8px;border-radius:50%;background:var(--live);display:inline-block;
+      margin-right:5px;box-shadow:0 0 0 0 rgba(42,168,106,.7);animation:pulse 1.6s infinite}
+ @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(42,168,106,0)}100%{box-shadow:0 0 0 0 rgba(42,168,106,0)}}
+ main{padding:12px 16px 40px;display:grid;gap:12px;grid-template-columns:repeat(12,1fr);
+      max-width:1680px;margin:auto}
+ section{background:var(--card);border:1px solid var(--line);border-radius:10px;
+         padding:10px 12px;min-width:0;box-shadow:0 1px 2px rgba(20,40,60,.04)}
+ section h2{font-size:12.5px;margin:0 0 7px;color:#33506a;font-weight:600;
+            display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+ section h2 .hint{font:10.5px ui-monospace,Consolas,monospace;color:#93a2b0;font-weight:400}
+ .span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}
+ .span8{grid-column:span 8}.span12{grid-column:span 12}
+ canvas{width:100%;display:block;background:#fafcfd;border-radius:6px}
+ .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;
+     font:11.5px ui-monospace,Consolas,monospace}
+ .kv b{color:var(--muted);font-weight:400;white-space:nowrap}
+ .kv span{text-align:right;overflow:hidden;text-overflow:ellipsis}
+ table{border-collapse:collapse;width:100%;font:11.5px ui-monospace,Consolas,monospace}
+ th,td{padding:3px 5px;border-bottom:1px solid #eef1f4;text-align:right;white-space:nowrap}
+ th{color:var(--muted);font-weight:600;position:sticky;top:0;background:#fff}
+ td:first-child,th:first-child{text-align:left}
+ .ok{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}.muted{color:var(--muted)}
+ .scroll{max-height:210px;overflow:auto}
+ .verdict{font:600 15px "Microsoft YaHei",sans-serif;padding:6px 10px;border-radius:8px;
+          background:#f0f4f7;text-align:center;margin:6px 0 2px}
+ .verdict.DETECTED{background:#e6f5ec;color:#1e6b45}
+ .verdict.MISSED,.verdict.NO_DETECTION,.verdict.BELOW_MIN_PEAK{background:#fdf3e5;color:#8a5f10}
+ .note{font:10.5px/1.5 ui-monospace,Consolas,monospace;color:#8b98a5;margin-top:6px}
+ .bar{height:5px;background:#e6eaee;border-radius:3px;overflow:hidden;margin:6px 0 2px}
+ .bar>i{display:block;height:100%;background:linear-gradient(90deg,#2aa86a,#7ac943);width:0;
+        transition:width .4s}
+ .pbtn{font:11.5px "Microsoft YaHei",sans-serif;background:#274154;color:#dff0e6;
+       border:1px solid #3a5c74;border-radius:999px;padding:3px 10px;cursor:pointer}
+ .pbtn:hover{background:#33566f}
+ .pose0{color:#8fe0b5}
+ .ph{background:#eef2f6;color:#5a6c7d}
+</style></head><body>
+<header>
+ <h1>P1.2 实时建模 · 缺陷对比</h1>
+ <span class="pill"><span id="dot"></span>同步 <b id="sync">—</b></span>
+ <span class="pill" id="pphase">阶段 <b id="phase">—</b></span>
+ <span class="pill">帧 <b id="pframes">0</b></span>
+ <span class="pill">格 <b id="pcells">0</b></span>
+ <span class="pill">有效 <b id="pvalid">0</b></span>
+ <span class="pill">速率 <b id="prate">—</b></span>
+ <span class="pill">t_eff <b id="pteff">—</b></span>
+ <span class="pill" id="pverts">—</span>
+ <span class="pill" id="pmodepill">模式 <b id="pmode">姿态驱动</b></span>
+ <span class="pill" id="pposepill">姿态 <b id="ppose">—</b></span>
+ <button class="pbtn" id="btnMode" title="切换 姿态驱动 / 自动旋转（K）">模式 K</button>
+ <button class="pbtn" id="btnZero" title="把当前姿态记为零点（Z）">归零 Z</button>
+</header>
+<main>
+  <section class="span6">
+    <h2><span>实时三维模型 · 标准件</span><span class="hint" id="mstd">—</span></h2>
+    <canvas id="meshStd" width="820" height="340"></canvas>
+    <div class="bar"><i id="progStd"></i></div>
+    <div class="kv" id="kvStd" style="margin-top:6px"></div>
+  </section>
+  <section class="span6">
+    <h2><span>实时三维模型 · 缺陷件</span><span class="hint" id="mtest">—</span></h2>
+    <canvas id="meshTest" width="820" height="340"></canvas>
+    <div class="bar"><i id="progTest"></i></div>
+    <div class="kv" id="kvTest" style="margin-top:6px"></div>
+  </section>
+
+  <section class="span6">
+    <h2><span>半径图 · 标准件 z × 方位</span><span class="hint">r / mm</span></h2>
+    <canvas id="rmapStd" width="820" height="180"></canvas>
+  </section>
+  <section class="span6">
+    <h2><span>半径图 · 缺陷件 z × 方位</span><span class="hint">r / mm</span></h2>
+    <canvas id="rmapTest" width="820" height="180"></canvas>
+  </section>
+
+  <section class="span8">
+    <h2><span>残差图 · 缺陷件 − 标准件</span><span class="hint" id="resHint">等待两组数据</span></h2>
+    <canvas id="resid" width="1120" height="240"></canvas>
+    <div class="note">正残差 = 缺陷件在该位姿更厚（凸起）。黑框 = 超阈值格，绿框 = 判为缺陷的连通域，
+      十字 = 实测真值位置。方位是 <b>pose_rot 指令计数</b>推算的，不是编码器。</div>
+  </section>
+  <section class="span4">
+    <h2><span>闸门与质量</span><span class="hint" id="gateTime">—</span></h2>
+    <div class="verdict" id="verdict">等待残差</div>
+    <div class="kv" id="gates"></div>
+    <div class="note" id="limits"></div>
+  </section>
+
+  <section class="span8">
+    <h2><span>逐帧时延轨迹 · 原始实时信号</span><span class="hint" id="traceHint">az → t，青=质心字 / 橙=峰值字</span></h2>
+    <canvas id="trace" width="1120" height="240"></canvas>
+  </section>
+  <section class="span4">
+    <h2><span>检出 / 亚阈值簇</span><span class="hint" id="detCount">—</span></h2>
+    <div class="scroll"><table id="detTable">
+      <thead><tr><th>#</th><th>z</th><th>方位</th><th>残差</th><th>面积</th><th>格</th></tr></thead>
+      <tbody></tbody></table></div>
+    <div class="note" id="weakList"></div>
+  </section>
+
+  <section class="span12">
+    <h2><span>逐格明细 · 最新若干格</span><span class="hint">数据源直接来自 manifest.jsonl，无插值</span></h2>
+    <div class="scroll" style="max-height:190px"><table id="cellTable">
+      <thead><tr><th>z mm</th><th>方位 °</th><th>帧</th><th>用</th><th>峰值</th>
+      <th>t µs</th><th>t_circ µs</th><th>r mm</th><th>sd µs</th><th>状态</th></tr></thead>
+      <tbody></tbody></table></div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let S = null, lastOK = 0;
+
+/* ========================== 姿态 → 模型旋转 (F1) ==========================
+ * Pose comes from PL (MPU6050 -> pose_fusion) and the PS republishes it as a
+ * tiny JSON at /api/pose.  Conventions match f1_viewer/math3d.js: quaternions
+ * are [w,x,y,z], Euler order is intrinsic Y-X-Z (yaw, pitch, roll), and "zero"
+ * is q_display = q_raw * q_raw0^-1.
+ *
+ * Two rules this page must never break:
+ *   1. the pose only MOVES THE PICTURE -- it is not a measurement, and nothing
+ *      here may be reported as one;
+ *   2. no /api/pose (old firmware, cable pulled, board still booting) must NOT
+ *      freeze the page: it falls back to the previous auto-spin.
+ * ======================================================================== */
+const DEG = Math.PI / 180;
+const Q_ID = [1, 0, 0, 0];
+const qMul = (a, b) => [
+  a[0]*b[0] - a[1]*b[1] - a[2]*b[2] - a[3]*b[3],
+  a[0]*b[1] + a[1]*b[0] + a[2]*b[3] - a[3]*b[2],
+  a[0]*b[2] - a[1]*b[3] + a[2]*b[0] + a[3]*b[1],
+  a[0]*b[3] + a[1]*b[2] - a[2]*b[1] + a[3]*b[0],
+];
+const qInv = q => [q[0], -q[1], -q[2], -q[3]];
+function qNorm(q) {
+  const n = Math.hypot(q[0], q[1], q[2], q[3]) || 1;
+  return [q[0]/n, q[1]/n, q[2]/n, q[3]/n];
+}
+/* Z-UP, matching pose_fusion and the MPU6050 itself:
+ *   roll = atan2(ay,az) about X, pitch about Y, yaw about Z (gravity = -Z here).
+ * Order is Z-Y-X (yaw first, then pitch, then roll), i.e. q = qz*qy*qx.
+ * NB: f1_viewer/math3d.js uses intrinsic Y-X-Z because three.js is Y-up; that
+ * ordering would tip this Z-up model over sideways, so it is not reused here. */
+function qFromYPR(yaw, pitch, roll) {
+  const cy = Math.cos(yaw/2), sy = Math.sin(yaw/2);
+  const cp = Math.cos(pitch/2), sp = Math.sin(pitch/2);
+  const cr = Math.cos(roll/2), sr = Math.sin(roll/2);
+  return qNorm(qMul(qMul([cy, 0, 0, sy], [cp, 0, sp, 0]), [cr, sr, 0, 0]));
+}
+const qFromDeg = (y, p, r) => qFromYPR(y*DEG, p*DEG, r*DEG);
+function qSlerp(a, b, t) {
+  let d = a[0]*b[0] + a[1]*b[1] + a[2]*b[2] + a[3]*b[3];
+  let bb = b;
+  if (d < 0) { d = -d; bb = [-b[0], -b[1], -b[2], -b[3]]; }
+  if (d > 0.9995) {
+    return qNorm([a[0] + (bb[0]-a[0])*t, a[1] + (bb[1]-a[1])*t,
+                  a[2] + (bb[2]-a[2])*t, a[3] + (bb[3]-a[3])*t]);
+  }
+  const th = Math.acos(Math.min(1, d)), s = Math.sin(th);
+  const w1 = Math.sin((1-t)*th)/s, w2 = Math.sin(t*th)/s;
+  return [a[0]*w1 + bb[0]*w2, a[1]*w1 + bb[1]*w2,
+          a[2]*w1 + bb[2]*w2, a[3]*w1 + bb[3]*w2];
+}
+/* row-major 3x3, element order identical to math3d.mat4FromQuat */
+function qRotMat(q) {
+  const [w, x, y, z] = q;
+  return [
+    1-2*(y*y+z*z), 2*(x*y-w*z),   2*(x*z+w*y),
+    2*(x*y+w*z),   1-2*(x*x+z*z), 2*(y*z-w*x),
+    2*(x*z-w*y),   2*(y*z+w*x),   1-2*(x*x+y*y),
+  ];
+}
+function qYawOf(q) {
+  /* yaw about +Z, read straight off the rotation matrix (atan2(R10,R00)) */
+  const R = qRotMat(q);
+  return Math.atan2(R[3], R[0]);
+}
+
+const POSE = {
+  mode: 'pose',        /* 'pose' | 'auto'  (K toggles) */
+  raw: { roll: 0, pitch: 0, yaw: 0, gx: 0, gy: 0, gz: 0 },
+  qRaw: Q_ID.slice(),  /* latest absolute attitude */
+  qSmooth: Q_ID.slice(),
+  q0: null,            /* inverse of the attitude at the last "zero" */
+  auto: 0,             /* auto-spin phase, degrees */
+  seq: -1, age_ms: null, src: '—', lastGood: 0, lastPoll: 0,
+};
+
+function poseFresh() { return POSE.lastGood > 0 && (Date.now() - POSE.lastGood) < 800; }
+
+/* gyro extrapolation is a DISPLAY trick: it fills the 50 ms between samples so
+ * a hand turn does not look like a slideshow.  It never replaces the sample. */
+let lastStepAt = 0;
+function poseStep() {
+  const now = Date.now();
+  const dt = lastStepAt ? Math.min(200, now - lastStepAt) : 16;
+  lastStepAt = now;
+  const usePose = POSE.mode === 'pose' && poseFresh();
+  let target;
+  if (usePose) {
+    const s = dt / 1000;
+    POSE.qRaw = qFromDeg(POSE.raw.yaw   + POSE.raw.gz * s,
+                         POSE.raw.pitch + POSE.raw.gy * s,
+                         POSE.raw.roll  + POSE.raw.gx * s);
+    target = POSE.q0 ? qMul(POSE.qRaw, POSE.q0) : POSE.qRaw;
+  } else {
+    POSE.auto += 0.9 * (dt / 1000) * 60;    /* same speed as the old spin */
+    target = qFromDeg(POSE.auto, 0, 0);
+  }
+  POSE.qSmooth = qSlerp(POSE.qSmooth, target, usePose ? 0.45 : 0.60);
+  POSE.usingPose = usePose;
+}
+
+async function pollPose() {
+  let p;
+  try {
+    const r = await fetch('api/pose', { cache: 'no-store' });
+    if (!r.ok) return;
+    p = await r.json();
+  } catch (e) { return; }
+  if (!p || !(p.ok === 1 || p.ok === true)) return;
+  if (p.age_ms != null && p.age_ms > 500) return;
+  POSE.raw.roll  = +p.roll  || 0;
+  POSE.raw.pitch = +p.pitch || 0;
+  POSE.raw.yaw   = +p.yaw   || 0;
+  POSE.raw.gx    = +p.gx    || 0;
+  POSE.raw.gy    = +p.gy    || 0;
+  POSE.raw.gz    = +p.gz    || 0;
+  POSE.seq = (p.seq == null) ? -1 : p.seq;
+  POSE.age_ms = (p.age_ms == null) ? null : p.age_ms;
+  POSE.src = p.source || 'PL';
+  POSE.lastGood = Date.now();
+  POSE.lastPoll = Date.now();
+}
+
+function zeroPose() {
+  if (!poseFresh()) return false;
+  POSE.qRaw = qFromDeg(POSE.raw.yaw, POSE.raw.pitch, POSE.raw.roll);
+  POSE.q0 = qInv(POSE.qRaw);
+  POSE.qSmooth = qMul(POSE.qRaw, POSE.q0);    /* identity at the zero instant */
+  return true;
+}
+
+function toggleMode() {
+  POSE.mode = (POSE.mode === 'pose') ? 'auto' : 'pose';
+  if (POSE.mode === 'auto') POSE.auto = qYawOf(POSE.qSmooth) / DEG;
+  syncPoseUI();
+}
+
+function poseMatrix() { return qRotMat(POSE.qSmooth); }
+
+function applyQ(v) {
+  const R = poseMatrix();
+  return [R[0]*v[0]+R[1]*v[1]+R[2]*v[2],
+          R[3]*v[0]+R[4]*v[1]+R[5]*v[2],
+          R[6]*v[0]+R[7]*v[1]+R[8]*v[2]];
+}
+
+function syncPoseUI() {
+  const fresh = poseFresh();
+  $('pmode').textContent = (POSE.mode === 'pose')
+    ? (fresh ? '姿态驱动' : '姿态驱动·无信号')
+    : '自动旋转';
+  $('ppose').textContent = fresh
+    ? `${POSE.raw.roll.toFixed(0)}° / ${POSE.raw.pitch.toFixed(0)}° / ${POSE.raw.yaw.toFixed(0)}°`
+    : '—';
+}
+
+const RAMP = [[44,90,160],[52,152,170],[120,190,140],[233,196,106],[214,120,60]];
+function ramp(v, lo, hi){
+  const t = Math.max(0, Math.min(1, (v-lo)/Math.max(hi-lo, 1e-9)));
+  const x = t*(RAMP.length-1), i = Math.floor(x), f = x-i;
+  const a = RAMP[i], b = RAMP[Math.min(i+1, RAMP.length-1)];
+  return [a[0]+(b[0]-a[0])*f, a[1]+(b[1]-a[1])*f, a[2]+(b[2]-a[2])*f];
+}
+function diverg(v, lim){
+  const t = Math.max(-1, Math.min(1, v/Math.max(lim, 1e-9)));
+  if(t >= 0) return [245-135*t, 245-125*t, 245-70*t];       // white -> red
+  return [245-170*(-t), 245-70*(-t), 245-10*(-t)];          // white -> blue
+}
+const rgb = c => `rgb(${c[0]|0},${c[1]|0},${c[2]|0})`;
+
+async function tick(){
+  let r;
+  try{ r = await fetch('state', {cache:'no-store'}); }catch(e){ $('sync').textContent='断线'; return; }
+  if(!r.ok){ $('sync').textContent='错误'; return; }
+  S = await r.json();
+  lastOK = Date.now();
+  render();
+}
+
+function render(){
+  const R = S.runs, std = R.std, test = R.test;
+  syncPoseUI();
+  $('pframes').textContent = std.frames + (test && test.frames ? ' / '+test.frames : '');
+  $('pcells').textContent  = std.cells  + (test && test.cells  ? ' / '+test.cells  : '');
+  $('pvalid').textContent  = std.valid_cells + (test && test.valid_cells ? ' / '+test.valid_cells : '');
+  const f = std.rate_fps==null ? (test&&test.rate_fps) : std.rate_fps;
+  $('prate').textContent = f==null ? '—' : f+' 帧/s';
+  $('pteff').textContent = (std.t_eff_us==null?'—':std.t_eff_us.toFixed(2)+' µs') +
+    (test && test.t_eff_us!=null ? ' / '+test.t_eff_us.toFixed(2) : '');
+  // "moving but nothing on the page" is almost always the lift / JTAG start-up:
+  // the manifest only grows while a layer is rotating.  Say so instead of
+  // looking frozen.
+  const silent = std.silent_s;
+  $('sync').textContent = S.now + (silent!=null && silent>3 ? ' · 沉默 '+silent+'s' : '');
+  $('phase').textContent = std.phase || '—';
+  const busy = silent!=null && silent>3;
+  $('phase').className = busy ? 'warn' : 'ok';
+  $('dot').style.background = busy ? '#e0a83a' : '#2aa86a';
+  $('dot').style.animationPlayState = busy ? 'paused' : 'running';
+  const nv = (std.mesh? std.mesh.stats.vertices:0) + (test&&test.mesh? test.mesh.stats.vertices:0);
+  $('pverts').textContent = nv ? ('网格 '+nv+' 顶点') : '网格 未成形';
+
+  drawModel('meshStd', std, 'mstd');
+  drawModel('meshTest', test, 'mtest');
+  drawRmap('rmapStd', std);
+  drawRmap('rmapTest', test);
+  drawTrace();
+  drawResid();
+  gates();
+  cellsTable();
+}
+
+/* ---------------------------------------------------------------- 3D model */
+/* Until two layers exist the PS sends mesh=null, so there is nothing to look
+ * at.  A procedural stand-in keeps the pose interaction demonstrable and, more
+ * importantly, keeps the two canvases from showing an empty box.  It is drawn
+ * in grey and labelled on the canvas: it is NOT a measurement, and it must
+ * never be read as one. */
+let PH = null;
+function placeholderMesh() {
+  if (PH) return PH;
+  const N = 24, r = 14, zt = 6, zb = -6, V = [], F = [];
+  for (let i = 0; i < N; i++) {
+    const a = 2*Math.PI*i/N;
+    V.push([75 + r*Math.cos(a), 100 + r*Math.sin(a), zt]);
+  }
+  for (let i = 0; i < N; i++) {
+    const a = 2*Math.PI*i/N;
+    V.push([75 + r*Math.cos(a), 100 + r*Math.sin(a), zb]);
+  }
+  V.push([75, 100, zt]); V.push([75, 100, zb]);      /* 2N, 2N+1: cap centres */
+  const ct = 2*N, cb = 2*N + 1;
+  for (let i = 0; i < N; i++) {
+    const j = (i + 1) % N;
+    F.push([i, j, N + j], [i, N + j, N + i]);        /* side quads */
+    F.push([ct, i, j]);                              /* top fan  */
+    F.push([cb, N + j, N + i]);                      /* bottom fan */
+  }
+  PH = { vertices: V, faces: F,
+         stats: { vertices: V.length, triangles: F.length, segments: N,
+                  closed: true, placeholder: true } };
+  return PH;
+}
+
+function drawModel(cid, run, hintId){
+  const c=$(cid), ctx=c.getContext('2d'), W=c.width, H=c.height;
+  ctx.clearRect(0,0,W,H);
+  if(!run){ ctx.fillStyle='#9aa6b2'; ctx.font='12px Microsoft YaHei';
+    ctx.fillText('未配置该路扫描', 18, 28); $(hintId).textContent='—'; return; }
+  const real = !!(run.mesh && run.mesh.vertices && run.mesh.vertices.length >= 3);
+  const M = real ? run.mesh : placeholderMesh();
+  const P = run.profile || [];
+  const nPlan = S.plan_layers || 3;
+  $('prog'+cid.replace('mesh','')).style.width =
+    Math.min(100, 100*P.length/nPlan).toFixed(0)+'%';
+
+  const V=M.vertices, F=M.faces;
+  let zmin=1e9,zmax=-1e9,rmax=0;
+  for(const v of V){ zmin=Math.min(zmin,v[2]); zmax=Math.max(zmax,v[2]);
+    rmax=Math.max(rmax, Math.hypot(v[0]-75, v[1]-100)); }
+  const zc=(zmin+zmax)/2;
+  const span=Math.max(zmax-zmin, 2.1*rmax, 1e-6);
+  const s = Math.min(W,H)*0.80/span;
+  /* the whole point of F1: the model's orientation is the operator's hand, not
+   * a clock.  Same matrix for the placeholder and for the real mesh, so the
+   * stand-in proves the interaction before any scan exists. */
+  const R = poseMatrix();
+  const Q=V.map(v=>{
+    const x=v[0]-75, y=v[1]-100, z=v[2]-zc;
+    return [R[0]*x+R[1]*y+R[2]*z, R[3]*x+R[4]*y+R[5]*z, R[6]*x+R[7]*y+R[8]*z];
+  });
+  const cx=W/2, cy=H/2;
+  const Pj=Q.map(q=>{
+    const persp=1/(1+q[1]/420);
+    return [cx+q[0]*s*persp, cy-q[2]*s*persp, q[1]];
+  });
+  const tris=F.map(f=>{
+    const a=Q[f[0]], b=Q[f[1]], d=Q[f[2]];
+    const u=[b[0]-a[0],b[1]-a[1],b[2]-a[2]], w=[d[0]-a[0],d[1]-a[1],d[2]-a[2]];
+    const n=[u[1]*w[2]-u[2]*w[1], u[2]*w[0]-u[0]*w[2], u[0]*w[1]-u[1]*w[0]];
+    const nn=Math.hypot(n[0],n[1],n[2])||1;
+    return {p:[Pj[f[0]],Pj[f[1]],Pj[f[2]]],
+            d:(Pj[f[0]][2]+Pj[f[1]][2]+Pj[f[2]][2])/3,
+            sh:0.42+0.58*Math.abs(n[2]/nn)};
+  }).sort((u,v)=>v.d-u.d);
+  for(const t of tris){
+    const k=Math.max(0,Math.min(1, t.sh));
+    ctx.fillStyle = real
+      ? `rgba(${(96+70*k)|0},${(140+60*k)|0},${(176+50*k)|0},0.97)`
+      : `rgba(${(140+62*k)|0},${(150+58*k)|0},${(163+55*k)|0},0.96)`;
+    ctx.strokeStyle = real ? 'rgba(40,80,110,0.30)' : 'rgba(88,102,116,0.34)';
+    ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(t.p[0][0],t.p[0][1]);
+    ctx.lineTo(t.p[1][0],t.p[1][1]); ctx.lineTo(t.p[2][0],t.p[2][1]);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+  }
+  if(!real){
+    ctx.fillStyle='#7d8b99'; ctx.font='11px Microsoft YaHei';
+    ctx.fillText('占位件 · 非实测（真实网格 ≥2 层后自动替换）', 12, 16);
+  }
+  if(real){
+    const sh = run.profile; let rmin=1e9, rmed=0;
+    sh.forEach(p=>{ rmin=Math.min(rmin,p.r); rmed=Math.max(rmed,p.r); });
+    $(hintId).textContent = `实测 · 层 ${P.length} · ${M.stats.triangles} 三角 · 圆度 ` +
+      (rmed-rmin).toFixed(2)+' mm';
+  } else {
+    $(hintId).textContent = `占位 · 层 ${P.length}/${nPlan} · ${M.stats.triangles} 三角 · 非实测`;
+  }
+}
+
+/* ------------------------------------------------------------- radius maps */
+function axes(ctx, W, H, run, pad){
+  const L=pad.l, R=pad.r, T=pad.t, B=pad.b;
+  return {L,R,T,B,iw:W-L-R, ih:H-T-B};
+}
+function xAz(a, A){ return A.L + (a+7.5)/360*A.iw; }
+
+function drawRmap(cid, run){
+  const c=$(cid), ctx=c.getContext('2d'), W=c.width, H=c.height;
+  ctx.clearRect(0,0,W,H);
+  if(!run){ return; }
+  const zs=run.layers, azs=run.azs, M=run.rmap;
+  if(!zs.length){ ctx.fillStyle='#9aa6b2'; ctx.font='12px Microsoft YaHei';
+    ctx.fillText('等待第一格…', 18, 26); return; }
+  const A=axes(ctx,W,H,run,{l:44,r:10,t:8,b:22});
+  const dz = zs.length>1 ? Math.abs(zs[0]-zs[1]) : 2;
+  const yTop = zs[0]+dz/2, yBot = zs[zs.length-1]-dz/2;
+  const y = z => A.T + (yTop-z)/Math.max(yTop-yBot,1e-9)*A.ih;
+  let lo=1e9, hi=-1e9;
+  M.forEach(row=>row.forEach(v=>{ if(v!=null){ lo=Math.min(lo,v); hi=Math.max(hi,v);} }));
+  if(lo>hi){ lo=13; hi=15; }
+  if(hi-lo<0.4){ const m=(lo+hi)/2; lo=m-0.2; hi=m+0.2; }
+  for(let i=0;i<zs.length;i++){
+    const ya=y(zs[i]+dz/2), yb=y(zs[i]-dz/2);
+    for(let j=0;j<azs.length;j++){
+      const v=M[i][j];
+      const xa=xAz(azs[j]-7.5,A), xb=xAz(azs[j]+7.5,A);
+      if(v==null){ ctx.fillStyle='#f2f4f6'; }
+      else { ctx.fillStyle=rgb(ramp(v,lo,hi)); }
+      ctx.fillRect(xa, ya, Math.max(xb-xa,1)+0.4, Math.max(yb-ya,1));
+    }
+  }
+  ctx.strokeStyle='#c9d2da'; ctx.lineWidth=.8; ctx.strokeRect(A.L,A.T,A.iw,A.ih);
+  ctx.fillStyle='#8a97a3'; ctx.font='10px Consolas';
+  for(let a=0;a<360;a+=45){ ctx.fillText(a+'°', xAz(a,A)-7, H-7); }
+  zs.forEach(z=>{ ctx.fillText(z>0?'+'+z:''+z, 6, y(z)+3); });
+  ctx.fillText('z/mm', 4, A.T-1);
+  // legend
+  for(let k=0;k<60;k++){
+    ctx.fillStyle=rgb(ramp(lo+(hi-lo)*k/59,lo,hi));
+    ctx.fillRect(W-96+k*1.2, A.T+2, 1.4, 8);
+  }
+  ctx.fillStyle='#8a97a3'; ctx.font='9px Consolas';
+  ctx.fillText(lo.toFixed(1), W-98, A.T+20); ctx.fillText(hi.toFixed(1), W-40, A.T+20);
+}
+
+/* --------------------------------------------------------------- residuals */
+function drawResid(){
+  const c=$('resid'), ctx=c.getContext('2d'), W=c.width, H=c.height;
+  ctx.clearRect(0,0,W,H);
+  const res=S.residual;
+  if(!res || !res.available){
+    ctx.fillStyle='#9aa6b2'; ctx.font='12px Microsoft YaHei';
+    ctx.fillText(res ? res.why : '等待数据', 18, 26);
+    $('resHint').textContent='等待两组数据'; return;
+  }
+  const zs=res.zs, azs=res.azs, M=res.cmap;
+  const A=axes(ctx,W,H,res,{l:48,r:12,t:10,b:24});
+  const dz = zs.length>1 ? Math.abs(zs[0]-zs[1]) : 2;
+  const daz = azs.length>1 ? Math.abs(azs[1]-azs[0]) : 15;
+  const yTop=zs[0]+dz/2, yBot=zs[zs.length-1]-dz/2;
+  const y = z => A.T + (yTop-z)/Math.max(yTop-yBot,1e-9)*A.ih;
+  let lim=res.thr*1.35;
+  M.forEach(row=>row.forEach(v=>{ if(v!=null) lim=Math.max(lim, Math.abs(v)*1.05); }));
+  for(let i=0;i<zs.length;i++){
+    for(let j=0;j<azs.length;j++){
+      const v=M[i][j];
+      const xa=xAz(azs[j]-daz/2,A), xb=xAz(azs[j]+daz/2,A);
+      const ya=y(zs[i]+dz/2), yb=y(zs[i]-dz/2);
+      if(v==null){ ctx.fillStyle='#f2f4f6'; }
+      else { ctx.fillStyle=rgb(diverg(v,lim)); }
+      ctx.fillRect(xa, ya, Math.max(xb-xa,1)+0.4, Math.max(yb-ya,1));
+      if(v!=null && Math.abs(v)>=res.thr){
+        ctx.strokeStyle='#111'; ctx.lineWidth=1.0;
+        ctx.strokeRect(xa+0.5, ya+0.5, Math.max(xb-xa-1,1), Math.max(yb-ya-1,1));
+      }
+    }
+  }
+  (res.detections||[]).forEach((d,n)=>{
+    const cx=xAz(d.az_deg,A), cy=y(d.z_mm);
+    ctx.strokeStyle='#0a6'; ctx.lineWidth=2;
+    ctx.strokeRect(cx-16, cy-11, 32, 22);
+    ctx.fillStyle='#0a6'; ctx.font='10px Consolas';
+    ctx.fillText(`D${n+1} ${d.residual_mm>0?'+':''}${d.residual_mm.toFixed(1)}`, cx-14, cy-14);
+  });
+  if(res.gt && res.gt.az_deg!=null){
+    const gx=xAz(res.gt.az_deg,A), gy=y(res.gt.z_mm);
+    ctx.strokeStyle='#111'; ctx.lineWidth=1.4; ctx.beginPath();
+    ctx.moveTo(gx-9,gy); ctx.lineTo(gx+9,gy); ctx.moveTo(gx,gy-9); ctx.lineTo(gx,gy+9);
+    ctx.stroke();
+  }
+  ctx.strokeStyle='#c9d2da'; ctx.lineWidth=.8; ctx.strokeRect(A.L,A.T,A.iw,A.ih);
+  ctx.fillStyle='#8a97a3'; ctx.font='10px Consolas';
+  for(let a=0;a<360;a+=45){ ctx.fillText(a+'°', xAz(a,A)-7, H-7); }
+  zs.forEach(z=>{ ctx.fillText((z>0?'+':'')+z, 6, y(z)+3); });
+  ctx.fillText('z/mm', 6, A.T-2);
+  // scale
+  let bx=W-150;
+  for(let k=0;k<60;k++){ ctx.fillStyle=rgb(diverg(-lim+2*lim*k/59,lim));
+    ctx.fillRect(bx+k*2.2, A.T+2, 2.4, 9); }
+  ctx.fillStyle='#8a97a3'; ctx.font='9px Consolas';
+  ctx.fillText((-lim).toFixed(1), bx-4, A.T+22);
+  ctx.fillText('+'+lim.toFixed(1)+' mm', bx+120, A.T+22);
+  $('resHint').textContent=`阈值 ${res.thr} mm · 共模 ${res.cm>0?'+':''}${res.cm} mm 已扣`;
+}
+
+/* ------------------------------------------------------------------- trace */
+function drawTrace(){
+  const c=$('trace'), ctx=c.getContext('2d'), W=c.width, H=c.height;
+  ctx.clearRect(0,0,W,H);
+  const run = (S.runs.test && S.runs.test.frames) ? S.runs.test : S.runs.std;
+  if(!run || !run.trace || !run.trace.length){ return; }
+  const tr=run.trace, A=axes(ctx,W,H,run,{l:52,r:12,t:10,b:24});
+  let tmin=1e9,tmax=-1e9;
+  tr.forEach(p=>{ tmin=Math.min(tmin,p.t); tmax=Math.max(tmax,p.t); });
+  const pad=(tmax-tmin)*0.12+0.05; tmin-=pad; tmax+=pad;
+  const x = a => xAz(a,A);
+  const y = t => A.T + (tmax-t)/Math.max(tmax-tmin,1e-9)*A.ih;
+  ctx.strokeStyle='#eceff2'; ctx.beginPath();
+  for(let k=0;k<=4;k++){ const yy=A.T+A.ih*k/4; ctx.moveTo(A.L,yy); ctx.lineTo(W-A.r,yy); }
+  ctx.stroke();
+  ctx.fillStyle='#8a97a3'; ctx.font='10px Consolas';
+  for(let k=0;k<=4;k++){ const t=tmax-(tmax-tmin)*k/4; ctx.fillText(t.toFixed(1), 6, A.T+A.ih*k/4+3); }
+  for(let a=0;a<360;a+=45){ ctx.fillText(a+'°', x(a)-7, H-7); }
+  tr.forEach(p=>{
+    ctx.fillStyle = p.cv ? 'rgba(32,150,150,0.55)' : 'rgba(200,120,40,0.5)';
+    ctx.beginPath(); ctx.arc(x(p.az), y(p.t), 1.6, 0, 6.283); ctx.fill();
+  });
+  // per-cell medians
+  const map={};
+  tr.forEach(p=>{ const b=Math.round(p.az/15)%24; (map[b]=map[b]||[]).push(p.t); });
+  ctx.strokeStyle='#1d5f8a'; ctx.lineWidth=1.6; ctx.beginPath();
+  Object.keys(map).map(Number).sort((a,b)=>a-b).forEach((b,i)=>{
+    const v=map[b].slice().sort((p,q)=>p-q)[Math.floor(map[b].length/2)];
+    const px=x(b*15), py=y(v);
+    i? ctx.lineTo(px,py) : ctx.moveTo(px,py);
+  });
+  ctx.stroke();
+  $('traceHint').textContent = `${tr.length} 帧 · 图层 z=${tr[0].z} · 青=质心字 / 橙=峰值字`;
+}
+
+/* ------------------------------------------------------------------- gates */
+function gates(){
+  const res=S.residual||{}, std=S.runs.std, test=S.runs.test;
+  const v=$('verdict');
+  if(!res.available){ v.className='verdict'; v.textContent='等待残差'; }
+  else { v.className='verdict '+res.verdict; v.textContent=res.verdict; }
+  const rows = [];
+  if(res.available){
+    rows.push(['噪声底 σ', `${res.sigma} mm (${res.sigma_source}, ${res.noise_cells} 点)`]);
+    rows.push(['阈值 max(3σ,1.5)', `${res.thr} mm`]);
+    rows.push(['共模已扣', `${res.cm>0?'+':''}${res.cm} mm`]);
+    rows.push(['残差 sd / 去共模最大', `${res.res_sd} / ${res.res_max_c} mm`]);
+    rows.push(['有效格率 标准/缺陷', `${(res.acc_std*100).toFixed(0)}% / ${(res.acc_test*100).toFixed(0)}%`]);
+    rows.push(['共有效格', `${res.co_valid}`]);
+    if(res.gt && res.gt.matched_residual_mm!=null)
+      rows.push(['真值匹配', `${res.gt.matched_residual_mm} mm @ 偏差 ${res.gt.center_err_mm} mm`]);
+    if(res.gt && res.gt.matched_residual_mm==null) rows.push(['真值匹配','无可比簇']);
+  } else if(res.noise_preview){
+    const n = res.noise_preview;
+    rows.push(['噪声底 σ', `✓ ${n.sigma_mm} mm（${n.cells} 格，共模 ${n.common_mode_mm} mm）`]);
+    rows.push(['阈值 max(3σ,1.5)', `✓ ${n.threshold_mm} mm`]);
+    rows.push(['重复性最大残差', `${n.max_abs_mm} mm`]);
+    rows.push(['下一步', '贴缺陷 → 扫 def1']);
+  } else {
+    rows.push(['状态', res.why||'—']);
+  }
+  rows.push(['标准件 t_eff', std.t_eff_us==null?'—':std.t_eff_us.toFixed(2)+' µs']);
+  rows.push(['缺陷件 t_eff', !test||test.t_eff_us==null?'—':test.t_eff_us.toFixed(2)+' µs']);
+  rows.push(['方位基准', std.rot_mode]);
+  rows.push(['阶段', (std.phase||'—') + (std.rate_fps!=null?' · '+std.rate_fps+' 帧/s':'')]);
+  rows.push(['姿态', poseFresh()
+    ? `${POSE.raw.roll.toFixed(1)}° / ${POSE.raw.pitch.toFixed(1)}° / ${POSE.raw.yaw.toFixed(1)}°` +
+      ` · seq ${POSE.seq}`
+    : '无信号']);
+  rows.push(['显示模式', POSE.mode==='pose'
+    ? (poseFresh() ? '姿态驱动 · 手转即转' : '姿态驱动（无信号 → 自动旋转）')
+    : '自动旋转']);
+  rows.push(['同步', `${S.now} · ${std.frames} 帧`]);
+  $('gates').innerHTML = rows.map(([k,v])=>`<b>${k}</b><span>${v}</span>`).join('');
+  $('gateTime').textContent = S.now;
+  $('limits').textContent = res.available && res.limits ?
+    '限制：相对测量（半径锚定名义 14 mm）；3 层 × 24 方位，小于一格的缺陷可能漏检；' +
+    'pose_rot 是命令计数不是编码器。' : '';
+  // detection table
+  const tb=document.querySelector('#detTable tbody');
+  const dets=(res.detections||[]);
+  $('detCount').textContent = res.available ? `${dets.length} 检出 / ${(res.weak||[]).length} 亚阈值` : '—';
+  tb.innerHTML = dets.map((d,i)=>`<tr><td>D${i+1}</td><td>${(d.z_mm>0?'+':'')+d.z_mm.toFixed(1)}</td>
+    <td>${d.az_deg.toFixed(0)}°</td><td class="${d.residual_mm>0?'ok':'bad'}">${d.residual_mm>0?'+':''}${d.residual_mm.toFixed(2)}</td>
+    <td>${d.area_mm2.toFixed(0)}</td><td>${d.cells}</td></tr>`).join('')
+    || '<tr><td colspan="6" class="muted">无</td></tr>';
+  $('weakList').innerHTML = (res.weak||[]).map(w=>
+    `z=${(w.z_mm>0?'+':'')+w.z_mm.toFixed(1)} az=${w.az_deg.toFixed(0)}° ${w.residual_mm.toFixed(2)} mm (${w.cells} 格)`)
+    .join(' · ');
+}
+
+/* -------------------------------------------------------------- cell table */
+function cellsTable(){
+  const run = (S.runs.test && S.runs.test.cell_rows && S.runs.test.cell_rows.length)
+    ? S.runs.test : S.runs.std;
+  const tb=document.querySelector('#cellTable tbody');
+  const rows = (run.cell_rows||[]).slice(0, 40);
+  tb.innerHTML = rows.map(c=>{
+    const st = c.ok ? 'ok' : (c.n ? 'bad' : '');
+    const lbl = c.ok ? 'ok' : (c.n && !c.used ? 'fallback' : 'outlier');
+    return `<tr><td>${(c.z>0?'+':'')+c.z}</td><td>${c.az}</td><td>${c.n}</td><td>${c.used}</td>`
+      + `<td>${c.peak}</td><td>${c.t.toFixed(2)}</td><td>${c.t_circ.toFixed(2)}</td>`
+      + `<td>${c.r.toFixed(2)}</td><td>${c.sd==null?'—':c.sd.toFixed(2)}</td>`
+      + `<td class="${st}">${lbl}</td></tr>`;
+  }).join('') || '<tr><td colspan="10" class="muted">等待数据</td></tr>';
+}
+
+/* ---- input: Z = take the current attitude as zero, K = pose/auto ---------- */
+function onKey(e){
+  const k = (e && e.key ? e.key : '').toLowerCase();
+  if (k === 'z') { if (e.preventDefault) e.preventDefault(); zeroPose(); }
+  else if (k === 'k') { if (e.preventDefault) e.preventDefault(); toggleMode(); }
+}
+if (typeof addEventListener === 'function') addEventListener('keydown', onKey);
+else if (typeof document !== 'undefined' && document.addEventListener)
+  document.addEventListener('keydown', onKey);
+if (typeof document !== 'undefined' && document.getElementById) {
+  const bz = document.getElementById('btnZero'), bm = document.getElementById('btnMode');
+  if (bz && bz.addEventListener) bz.addEventListener('click', () => zeroPose());
+  if (bm && bm.addEventListener) bm.addEventListener('click', () => toggleMode());
+}
+
+/* 60 ms redraw: the pose is stepped HERE (display only) while the mesh only
+ * changes when /state arrives -- so a new layer never resets the orientation,
+ * and a cleared ring (/api/arm) does not snap the model back either. */
+setInterval(()=>{ poseStep(); if(S){ drawModel('meshStd', S.runs.std, 'mstd');
+  drawModel('meshTest', S.runs.test, 'mtest'); } }, 60);
+setInterval(tick, 700);
+setInterval(pollPose, 50);
+pollPose();
+tick();
+
+/* Test hooks: node tools/test_pose_rotation.js and tools/m2b_page_smoke.js.
+ * Nothing in the page depends on them. */
+if (typeof window !== 'undefined') {
+  window.__f1p = {
+    POSE, Q_ID, DEG, qMul, qInv, qNorm, qFromYPR, qFromDeg, qSlerp,
+    qRotMat, qYawOf, poseMatrix, poseStep, poseFresh, zeroPose, toggleMode,
+    placeholderMesh, applyQ, syncPoseUI, pollPose,
+    setPose(s) {
+      POSE.raw.roll  = +s.roll  || 0;
+      POSE.raw.pitch = +s.pitch || 0;
+      POSE.raw.yaw   = +s.yaw   || 0;
+      POSE.raw.gx = +s.gx || 0; POSE.raw.gy = +s.gy || 0; POSE.raw.gz = +s.gz || 0;
+      POSE.lastGood = Date.now(); POSE.lastPoll = Date.now();
+      POSE.qRaw = qFromDeg(POSE.raw.yaw, POSE.raw.pitch, POSE.raw.roll);
+      POSE.qSmooth = POSE.q0 ? qMul(POSE.qRaw, POSE.q0) : POSE.qRaw;
+    },
+  };
+}
+</script></body></html>
