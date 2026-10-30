@@ -186,15 +186,4 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ---
 
-## 10. 交付状态
-
-| 交付项 | 状态 |
-|---|---|
-| 源码、仿真、构建报告、上板证据、技能包、设计报告、技术文档 | 已完成，见对应目录 |
-| GitHub 仓库 | <https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner> |
-| 演示视频 | 5 个过程演示见 [Release `v1.0-assets`](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)；比赛要求的 ≤3 分钟版尚未制作 |
-| 提交材料索引 | [`submission/`](submission/README.md)（技术文档 PDF、全貌图、板卡照片、关键词） |
-
-比赛要求的全部材料与对照关系见 [`report/06_submission_checklist.md`](report/06_submission_checklist.md)。
-
 > 如果只读一个文件，读 `report/01_design_report.md`；如果想先确认仓库完整性，跑 `python verify_package.py`。

@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 295,
-  "total_bytes": 131254119,
+  "total_bytes": 131253420,
   "files": [
     {
       "path": ".gitignore",
@@ -651,8 +651,8 @@
     },
     {
       "path": "README.md",
-      "size": 10536,
-      "sha256": "2e5c5de6a52cf545692ccb88efc00938ea1e1efd04c202b492c565e4c157fe8d"
+      "size": 9837,
+      "sha256": "1e82ba453be001307ff837dc1ac06f3dcc081adfc0e997742bb2df94f4c0f910"
     },
     {
       "path": "report/01_design_report.md",
