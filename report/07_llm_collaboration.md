@@ -38,7 +38,7 @@
 | P2 构建/上板 | 位流、XSA、引脚、加载、时序 | `build_ps_m3_pkg.tcl`、`load_m3_pkg.tcl`、报告 | `M3_BUILD_DONE` + WNS/WHS ≥ 0 |
 | P3 PS/网页 | 帧读取、环形缓冲、C 算法、HTTP | `acq.c`、`alg.c`、`model.c`、`net.c` | C 与 Python 逐字节一致 + 页面冒烟 |
 | P4 姿态 | MPU6050、融合、AXI 窗口、页面 | `pose_fusion.sv`、`/api/pose` | 130 向量逐位 + 板上 716.6 Hz |
-| P5 证据/文档 | 证据分级、报告、技能包、视频 | 本仓库 `report/`、`skill/` | 每条结论有文件 |
+| P5 证据/文档 | 证据分级、报告、技能包 | 本仓库 `report/`、`skill/` | 每条结论有文件 |
 
 ### 2.2 每轮的固定动作
 

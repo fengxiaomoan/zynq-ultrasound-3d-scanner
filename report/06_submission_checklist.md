@@ -14,7 +14,7 @@
 | 工程文件与源码（RTL、HLS、PS 侧软件） | `src/rtl/`（RTL）、`src/ps/`（PS C 与构建脚本）、`src/host/`（Python 主机） | 已提供；未使用 HLS，原因见设计报告 §3 |
 | 仿真与验证结果 | `sim/tb/`（3 组 testbench）、`sim/results/`（重跑日志）、[`05_evidence_index.md`](05_evidence_index.md) | 已提供 |
 | 综合与实现报告（资源、时序、关键指标） | `build/reports/`、[`01_design_report.md`](01_design_report.md) §4–5 | 已提供 |
-| 上板工程、运行脚本、实测输出与参考结果比对 | `board/`（位流、XSA、加载与扫描脚本、实测日志）、`data/real/` | 已提供；四件全高与凸起检测的完整流程见演示视频 |
+| 上板工程、运行脚本、实测输出与参考结果比对 | `board/`（位流、XSA、加载与扫描脚本、实测日志）、`data/real/` | 已提供；四件全高与凸起检测的完整流程未纳入本仓库 |
 | 可复现的构建脚本 | `build/build_ps_m3_pkg.tcl`、`build/build_dsp_pkg.tcl`、`src/ps/build_m2b.py`、`build/build_all.ps1` | 已提供，使用仓库内相对路径 |
 
 ### 1.2 技能包（3.3.5.2）

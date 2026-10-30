@@ -7,7 +7,7 @@ description: 'Use before any report, slide, video or submission: label each clai
 
 ## 适用范围
 
-- 写技术文档、答辩 PPT、演示视频、GitHub README；
+- 写技术文档、答辩 PPT、GitHub README；
 - 任何要写“实测/提升/精度/延迟”的场合；
 - 多会话/多人协作，容易出现数字漂移；
 - 适用于任何工程作品，不限于 FPGA。
@@ -77,7 +77,7 @@ PL 自主触发 90.84–91.05 fps（real）
 - 每个数字能在证据索引找到文件；
 - 仿真图表有“仿真/合成”角标；
 - 未完成项写清；
-- 视频/PDF/代码包的格式与大小符合提交要求；
+- PDF/代码包的格式与大小符合提交要求；
 - 文件名全英文小写；
 - 没有学校/姓名/隐私信息。
 

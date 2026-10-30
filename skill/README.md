@@ -19,7 +19,7 @@
 | # | 技能 | 适用任务 | 通用性 | 验证等级 |
 |---|---|---|---|---|
 | 01 | [`fpga_contest_helper`](01_fpga_contest_helper/SKILL.md) | FPGA 竞赛：拆题、认板、RTL/CDC、时序、交付 | 最通用（任意 FPGA 竞赛） | 工作区既有技能 |
-| 02 | [`evidence_review`](02_evidence_review/SKILL.md) | 报告/视频/提交前的证据分级与红队 | 通用（元技能） | 全项目使用 |
+| 02 | [`evidence_review`](02_evidence_review/SKILL.md) | 报告/提交前的证据分级与红队 | 通用（元技能） | 全项目使用 |
 | 03 | [`procurement_search`](03_procurement_search/SKILL.md) | BOM/器件/模块的国内采购与比价 | 通用 | 工作区既有技能 |
 | 04 | [`mechanical_design_to_print`](04_mechanical_design_to_print/SKILL.md) | CAD → STL/3MF → 打印清单/装配 | 通用 | CAD 验证 + 实物装配 |
 | 05 | [`fpga_capture_bringup`](05_fpga_capture_bringup/SKILL.md) | 新板 ADC/高速采集 bring-up + 可复现构建门禁 | 通用（FPGA 板级） | 板上实测 |

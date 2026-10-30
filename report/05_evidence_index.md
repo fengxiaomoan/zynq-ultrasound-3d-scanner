@@ -107,7 +107,7 @@ python -c "import json;d=json.load(open('data/real/_m2b_std_repeat_20261027_1718
 | 108 点/576 面/0.035 mm | sim | 工作流输出 | 重跑 `run_workflow.py axisym` |
 | 4096 点演示点云 | sim | `data/demo/points_*.jsonl` | 读文件头 provenance |
 
-**注意**：这些是 `synthetic`，不是实测声学；真实凸起的量化结果见演示视频。
+**注意**：这些是 `synthetic`，不是实测声学；真实凸起的量化结果未纳入本仓库。
 
 ---
 
