@@ -61,7 +61,7 @@
 | 内部相对链接可达 | 通过（`python verify_package.py`，断链 0） |
 | `manifest.json` 的 SHA256 与实际文件一致 | 通过 |
 | 位流、XSA、ELF 哈希与 `build/reports/resource_summary.md` 一致 | 通过（5/5） |
-| 脚本中无本机绝对路径 | 通过（`upstream/` 下的历史脚本除外，已标注） |
+| 脚本中无本机用户目录路径 | 通过（历史脚本已统一替换为 `<repo-root>`；命令示例保留 Vivado 安装路径） |
 | 技术文档与设计报告无学校、姓名、指导教师信息 | 通过 |
 | 许可证 | MIT，版权人 `2026 linzhiye` |
 
