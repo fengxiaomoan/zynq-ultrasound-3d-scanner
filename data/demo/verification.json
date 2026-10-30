@@ -172,152 +172,152 @@
   ],
   "sources": [
     {
-      "path": "C:\\Users\\<user>\\Documents\\xwechat_files\\<wechat-id>\\temp\\RWTemp\\2026-10\\9e20f478899dc29eb19741386f9343c8\\1718ad6dba28a460f54622a269446e5f.jpg",
+      "path": "<外部素材>/2026-10\\9e20f478899dc29eb19741386f9343c8\\1718ad6dba28a460f54622a269446e5f.jpg",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "C:\\Users\\<user>\\Documents\\xwechat_files\\<wechat-id>\\temp\\RWTemp\\2026-10\\9e20f478899dc29eb19741386f9343c8\\5b1ea67d4a7cc12fa2c96f6a16e83c83.jpg",
+      "path": "<外部素材>/2026-10\\9e20f478899dc29eb19741386f9343c8\\5b1ea67d4a7cc12fa2c96f6a16e83c83.jpg",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\README.md",
+      "path": "FPGA_Contest_Starter_v1.0.0\\AAA-running\\README.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\当前状态.md",
+      "path": "FPGA_Contest_Starter_v1.0.0\\AAA-running\\当前状态.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\接收记录工作流.md",
+      "path": "FPGA_Contest_Starter_v1.0.0\\AAA-running\\接收记录工作流.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\AAA-running\\实验数据索引.md",
+      "path": "FPGA_Contest_Starter_v1.0.0\\AAA-running\\实验数据索引.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\README.md",
+      "path": "full_scan_workflow\\README.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\进度交接_20261025.md",
+      "path": "full_scan_workflow\\docs\\进度交接_20261025.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\全自动测量工作流_v1.md",
+      "path": "full_scan_workflow\\docs\\全自动测量工作流_v1.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\轴对物体扫描与FPGA优势_v2.md",
+      "path": "full_scan_workflow\\docs\\轴对物体扫描与FPGA优势_v2.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\docs\\全自动控制流_设计与排期.md",
+      "path": "full_scan_workflow\\docs\\全自动控制流_设计与排期.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\fpga\\合并底层_改动清单.md",
+      "path": "full_scan_workflow\\fpga\\合并底层_改动清单.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\profile.py",
+      "path": "full_scan_workflow\\wscan\\profile.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\frames.py",
+      "path": "full_scan_workflow\\wscan\\frames.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\geom.py",
+      "path": "full_scan_workflow\\wscan\\geom.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\pipeline.py",
+      "path": "full_scan_workflow\\wscan\\pipeline.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\vertical.py",
+      "path": "full_scan_workflow\\wscan\\vertical.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\wscan\\acquire.py",
+      "path": "full_scan_workflow\\wscan\\acquire.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\auto_measure.py",
+      "path": "full_scan_workflow\\auto_measure.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\sim_scan.py",
+      "path": "full_scan_workflow\\sim_scan.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\recalibrate_sim.py",
+      "path": "full_scan_workflow\\recalibrate_sim.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\out\\sim_full\\result\\scan_report.json",
+      "path": "full_scan_workflow\\out\\sim_full\\result\\scan_report.json",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\full_scan_workflow\\live_run\\sweep.log",
+      "path": "full_scan_workflow\\live_run\\sweep.log",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\README.md",
+      "path": "V3P_targets\\README.md",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\make_targets.py",
+      "path": "V3P_targets\\make_targets.py",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\t01_cylinder_d28_h32.stl",
+      "path": "V3P_targets\\t01_cylinder_d28_h32.stl",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\t02_cone_d32_d28_h32.stl",
+      "path": "V3P_targets\\t02_cone_d32_d28_h32.stl",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\t03_cone_d32_d16_h32.stl",
+      "path": "V3P_targets\\t03_cone_d32_d16_h32.stl",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\t04_step_d28_d18_h32.stl",
+      "path": "V3P_targets\\t04_step_d28_d18_h32.stl",
       "original_unchanged": true,
       "copy_matches": true
     },
     {
-      "path": "D:\\daxue\\FPGA\\V3P_targets\\hanger_z83.stl",
+      "path": "V3P_targets\\hanger_z83.stl",
       "original_unchanged": true,
       "copy_matches": true
     }
@@ -437,7 +437,7 @@
       }
     ],
     "format": {
-      "filename": "D:\\daxue\\FPGA\\FPGA_Contest_Starter_v1.0.0\\09_delivery\\modeling_demo_20261025\\超声扫描_建模全流程演示_1080p.mp4",
+      "filename": "FPGA_Contest_Starter_v1.0.0\\09_delivery\\modeling_demo_20261025\\超声扫描_建模全流程演示_1080p.mp4",
       "nb_streams": 2,
       "nb_programs": 0,
       "nb_stream_groups": 0,

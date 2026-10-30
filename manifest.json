@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 326,
-  "total_bytes": 132570262,
+  "total_bytes": 132569655,
   "files": [
     {
       "path": ".gitignore",
@@ -336,8 +336,8 @@
     },
     {
       "path": "data/demo/verification.json",
-      "size": 12422,
-      "sha256": "79245637472edc643608f6afbc1f6d2dd2b52e50e7e44a1bb9e5933bcb9b6d01"
+      "size": 11815,
+      "sha256": "07bdfac9031675ef5706928e51c337dba5480a03c9fc98bebc12e83d8048cc8c"
     },
     {
       "path": "data/figures/control_flow.png",
