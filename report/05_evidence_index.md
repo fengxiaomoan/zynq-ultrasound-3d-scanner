@@ -172,9 +172,9 @@ Select-String -Path build\reports\m3_utilization.rpt -Pattern 'Slice LUTs|Slice 
 | 峰值 DSP 回绕 | `data/real/dsp_hw_fixed*.log`、`src/rtl/peak_dsp.sv` 注释 | 修复前字被反复改写 |
 | 8 层 JSON 只有 1 有效格 | `data/real/incomplete/_m2b_8layer_partial.json` | 快照不完整，不能当 8 层模型 |
 | 10 层 JSON 截断 | `data/real/incomplete/_m2b_10layer_truncated.json` | `curl` 被页面轮询打断 |
-| 24 点环少 14.34° | `skill/04_scanning_3d_reconstruction/SKILL.md` | 3933 vs 4096 counts |
-| GIC 不确定 | `skill/02_rtl_dsp_pipeline/SKILL.md` | 改轮询兜底 |
-| 构建日志不生成 | `skill/01_fpga_capture_bringup/SKILL.md` | `-nolog` 压掉 `-log` |
+| 24 点环少 14.34° | `skill/09_scanning_3d_reconstruction/SKILL.md` | 3933 vs 4096 counts |
+| GIC 不确定 | `skill/06_rtl_dsp_pipeline/SKILL.md` | 改轮询兜底 |
+| 构建日志不生成 | `skill/05_fpga_capture_bringup/SKILL.md` | `-nolog` 压掉 `-log` |
 
 ---
 

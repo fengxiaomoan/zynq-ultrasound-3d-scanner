@@ -1,6 +1,6 @@
 # 技能包的提炼过程
 
-**配套文档**：`skill/README.md`、9 个 `skill/*/SKILL.md`、`report/02_llm_collaboration.md`
+**配套文档**：`skill/README.md`、9 个 `skill/*/SKILL.md`、`report/07_llm_collaboration.md`
 
 ---
 
@@ -177,4 +177,4 @@
 
 技能包不是“项目文档的缩写”，而是“判断的集合”。它记录的是从“板上对不上”走到“逐位一致”，从“螺旋模型”走到“闭合环”，从“日志消失”走到“日志必须存在”。
 
-只读一个文件时可读 `skill/README.md` 的第 2 节；只读一个技能时可读 `05_evidence_review`，它决定其他八个技能是否会被误用。
+只读一个文件时可读 `skill/README.md` 的第 2 节；只读一个技能时可读 `02_evidence_review`，它决定其他八个技能是否会被误用。

@@ -102,12 +102,12 @@ ultrasound_3d_scanner/
 ├─ submission/               # 提交暂存：技术文档/图片/关键词
 └─ report/
    ├─ 01_design_report.md    # 设计报告（主文档）
-   ├─ 02_llm_collaboration.md
+   ├─ 02_technical_document.md  # 技术文档（草稿；成品见 export/）
    ├─ 03_skill_extraction.md
    ├─ 04_reproduction.md
    ├─ 05_evidence_index.md
-   ├─ 06_video_shooting_guide.md
-   ├─ 07_submission_checklist.md
+   ├─ 06_submission_checklist.md
+   ├─ 07_llm_collaboration.md
    └─ assets/                # 插图与生成脚本
 ```
 
@@ -169,14 +169,12 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 | 设计报告（背景、原理、接口、优化、验证） | [`report/01_design_report.md`](report/01_design_report.md) |
 | 设计报告 PDF / DOCX | [`report/export/design_report.pdf`](report/export/design_report.pdf)、[`report/export/design_report.docx`](report/export/design_report.docx) |
 | 技术文档（按官方模板，**最终版**） | [`report/export/technical_document.pdf`](report/export/technical_document.pdf)、[`report/export/technical_document.docx`](report/export/technical_document.docx) |
-| 拍视频前的完整讲解（从实物到指标 + Q&A） | [`report/09_project_walkthrough.md`](report/09_project_walkthrough.md) |
-| 大模型协作记录（提示词/回答/纠错/工作流） | [`report/02_llm_collaboration.md`](report/02_llm_collaboration.md) |
+| 大模型协作记录（提示词/回答/纠错/工作流） | [`report/07_llm_collaboration.md`](report/07_llm_collaboration.md) |
 | 技能包怎么提炼、怎么验证、边界 | [`report/03_skill_extraction.md`](report/03_skill_extraction.md) |
 | 从零复现（纯软件/仿真/上板） | [`report/04_reproduction.md`](report/04_reproduction.md) |
 | 每个数字对应哪个文件 | [`report/05_evidence_index.md`](report/05_evidence_index.md) |
-| 视频怎么拍（分镜/解说/设备/合规） | [`report/06_video_shooting_guide.md`](report/06_video_shooting_guide.md) |
-| 提交前 32 项检查 | [`report/07_submission_checklist.md`](report/07_submission_checklist.md) |
-| 提交暂存（PDF/图片/关键词） | [`submission/README.md`](submission/README.md) |
+| 赛题要求与仓库内容的对应关系 | [`report/06_submission_checklist.md`](report/06_submission_checklist.md) |
+| 提交材料（PDF/图片/关键词） | [`submission/README.md`](submission/README.md) |
 | 9 个可复用技能 | [`skill/README.md`](skill/README.md) |
 | 构建/资源/哈希 | [`build/reports/resource_summary.md`](build/reports/resource_summary.md) |
 
@@ -201,6 +199,6 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 | 演示视频 | 5 个过程演示见 [Release `v1.0-assets`](https://github.com/fengxiaomoan/zynq-ultrasound-3d-scanner/releases/tag/v1.0-assets)；比赛要求的 ≤3 分钟版尚未制作 |
 | 提交材料索引 | [`submission/`](submission/README.md)（技术文档 PDF、全貌图、板卡照片、关键词） |
 
-比赛要求的全部材料与对照关系见 [`report/07_submission_checklist.md`](report/07_submission_checklist.md)。
+比赛要求的全部材料与对照关系见 [`report/06_submission_checklist.md`](report/06_submission_checklist.md)。
 
 > 如果只读一个文件，读 `report/01_design_report.md`；如果只跑一个命令，跑 `python src\host\bench\run_bench.py`。

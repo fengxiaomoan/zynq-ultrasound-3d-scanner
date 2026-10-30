@@ -14,19 +14,19 @@
 2. **通用化**：每个技能增加“可替换点”，写清换板卡/换传感器/换题目时改哪里；
 3. **补通用技能**：把工作区里已有的 `fpga-contest-helper`、`china-shopping-search` 收进来，并新增 `mechanical_design_to_print`，覆盖“机械/打印”这条通用交付链。
 
-合并后的 9 个技能：
+合并后的 9 个技能，按通用性从高到低排列：
 
-| # | 技能 | 适用任务 | 类型 | 验证等级 |
+| # | 技能 | 适用任务 | 通用性 | 验证等级 |
 |---|---|---|---|---|
-| 01 | [`fpga_capture_bringup`](01_fpga_capture_bringup/SKILL.md) | 新板 ADC/高速采集 bring-up + 可复现构建门禁 | 通用 | 板上实测 |
-| 02 | [`rtl_dsp_pipeline`](02_rtl_dsp_pipeline/SKILL.md) | 定点 DSP 搬进 RTL + AXI 帧记录/PS 读取 | 通用 | 板上实测 |
-| 03 | [`sensor_fusion_ui`](03_sensor_fusion_ui/SKILL.md) | IMU/传感器 → FPGA 定点融合 → 网页 3D | 通用 | 板上实测 |
-| 04 | [`scanning_3d_reconstruction`](04_scanning_3d_reconstruction/SKILL.md) | 扫描式三维重建 + 标准件/待测件残差比对 | 领域方法 | 板上实测 + 仿真 |
-| 05 | [`evidence_review`](05_evidence_review/SKILL.md) | 报告/视频/提交前的证据分级与红队 | 通用（元技能） | 全项目使用 |
-| 06 | [`fpga_contest_helper`](06_fpga_contest_helper/SKILL.md) | FPGA 竞赛：拆题、认板、RTL/CDC、时序、交付 | 通用 | 工作区既有技能 |
-| 07 | [`pynq_overlay_io`](07_pynq_overlay_io/SKILL.md) | PYNQ overlay：AXI-Lite + DMA 通用 bring-up | 通用（PYNQ 加分项） | 部分验证，文内标注 |
-| 08 | [`mechanical_design_to_print`](08_mechanical_design_to_print/SKILL.md) | CAD → STL/3MF → 打印清单/装配 | 通用 | CAD 验证 + 实物装配 |
-| 09 | [`procurement_search`](09_procurement_search/SKILL.md) | BOM/器件/模块的国内采购与比价 | 通用 | 工作区既有技能 |
+| 01 | [`fpga_contest_helper`](01_fpga_contest_helper/SKILL.md) | FPGA 竞赛：拆题、认板、RTL/CDC、时序、交付 | 最通用（任意 FPGA 竞赛） | 工作区既有技能 |
+| 02 | [`evidence_review`](02_evidence_review/SKILL.md) | 报告/视频/提交前的证据分级与红队 | 通用（元技能） | 全项目使用 |
+| 03 | [`procurement_search`](03_procurement_search/SKILL.md) | BOM/器件/模块的国内采购与比价 | 通用 | 工作区既有技能 |
+| 04 | [`mechanical_design_to_print`](04_mechanical_design_to_print/SKILL.md) | CAD → STL/3MF → 打印清单/装配 | 通用 | CAD 验证 + 实物装配 |
+| 05 | [`fpga_capture_bringup`](05_fpga_capture_bringup/SKILL.md) | 新板 ADC/高速采集 bring-up + 可复现构建门禁 | 通用（FPGA 板级） | 板上实测 |
+| 06 | [`rtl_dsp_pipeline`](06_rtl_dsp_pipeline/SKILL.md) | 定点 DSP 搬进 RTL + AXI 帧记录/PS 读取 | 通用（FPGA 板级） | 板上实测 |
+| 07 | [`sensor_fusion_ui`](07_sensor_fusion_ui/SKILL.md) | IMU/传感器 → FPGA 定点融合 → 网页 3D | 较通用 | 板上实测 |
+| 08 | [`pynq_overlay_io`](08_pynq_overlay_io/SKILL.md) | PYNQ overlay：AXI-Lite + DMA 通用 bring-up | PYNQ 专用 | 部分验证，文内标注 |
+| 09 | [`scanning_3d_reconstruction`](09_scanning_3d_reconstruction/SKILL.md) | 扫描式三维重建 + 标准件/待测件残差比对 | 领域专用 | 板上实测 + 仿真 |
 
 ---
 
@@ -36,13 +36,13 @@
 
 | 位置 | 技能 | 处理 |
 |---|---|---|
-| `FPGA_Contest_Starter_v1.0.0/.agents/skills/fpga-contest-helper` | `fpga-contest-helper` | **收入**为 06，保留 5 个 references |
-| `china-shopping-search` | `china-shopping-search` | **收入**为 09（采购/比价） |
+| `FPGA_Contest_Starter_v1.0.0/.agents/skills/fpga-contest-helper` | `fpga-contest-helper` | **收入**为 01，保留 5 个 references |
+| `china-shopping-search` | `china-shopping-search` | **收入**为 03（采购/比价） |
 | `team-handoff` | `team-handoff` | **不收入**：依赖 SCAN 团队网页和成员绑定，换队伍不可用 |
-| `full_scan_workflow/skills/ultrasonic-cylinder-modeling` | `ultrasonic-cylinder-modeling` | 内容已合并进 04，原文件不重复收 |
-| `3Dprinter/design_output` | 不是 skill，是 3D 打印**输出包** | 转成 08 的验证材料，放在 `data/mechanical/` |
+| `full_scan_workflow/skills/ultrasonic-cylinder-modeling` | `ultrasonic-cylinder-modeling` | 内容已合并进 09，原文件不重复收 |
+| `3Dprinter/design_output` | 不是 skill，是 3D 打印**输出包** | 转成 04 的验证材料，放在 `data/mechanical/` |
 
-工作区中的 “output skill” 实际对应的是 `3Dprinter/design_output/`（打印清单、STL/STEP、装配说明、验证 JSON），它本身不是 `SKILL.md`。这一版把它提炼成 `08_mechanical_design_to_print`，使“机械设计 → 打印 → 装配”这条链路也可以复用。
+工作区中的 “output skill” 实际对应的是 `3Dprinter/design_output/`（打印清单、STL/STEP、装配说明、验证 JSON），它本身不是 `SKILL.md`。这一版把它提炼成 `04_mechanical_design_to_print`，使“机械设计 → 打印 → 装配”这条链路也可以复用。
 
 ---
 
@@ -74,9 +74,9 @@
 
 三个例子：
 
-- `02_rtl_dsp_pipeline` 来自峰值 DSP 的 40 位字在板上对不上。根因不是算术，而是 `active` 从不清零，`sid` 回绕后每 13.1 ms 重新锁存。技能里因此有一条硬性回归：**tb 必须喂超过 65,536 个样本**。
-- `04_scanning_3d_reconstruction` 来自 24 方位环每次少 14.34°（23×171=3933，不是 4096），以及 10 µs 固定窗对 3–12 mm 凸起“看不见”。技能里因此要求：**环必须闭合**、**缺陷搜索把窗放宽到 66–84 µs**、**连续性滤波在找缺陷时必须关掉**。
-- `01_fpga_capture_bringup` 来自 `-nolog` 把 `-log` 压掉、引脚 diff 正则解析不到却“静默通过”。技能里因此要求：**解析不到就 error**，不能把空表当通过。
+- `06_rtl_dsp_pipeline` 来自峰值 DSP 的 40 位字在板上对不上。根因不是算术，而是 `active` 从不清零，`sid` 回绕后每 13.1 ms 重新锁存。技能里因此有一条硬性回归：**tb 必须喂超过 65,536 个样本**。
+- `09_scanning_3d_reconstruction` 来自 24 方位环每次少 14.34°（23×171=3933，不是 4096），以及 10 µs 固定窗对 3–12 mm 凸起“看不见”。技能里因此要求：**环必须闭合**、**缺陷搜索把窗放宽到 66–84 µs**、**连续性滤波在找缺陷时必须关掉**。
+- `05_fpga_capture_bringup` 来自 `-nolog` 把 `-log` 压掉、引脚 diff 正则解析不到却“静默通过”。技能里因此要求：**解析不到就 error**，不能把空表当通过。
 
 ---
 
@@ -84,12 +84,12 @@
 
 ### 5.1 换题目复用
 
-- `01`/`02`：任何“ADC/传感器 → FPGA → PS”的采集与结果回读；
-- `03`：任何“IMU/传感器 → FPGA → 上位机 3D/仪表”的交互；
-- `04`：任何“旋转/平移扫描 + 标准件 vs 待测件”的形态检测；
-- `05`：任何提交材料的证据审查；
-- `08`：任何 3D 打印结构件；
-- `09`：任何 BOM 采购。
+- `05`/`06`：任何“ADC/传感器 → FPGA → PS”的采集与结果回读；
+- `07`：任何“IMU/传感器 → FPGA → 上位机 3D/仪表”的交互；
+- `09`：任何“旋转/平移扫描 + 标准件 vs 待测件”的形态检测；
+- `02`：任何提交材料的证据审查；
+- `04`：任何 3D 打印结构件；
+- `03`：任何 BOM 采购。
 
 ### 5.2 换板卡复用
 
@@ -103,7 +103,7 @@
 
 ### 5.3 作为智能体的系统提示
 
-可以把某个 `SKILL.md` 直接作为 agent 的任务说明（YAML front matter 里有 `name`/`description`）。建议搭配 `05_evidence_review` 一起用，防止 agent 把“仿真通过”写成“实测通过”。
+可以把某个 `SKILL.md` 直接作为 agent 的任务说明（YAML front matter 里有 `name`/`description`）。建议搭配 `02_evidence_review` 一起用，防止 agent 把“仿真通过”写成“实测通过”。
 
 ---
 
@@ -127,16 +127,16 @@
 
 | 评分项 | 技能包的支撑 |
 |---|---|
-| 创新性与应用价值 | 03 把“手背姿态 + 实时建模”的交互固化；04 把“扫描 + 异常”的方法固化 |
-| 性能与资源优化 | 01/02 的构建门、回读加速、数据压缩 |
-| 功能正确性与完整性 | 01/02/03 的三级验证链；04 的真实/仿真分层 |
-| 大模型协作与技能包 | 本目录 + `report/02_llm_collaboration.md` + `report/03_skill_extraction.md` |
-| 文档质量与可复现性 | 05 + `report/04_reproduction.md` + `report/05_evidence_index.md` |
+| 创新性与应用价值 | 07 把“手背姿态 + 实时建模”的交互固化；09 把“扫描 + 异常”的方法固化 |
+| 性能与资源优化 | 05/06 的构建门、回读加速、数据压缩 |
+| 功能正确性与完整性 | 05/06/07 的三级验证链；09 的真实/仿真分层 |
+| 大模型协作与技能包 | 本目录 + `report/07_llm_collaboration.md` + `report/03_skill_extraction.md` |
+| 文档质量与可复现性 | 02 + `report/04_reproduction.md` + `report/05_evidence_index.md` |
 
 ---
 
 ## 8. 通用 PYNQ 加分项
 
-赛题对“面向 PYNQ 框架、且不与本队题目绑定”的通用 Skill 单独加分。`07_pynq_overlay_io` 只依赖 PYNQ 的 `Overlay`/`MMIO`/`DMA` 接口，不绑定超声、不绑定本队引脚。
+赛题对“面向 PYNQ 框架、且不与本队题目绑定”的通用 Skill 单独加分。`08_pynq_overlay_io` 只依赖 PYNQ 的 `Overlay`/`MMIO`/`DMA` 接口，不绑定超声、不绑定本队引脚。
 
 **验证边界**：本队实际使用裸机 PS + AXI-Lite，PYNQ 镜像上的 Python API 没有在本队硬件上执行。技能里把“已验证”的部分（AXI 寄存器语义、帧记录、CDC、DMA 方向）与“未执行”的部分（`pynq.Overlay` 的具体调用、`allocate` 的缓存属性）分开写，并给出上板验收脚本。这样不冒充实测，也能让下一个队伍直接照着跑。

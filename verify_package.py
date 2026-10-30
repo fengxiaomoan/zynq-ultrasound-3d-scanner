@@ -36,12 +36,11 @@ REQUIRED = [
     "board/firmware/m2b_ps.bin",
     "data/real/_m2b_3layer_signed.json", "data/real/_m2b_6layer.json",
     "data/reference/bench/summary.json", "data/reference/anomaly/summary.json",
-    "skill/README.md", "skill/01_fpga_capture_bringup/SKILL.md",
-    "skill/02_rtl_dsp_pipeline/SKILL.md", "skill/08_mechanical_design_to_print/SKILL.md",
-    "report/01_design_report.md", "report/06_video_shooting_guide.md",
-    "report/08_technical_document.md", "report/export/technical_document.pdf",
-    "report/09_project_walkthrough.md",
-    "report/05_evidence_index.md", "report/07_submission_checklist.md",
+    "skill/README.md", "skill/05_fpga_capture_bringup/SKILL.md",
+    "skill/06_rtl_dsp_pipeline/SKILL.md", "skill/04_mechanical_design_to_print/SKILL.md",
+    "report/01_design_report.md", "report/02_technical_document.md",
+    "report/export/technical_document.pdf",
+    "report/05_evidence_index.md", "report/06_submission_checklist.md",
     "data/mechanical/verification.json",
 ]
 

@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 326,
-  "total_bytes": 124590257,
+  "total_bytes": 132570262,
   "files": [
     {
       "path": ".gitignore",
@@ -412,7 +412,7 @@
     {
       "path": "data/mechanical/README.md",
       "size": 1297,
-      "sha256": "2330b9aa897c74642aea23f6eaa92d2f656d98c8847a0e9bc6a6122dd54e789c"
+      "sha256": "d9e3d897cbb0b0d0a09784ed5d28dc1ca444de1f1f5658d2673888e539cffd89"
     },
     {
       "path": "data/mechanical/verification.json",
@@ -791,23 +791,23 @@
     },
     {
       "path": "README.md",
-      "size": 10924,
-      "sha256": "e85ff6d2d759cc03d71a683eb8078853165b32be5a66757412dae9a31a241162"
+      "size": 10727,
+      "sha256": "40062ed6f2ca74130fc5b2ca944e512d00a1f6c3329b5d402eb464e458526f78"
     },
     {
       "path": "report/01_design_report.md",
-      "size": 41378,
-      "sha256": "25f07cff3c13bcb7a21e9fe998b5dbbeadfec3d774fb83f30752f4cf7b555fa5"
+      "size": 41281,
+      "sha256": "012280ddfe74de1789bb05fa7aed7e942fedc2437ca186a31de589f0729aff3a"
     },
     {
-      "path": "report/02_llm_collaboration.md",
-      "size": 19679,
-      "sha256": "c6cc2ee7a43086d19414143011e418e5bfd7308b87fb965367e2f5075ba61885"
+      "path": "report/02_technical_document.md",
+      "size": 20556,
+      "sha256": "933aec7a288c93c335278aafd78d8298514b9df3e55f2bc36c963436cfc31648"
     },
     {
       "path": "report/03_skill_extraction.md",
       "size": 10568,
-      "sha256": "9a3fc973d5afa5bba07b7b1236beba4487425ded68b002df5cfa95baac6951b6"
+      "sha256": "58e5ebc0204e531f251d609e8dcad9cc21f071fd1ceb41edc637b32eefaae98e"
     },
     {
       "path": "report/04_reproduction.md",
@@ -817,27 +817,17 @@
     {
       "path": "report/05_evidence_index.md",
       "size": 10011,
-      "sha256": "c52cbf2b2da3d9d0f842b2463902751727a269c2de6884312e29e86c2e927ae1"
+      "sha256": "df322f09cbb8fc036babb8b2b15392c953b028c33b98e326dfae5bc55253d34c"
     },
     {
-      "path": "report/06_video_shooting_guide.md",
-      "size": 9153,
-      "sha256": "a1c79cefd2933b70107ed01fbd9feea474439dcf5e5b1efc63316b306c896a50"
+      "path": "report/06_submission_checklist.md",
+      "size": 4894,
+      "sha256": "61b2607497ce7d39331049a5af37e65e62866a4769aba459826f6aa04acfc731"
     },
     {
-      "path": "report/07_submission_checklist.md",
-      "size": 7532,
-      "sha256": "303a884634edf2d05842529d95eeaae6f7854ee9c92f9a5549e7830acdb91653"
-    },
-    {
-      "path": "report/08_technical_document.md",
-      "size": 20556,
-      "sha256": "933aec7a288c93c335278aafd78d8298514b9df3e55f2bc36c963436cfc31648"
-    },
-    {
-      "path": "report/09_project_walkthrough.md",
-      "size": 16134,
-      "sha256": "23b81ada17f6adbb1c7ba4619938440fee70329126ec812c4276c55af7692246"
+      "path": "report/07_llm_collaboration.md",
+      "size": 19679,
+      "sha256": "c6cc2ee7a43086d19414143011e418e5bfd7308b87fb965367e2f5075ba61885"
     },
     {
       "path": "report/assets/concept_hand_pose.png",
@@ -900,6 +890,11 @@
       "sha256": "9b0671ad7ab234f9ca4a2f84acdb8337efd497e890147b26ec8ea5550c004f3c"
     },
     {
+      "path": "report/assets/fig_setup_pair.png",
+      "size": 4626266,
+      "sha256": "16a95ad79f3babc407e51656f8ff6c750b7d1b520d8aac7a58f1c749b8f71115"
+    },
+    {
       "path": "report/assets/fig_system_architecture.png",
       "size": 272980,
       "sha256": "2e63b7b2c2120f9af8430df0bd32a40b461bba2476c3455be5ef7c790fe4eb08"
@@ -930,6 +925,11 @@
       "sha256": "0a29ba8043287b21445abd00c7a87761a70316c76e7f7a316e41bab99e2e7941"
     },
     {
+      "path": "report/assets/photo_setup_real.jpg",
+      "size": 916482,
+      "sha256": "7e28dc07445b353c3801d98a28740227aa7273e487c862f8b2be962e00eeb65a"
+    },
+    {
       "path": "report/export/build_docx.py",
       "size": 15195,
       "sha256": "836af5e35ca87407477b0498583ec1f71e316b9797902d8591d8a8ec5738cdc0"
@@ -937,17 +937,17 @@
     {
       "path": "report/export/build_technical_docx.py",
       "size": 515,
-      "sha256": "2811b5d8a70a8ea159ce38cc82663dab08a1e86a253893e90898d58faa7a6f34"
+      "sha256": "61a1f48df594b68f33101be60882da68bf710f66f62ec37f7bc8c48ff60a85ac"
     },
     {
       "path": "report/export/design_report.docx",
-      "size": 8005221,
-      "sha256": "5e604a40fcf1e825586cb45069069a9da4bb242327a02557c10275ba20fe29c4"
+      "size": 10215802,
+      "sha256": "5c010ea14431765756f55e4628480bdf83927dacdc8f41031127c1b56a9d481e"
     },
     {
       "path": "report/export/design_report.pdf",
-      "size": 1570487,
-      "sha256": "739ce09fcfc3e00b1815e41ee1d02a6acd40b00e7364f27ce3c689eb36d21fc4"
+      "size": 1698005,
+      "sha256": "da79904c38271c6ba9f939cdb4f7c23f94b6fd9ceeb8ac2259aa7f0ecad75290"
     },
     {
       "path": "report/export/technical_document.docx",
@@ -961,8 +961,8 @@
     },
     {
       "path": "report/README.md",
-      "size": 2687,
-      "sha256": "df598accb2cf05a7684021d972d32a47322f6c8e08b4d675b7fbce2c667b0038"
+      "size": 2538,
+      "sha256": "bc537c30dcee72336347a198f6704489991203f0f66f0a4945e3ac19ae62ddc7"
     },
     {
       "path": "requirements.txt",
@@ -1090,89 +1090,89 @@
       "sha256": "2dc0361de469665caebe6c7e273ba5d8b83f6194ae4f527dd0c5b030f9b6f7ac"
     },
     {
-      "path": "skill/01_fpga_capture_bringup/SKILL.md",
-      "size": 5496,
-      "sha256": "faedaa45d8e95cedc3d9cb8d55d7808ed2c1082ed68a7db0affe14cdfa0fd6e0"
-    },
-    {
-      "path": "skill/02_rtl_dsp_pipeline/SKILL.md",
-      "size": 5380,
-      "sha256": "1148493ad0f91e33537146225ed46f0c9bf72a735324ff2494fd2e9767aca064"
-    },
-    {
-      "path": "skill/03_sensor_fusion_ui/SKILL.md",
-      "size": 4637,
-      "sha256": "b33d93f8710ac5dcf6d49d41e663e692e508b2950879d48301743e8431a89fea"
-    },
-    {
-      "path": "skill/04_scanning_3d_reconstruction/SKILL.md",
-      "size": 5158,
-      "sha256": "c785cd934d81ad48c7c6c518446719d0104149a89e9651227ea78679f278d3b6"
-    },
-    {
-      "path": "skill/05_evidence_review/SKILL.md",
-      "size": 4240,
-      "sha256": "8b4c6952617d3dfc6d5887b33314bc9c24e99b02a11ecea021eccce6e90e75b3"
-    },
-    {
-      "path": "skill/06_fpga_contest_helper/agents/openai.yaml",
+      "path": "skill/01_fpga_contest_helper/agents/openai.yaml",
       "size": 295,
       "sha256": "51af96fbdbc14f330d49ec1d5172c934bf0a23aec4d95c863b84ba557eaf8c29"
     },
     {
-      "path": "skill/06_fpga_contest_helper/references/hardware-and-constraints.md",
+      "path": "skill/01_fpga_contest_helper/references/hardware-and-constraints.md",
       "size": 2643,
       "sha256": "824f95efe7651d64a959f042babccdf6b314f33b49b2045ca369c0a5ca4aea98"
     },
     {
-      "path": "skill/06_fpga_contest_helper/references/project-workflow.md",
+      "path": "skill/01_fpga_contest_helper/references/project-workflow.md",
       "size": 2548,
       "sha256": "592cf1005a5dcd211494aaa8d87a3884450b252e84055cb8805eeee374b14cbb"
     },
     {
-      "path": "skill/06_fpga_contest_helper/references/reuse-lessons.md",
+      "path": "skill/01_fpga_contest_helper/references/reuse-lessons.md",
       "size": 1796,
       "sha256": "687693363528fc02bc29ec104d97e23c107b460700417151ef40b148d5441d38"
     },
     {
-      "path": "skill/06_fpga_contest_helper/references/rtl-and-cdc.md",
+      "path": "skill/01_fpga_contest_helper/references/rtl-and-cdc.md",
       "size": 3557,
       "sha256": "eb3fcf488ff0b83063285a0c2971d8714d84eca50b0bb2ad927ad52cf51d05bc"
     },
     {
-      "path": "skill/06_fpga_contest_helper/references/verification-and-release.md",
+      "path": "skill/01_fpga_contest_helper/references/verification-and-release.md",
       "size": 3338,
       "sha256": "876b9b025f0faa345cd0e44c959b0c710dee38d64a9e8b4e590dc53b5242622b"
     },
     {
-      "path": "skill/06_fpga_contest_helper/SKILL.md",
+      "path": "skill/01_fpga_contest_helper/SKILL.md",
       "size": 3765,
       "sha256": "a167dd9a0a69398e670238fddadaba60a48218a6cd6429223b9d86686732029a"
     },
     {
-      "path": "skill/07_pynq_overlay_io/SKILL.md",
-      "size": 5252,
-      "sha256": "c8ef87d9d167cea20cf58ea638508f69b19e832b1d3e0a3e4484bc5779c66863"
+      "path": "skill/02_evidence_review/SKILL.md",
+      "size": 4240,
+      "sha256": "8b4c6952617d3dfc6d5887b33314bc9c24e99b02a11ecea021eccce6e90e75b3"
     },
     {
-      "path": "skill/08_mechanical_design_to_print/SKILL.md",
-      "size": 4803,
-      "sha256": "7ff7a857f067a0f77e63b54688512dc4971757d9394064dea01abb8aee089ce2"
-    },
-    {
-      "path": "skill/09_procurement_search/agents/openai.yaml",
+      "path": "skill/03_procurement_search/agents/openai.yaml",
       "size": 422,
       "sha256": "629a1b761a33a84a88a7890e66d21cd4c92c98ea3b7b78fe8a72a7c9a2e74cc3"
     },
     {
-      "path": "skill/09_procurement_search/SKILL.md",
+      "path": "skill/03_procurement_search/SKILL.md",
       "size": 9170,
       "sha256": "0f0ac3a7c66e89f26cadf7bf9c104729d43c5a6c6553680911ca8d2b6df80ac1"
     },
     {
+      "path": "skill/04_mechanical_design_to_print/SKILL.md",
+      "size": 4803,
+      "sha256": "7ff7a857f067a0f77e63b54688512dc4971757d9394064dea01abb8aee089ce2"
+    },
+    {
+      "path": "skill/05_fpga_capture_bringup/SKILL.md",
+      "size": 5496,
+      "sha256": "faedaa45d8e95cedc3d9cb8d55d7808ed2c1082ed68a7db0affe14cdfa0fd6e0"
+    },
+    {
+      "path": "skill/06_rtl_dsp_pipeline/SKILL.md",
+      "size": 5380,
+      "sha256": "1148493ad0f91e33537146225ed46f0c9bf72a735324ff2494fd2e9767aca064"
+    },
+    {
+      "path": "skill/07_sensor_fusion_ui/SKILL.md",
+      "size": 4637,
+      "sha256": "b33d93f8710ac5dcf6d49d41e663e692e508b2950879d48301743e8431a89fea"
+    },
+    {
+      "path": "skill/08_pynq_overlay_io/SKILL.md",
+      "size": 5252,
+      "sha256": "c8ef87d9d167cea20cf58ea638508f69b19e832b1d3e0a3e4484bc5779c66863"
+    },
+    {
+      "path": "skill/09_scanning_3d_reconstruction/SKILL.md",
+      "size": 5158,
+      "sha256": "c785cd934d81ad48c7c6c518446719d0104149a89e9651227ea78679f278d3b6"
+    },
+    {
       "path": "skill/README.md",
-      "size": 8637,
-      "sha256": "badafa8477c0ea611b15658558b551bf18e8db51ef3a0bb3003af04b98ec2aeb"
+      "size": 8722,
+      "sha256": "999f9de6776bd3a6b5667e0a33cbec2ba38e04cca69c8a6421e9c6397f396c20"
     },
     {
       "path": "src/constraints/f1_bringup.xdc",
@@ -1611,8 +1611,8 @@
     },
     {
       "path": "submission/design_report_optional.pdf",
-      "size": 1570487,
-      "sha256": "739ce09fcfc3e00b1815e41ee1d02a6acd40b00e7364f27ce3c689eb36d21fc4"
+      "size": 1698005,
+      "sha256": "da79904c38271c6ba9f939cdb4f7c23f94b6fd9ceeb8ac2259aa7f0ecad75290"
     },
     {
       "path": "submission/keywords.txt",
@@ -1622,7 +1622,7 @@
     {
       "path": "submission/README.md",
       "size": 1706,
-      "sha256": "f775898d37a4d331f5a477a0122165e4b325cb0663b9892d2e297170b0f6edea"
+      "sha256": "29c4f33abb685a61c6ce1fefaa30e2714df138ecb85ebeee82c9c70422aa59bc"
     },
     {
       "path": "submission/technical_document.pdf",
@@ -1631,8 +1631,8 @@
     },
     {
       "path": "verify_package.py",
-      "size": 7139,
-      "sha256": "4e17aeae5ed6415a27a43fc946d5025c822491d746d4b7d9b507433321dfc159"
+      "size": 7062,
+      "sha256": "230b333386353b585e8d2eeffd754999d29e8c8b104b5321ada17186a8c67fed"
     }
   ]
 }
