@@ -2,7 +2,7 @@
   "package": "ultrasound_3d_scanner",
   "generated": "2026-10-27",
   "file_count": 286,
-  "total_bytes": 76947325,
+  "total_bytes": 76947176,
   "files": [
     {
       "path": ".gitignore",
@@ -931,8 +931,8 @@
     },
     {
       "path": "skill/01_fpga_contest_helper/SKILL.md",
-      "size": 3765,
-      "sha256": "a167dd9a0a69398e670238fddadaba60a48218a6cd6429223b9d86686732029a"
+      "size": 3616,
+      "sha256": "beddfe15e79c21f5124be2a23bd74aa838a82b988bad828bbce90d570c839894"
     },
     {
       "path": "skill/02_evidence_review/SKILL.md",

@@ -1,11 +1,11 @@
 ---
-name: fpga_contest_helper
-description: 面向全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道，协助题目拆解、FPGA 板卡核对、RTL 与自检仿真、时钟复位和 CDC、约束与时序调试、板级测试及可复现交付。用于新项目启动和竞赛推进；具体厂商、杯赛规则及硬件条件按当前项目确认，不默认应用于纯 MCU 小车项目。
+name: fpga-contest-helper
+description: 面向全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道，协助题目拆解、FPGA 板卡核对、RTL 与自检仿真、时钟复位和 CDC、约束与时序调试、板级测试及可复现交付。用于新项目启动和竞赛推进；具体厂商、杯赛规则及硬件条件按当前项目确认。
 ---
 
 # FPGA 嵌赛助手
 
-把用户目标转为有证据、能重复的下一项工作。与用户用中文沟通；先给结论和实际动作，按需要解释技术依据。延续电赛协作中有效的资料检索、硬件纠正、实验身份与版本回退方法，不继承其器件和引脚。
+把用户目标转为有证据、能重复的下一项工作。与用户用中文沟通；先给结论和实际动作，按需要解释技术依据。使用有效的资料检索、硬件纠正、实验身份与版本回退方法，不默认比赛器件和引脚。
 
 ## 先定位真实项目
 
@@ -21,13 +21,13 @@ description: 面向全国大学生嵌入式芯片与系统设计竞赛 FPGA 创�
 | 写/改 HDL、仿真、状态机、定点运算、CDC | [references/rtl-and-cdc.md](references/rtl-and-cdc.md) |
 | 认板、接线、引脚约束、下载和板上调试 | [references/hardware-and-constraints.md](references/hardware-and-constraints.md) |
 | 分析测试、时序失败、集成、发布、报告 | [references/verification-and-release.md](references/verification-and-release.md) |
-| 从旧电赛迁移或寻找方法来源 | [references/reuse-lessons.md](references/reuse-lessons.md) |
+| 从开源项目寻找方法来源 | [references/reuse-lessons.md](references/reuse-lessons.md) |
 
 不需要一次读完所有参考；选择与当前风险有关的内容。
 
 ## 必须守住的边界
 
-- 规则来自当前年度、赛道、杯赛原文；通用验收建议不是官方评分项。用户最后确认是 FPGA 赛道，不沿用芯片应用赛道的提交和平台条件。
+- 规则来自当前年度、赛道、杯赛原文；通用验收建议不是官方评分项。
 - 先找已有照片/原理图；缺什么再具体问什么。照片只能证实可见标识；电平、Bank、电源、时钟和连通关系另查证。用户更正后更新硬件表。
 - RTL 改动说明文件、目的与影响；参数含单位/格式。仿真激励和可综合逻辑分开；生成 IP 的配置源、工具版本和生成步骤可追溯。
 - 先约定时钟/复位域、协议、延迟、吞吐、位宽与溢出行为，再实现模块。仿真不能证明亚稳态安全；CDC 电路和约束需分别审查。
