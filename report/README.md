@@ -3,7 +3,7 @@
 | 文件 | 内容 | 用途 |
 |---|---|---|
 | `01_design_report.md` | 设计报告：背景、原理、软硬件划分、接口、优化、验证、局限 | 主文档 |
-| `02_technical_document.md` | 技术文档的早期 Markdown 草稿；**成品以 `export/technical_document.docx/.pdf` 为准**（含表 3-1、图 3-3~3-5、9 篇参考文献） | 技术文档草稿 |
+| `02_technical_document.md` | 技术文档的早期 Markdown 草稿；**成品以 `export/technical_document.docx/.pdf` 为准**（含表 3-1、图 3-1~3-8、9 篇参考文献） | 技术文档草稿 |
 | `03_skill_extraction.md` | 技能包提炼：失败→技能、验证方法、边界、可复用性自检 | 技能包说明 |
 | `04_reproduction.md` | 从零复现：纯软件/仿真/构建/上板/建模 | 复现指南 |
 | `05_evidence_index.md` | 每个数字对应的文件与命令；不可引用的说法 | 证据索引 |
@@ -11,7 +11,7 @@
 | `07_llm_collaboration.md` | 大模型协作：工作流、提示词、8 个案例、纠错、反思 | 协作记录 |
 | `export/design_report.pdf` | 设计报告 PDF（由 `01` 生成，22 页） | 导出件 |
 | `export/design_report.docx` | 可编辑 Word 版设计报告 | 导出件 |
-| `export/technical_document.pdf` | 技术文档 PDF（16 页） | 导出件 |
+| `export/technical_document.pdf` | 技术文档 PDF（17 页） | 导出件 |
 | `export/technical_document.docx` | 可编辑 Word 版技术文档 | 导出件 |
 | `export/build_docx.py` | Markdown → DOCX 生成脚本（设计报告） | 生成脚本 |
 | `export/build_technical_docx.py` | Markdown → DOCX 生成脚本（技术文档） | 生成脚本 |

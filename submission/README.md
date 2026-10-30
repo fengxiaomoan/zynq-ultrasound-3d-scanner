@@ -4,7 +4,7 @@
 
 | 材料 | 文件 | 说明 |
 |---|---|---|
-| 技术文档 | `technical_document.pdf` | 16 页，2.1 MB，按官方模板；与 [`report/export/technical_document.pdf`](../report/export/technical_document.pdf) 同一份 |
+| 技术文档 | `technical_document.pdf` | 17 页，4.9 MB，按官方模板；与 [`report/export/technical_document.pdf`](../report/export/technical_document.pdf) 同一份 |
 | 设计报告（可选） | `design_report_optional.pdf` | 22 页，1.7 MB；非提交页必填项 |
 | 作品全貌图 | `board_full_view.jpg` | 装置正面全貌 |
 | 开发板照片 | `board_photos/` | 正面、俯视、电路、接线共 4 张 |
