@@ -65,7 +65,7 @@ pwsh -File sim\run_f1_sim.ps1     # MISMATCHES=0 LATENCY=51 SIM_ALL_PASS
 ```
 ultrasound_3d_scanner/
 ├─ README.md                 # 本文件：简介 + 快速开始 + 目录对照
-├─ LICENSE                   # MIT（需替换年份/署名）
+├─ LICENSE                   # MIT
 ├─ requirements.txt          # numpy + matplotlib
 ├─ src/
 │  ├─ rtl/                   # 采集核、峰值/质心 DSP、电机、姿态、AXI、顶层
@@ -103,7 +103,7 @@ ultrasound_3d_scanner/
    ├─ 05_evidence_index.md
    ├─ 06_submission_checklist.md
    ├─ 07_llm_collaboration.md
-   └─ assets/                # 插图与生成脚本
+   └─ assets/
 ```
 
 **目录对照**：赛题推荐 `src / sim / build / board / data / skill / report`，本仓库完全采用；`src` 下再分 `rtl / constraints / ps / host`，`data` 下再分 `real / reference / demo / figures`。根目录没有额外中文命名。
