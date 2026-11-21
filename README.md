@@ -22,6 +22,19 @@
 
 ## 2. 四个可以核对的结果
 
+| 结果 | 数字 | 证据 |
+|---|---|---|
+| 板上出结果，不再上传原始波形 | 每帧 5 B，回读 2.48–2.80 ms，相对 ILA 477–555 ms 提升 **171–202×** | `data/real/dsp_hw_compare.json` |
+| PL 自主触发，PS 连续读不丢帧 | **90.84–91.05 fps**，30 s `missed=0` | `data/real/_m2b_ps_rate.log` |
+| 真实三维侧壁 | 三层 **72 格/71 有效，144 顶点/192 面**；六层 **141/131，288/480** | `data/real/_m2b_3layer_signed.json`、`_m2b_6layer.json` |
+| 姿态跟手 | **716.6 Hz** 采样，页面 20 Hz，手转模型同步 | `data/real/f1_pose_samples.txt` |
+
+> 量化表以已留证据的三层/六层实测为主，绝对尺寸未标定。
+
+---
+
+## 3. 决赛答辩PPT
+
 ![第 1 页：封面：基于 Zynq-7020 的实时超声三维扫描与形态异常检测系统](report/assets/finals-presentation/slide-01.png)
 
 ![第 2 页：为什么要做这个项目](report/assets/finals-presentation/slide-02.png)
@@ -54,18 +67,9 @@
 
 ![第 16 页：感谢聆听](report/assets/finals-presentation/slide-16.png)
 
-| 结果 | 数字 | 证据 |
-|---|---|---|
-| 板上出结果，不再上传原始波形 | 每帧 5 B，回读 2.48–2.80 ms，相对 ILA 477–555 ms 提升 **171–202×** | `data/real/dsp_hw_compare.json` |
-| PL 自主触发，PS 连续读不丢帧 | **90.84–91.05 fps**，30 s `missed=0` | `data/real/_m2b_ps_rate.log` |
-| 真实三维侧壁 | 三层 **72 格/71 有效，144 顶点/192 面**；六层 **141/131，288/480** | `data/real/_m2b_3layer_signed.json`、`_m2b_6layer.json` |
-| 姿态跟手 | **716.6 Hz** 采样，页面 20 Hz，手转模型同步 | `data/real/f1_pose_samples.txt` |
-
-> 量化表以已留证据的三层/六层实测为主，绝对尺寸未标定。
-
 ---
 
-## 3. 5 分钟跑起来（不需要板子）
+## 4. 5 分钟跑起来（不需要板子）
 
 ```powershell
 cd <package>
@@ -92,7 +96,7 @@ pwsh -File sim\run_f1_sim.ps1     # MISMATCHES=0 LATENCY=51 SIM_ALL_PASS
 
 ---
 
-## 4. 目录
+## 5. 目录
 
 ```
 ultrasound_3d_scanner/
@@ -142,7 +146,7 @@ ultrasound_3d_scanner/
 
 ---
 
-## 5. 系统在做什么
+## 6. 系统在做什么
 
 ```
 1 MHz 发射（8 周期）
@@ -161,7 +165,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ---
 
-## 6. 证据等级
+## 7. 证据等级
 
 全仓库的结论分四级，报告和技能包里逐条标注：
 
@@ -176,7 +180,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ---
 
-## 7. 文档入口
+## 8. 文档入口
 
 | 想了解 | 看 |
 |---|---|
@@ -194,7 +198,7 @@ FPGA 负责“确定性”和“吞吐”，PS 负责“搬运/协议/网页”�
 
 ---
 
-## 8. 工具与许可
+## 9. 工具与许可
 
 - Vivado / Vitis 2025.1（本项目验证版本）；
 - Python 3.12+（numpy、matplotlib）；
