@@ -22,6 +22,38 @@
 
 ## 2. 四个可以核对的结果
 
+![第 1 页：封面：基于 Zynq-7020 的实时超声三维扫描与形态异常检测系统](report/assets/finals-presentation/slide-01.png)
+
+![第 2 页：为什么要做这个项目](report/assets/finals-presentation/slide-02.png)
+
+![第 3 页：为什么选择 Zynq-7020](report/assets/finals-presentation/slide-03.png)
+
+![第 4 页：硬件构建：硬件通路](report/assets/finals-presentation/slide-04.png)
+
+![第 5 页：硬件构建：扫描的机械结构](report/assets/finals-presentation/slide-05.png)
+
+![第 6 页：PL 侧创新：质心 DSP](report/assets/finals-presentation/slide-06.png)
+
+![第 7 页：传统峰值与窗口质心对比](report/assets/finals-presentation/slide-07.png)
+
+![第 8 页：5 相解调与板上回波提取](report/assets/finals-presentation/slide-08.png)
+
+![第 9 页：PL 与电机：硬件锁存同步](report/assets/finals-presentation/slide-09.png)
+
+![第 10 页：定点姿态融合](report/assets/finals-presentation/slide-10.png)
+
+![第 11 页：PS 端方案选型](report/assets/finals-presentation/slide-11.png)
+
+![第 12 页：一次完整交互的时序](report/assets/finals-presentation/slide-12.png)
+
+![第 13 页：双探头回波的几何反演](report/assets/finals-presentation/slide-13.png)
+
+![第 14 页：区分偏心与局部异常](report/assets/finals-presentation/slide-14.png)
+
+![第 15 页：迁移性和可复用的技能包](report/assets/finals-presentation/slide-15.png)
+
+![第 16 页：感谢聆听](report/assets/finals-presentation/slide-16.png)
+
 | 结果 | 数字 | 证据 |
 |---|---|---|
 | 板上出结果，不再上传原始波形 | 每帧 5 B，回读 2.48–2.80 ms，相对 ILA 477–555 ms 提升 **171–202×** | `data/real/dsp_hw_compare.json` |
